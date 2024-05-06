@@ -44,6 +44,11 @@ class StatusInputsTypes
         };
     }
 
+    public static function desolveInputName($inputName)
+    {
+        return explode("_", $inputName);
+    }
+
     public static function getValues()
     {
         return [

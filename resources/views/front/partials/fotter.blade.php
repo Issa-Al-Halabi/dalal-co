@@ -60,7 +60,7 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="padding-right: 14px;">
                 <div class="text-center">
-                    <a href="appointment.html" class="theme_button muted_button">حمل التطبيق</a>
+                    <a href="/login" class="theme_button muted_button">تسجيل الدخول </a>
                 </div>
             </div>
         </div>

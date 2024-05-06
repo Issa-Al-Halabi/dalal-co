@@ -51,7 +51,7 @@
 									<div class="intro-layer" data-animation="slideExpandUp">
 										<p class="light">
 										๏	كادر محترف و مدرّب للرد على استفساراتكم على مدار اليوم.										</p>
-										<a href="calculator.html" class="theme_button color1 topmargin_15" style="font-family: cairo light;">الخدمات</a>
+										<a href="/Order" class="theme_button color1 topmargin_15" style="font-family: cairo light;">الخدمات</a>
 									</div>
 								</div> <!-- eof .slide_description -->
 							</div> <!-- eof .slide_description_wrapper -->
@@ -77,7 +77,7 @@
 									<div class="intro-layer" data-animation="slideExpandUp">
 										<p class="light">
 										๏	عاملات خبيرات و مؤهلات للعناية المنزلية، رعاية الأطفال و رعاية كبار السن.										</p>
-										<a href="calculator.html" class="theme_button color1 topmargin_15"> الخدمات</a>
+										<a href="/Order" class="theme_button color1 topmargin_15"> الخدمات</a>
 									</div>
 								</div> <!-- eof .slide_description -->
 							</div> <!-- eof .slide_description_wrapper -->
@@ -105,7 +105,7 @@
 									<div class="intro-layer" data-animation="slideExpandUp">
 										<p class="light">
 										๏	نقدم لكم أفضل الخدمات في مجال الاستقدام و بأسعار منافسة.										</p>
-										<a href="calculator.html" class="theme_button color1 topmargin_15"> الخدمات</a>
+										<a href="/Order" class="theme_button color1 topmargin_15"> الخدمات</a>
 									</div>
 								</div> <!-- eof .slide_description -->
 							</div>
@@ -733,36 +733,38 @@
 				<form class="contact-form columns_padding_5 row to_animate animated fadeInUp" method="post" action="https://html.modernwebtemplates.com/">
 
 
-                        <div class="col-sm-12">
-                            <p class="contact-form-name">
-                                <label for="name" class="sr-only">Full Name <span class="required">*</span></label>
-                                <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="الاسم الكامل">
-                            </p>
-                        </div>
+                       
                         <div class="col-sm-6">
                             <p class="contact-form-email">
-                                <label for="email" class="sr-only">Email address<span class="required">*</span></label>
-                                <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="البريد الالكتروني">
+                                <label for="email" class="sr-only">First name<span class="required">*</span></label>
+                                <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="الأسم الأخير ">
                             </p>
                         </div>
                         <div class="col-sm-6">
                             <p class="contact-form-phone">
-                                <label for="phone" class="sr-only">Phone<span class="required">*</span></label>
-                                <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="رقم الهاتف">
+                                <label for="phone" class="sr-only">Last name<span class="required">*</span></label>
+                                <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="الأسم الأول	 ">
                             </p>
                         </div>
-                        <div class="col-sm-6">
-                            <p class="contact-form-date">
-                                <label for="date" class="sr-only">Date<span class="required">*</span></label>
-                                <input type="text" aria-required="true" size="30" value="" name="date" id="date" class="form-control" placeholder="تاريخ">
+						<div class="col-sm-12">
+                            <p class="contact-form-name">
+                                <label for="name" class="sr-only"> Email <span class="required">*</span></label>
+                                <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="الأيميل ">
                             </p>
                         </div>
-                        <div class="col-sm-6">
-                            <p class="contact-form-time">
-                                <label for="time" class="sr-only">Phone<span class="required">*</span></label>
-                                <input type="text" aria-required="true" size="30" value="" name="time" id="time" class="form-control" placeholder="الوقت">
+						<div class="col-sm-12">
+                            <p class="contact-form-name">
+                                <label for="name" class="sr-only"> mobile number <span class="required">*</span></label>
+                                <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="رقم الهاتف ">
                             </p>
                         </div>
+						<div class="col-sm-12">
+                            <p class="contact-form-name">
+                                <label for="name" class="sr-only">subject  <span class="required">*</span></label>
+                                <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder=" موضوع">
+                            </p>
+                        </div>
+                        
 
                         <div class="col-sm-12">
 

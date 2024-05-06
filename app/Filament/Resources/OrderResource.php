@@ -3,11 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Enums\OrderTypes;
-use App\Enums\StatusInputsTypes;
 use App\Filament\Resources\OrderResource\Pages;
 use App\Models\Order;
-use App\Models\OrderStatus;
-use App\Models\Status;
 use Filament\Forms;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
@@ -21,9 +18,8 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\Wizard;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Facades\DB;
+use Filament\Forms\Components\Actions\Action as NextAction;
+use App\Services\OrderStatusService;
 
 class OrderResource extends Resource
 {
@@ -38,7 +34,6 @@ class OrderResource extends Resource
     {
         return $form
             ->schema([
-
                 Section::make()->schema([
                     Group::make()->schema([
                         Forms\Components\Select::make('user_id')
@@ -152,11 +147,17 @@ class OrderResource extends Resource
 
                 Tables\Columns\TextColumn::make('maid.full_name')
                     ->label("اسم الخادمة")
-                    ->searchable()
                     ->sortable(),
 
-                // Tables\Columns\TextColumn::make('status_id')
-                //     ->sortable(),
+                Tables\Columns\TextColumn::make('status_id')
+                    ->label("الحالة الحالية")
+                    ->state(
+                        fn (Order $record) =>
+                        "الخطوة " . $record->statuses()->count()
+                    )
+                    ->searchable()
+                    ->badge()
+                    ->sortable(),
 
                 Tables\Columns\TextColumn::make('type')
                     ->state(fn (Order $record, $livewire) => $livewire->activeLocale == "ar"
@@ -175,11 +176,13 @@ class OrderResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label("تاريخ الانشاء")
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label("تاريخ اخر تحديث")
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -188,46 +191,27 @@ class OrderResource extends Resource
                 //
             ])
             ->actions([
-                Action::make("edit_order_status ")
+                Action::make("edit_order_status")
                     ->label("تعديل حالة الطلب")
                     // When Submitting The Form
                     ->action(function (Order $record, array $data): void {
-                        // $record->statuses()->delete();
-                        foreach ($data as $key => $value) {
-                            [$label, $specificate_key, $status_id] = explode("_", $key);
-                            dump($label, $specificate_key, $status_id);
-                            // OrderStatus::create([
-                            //     'order_id' => $record->id,
-                            //     'status_id' => $status_id,
-                            //     'specifications' => [],
-                            // ]);
-                        }
-                        //    dd (explode("_",array_keys($data)[0])[1]);
-                        dd($data);
+                        (new OrderStatusService)->getFormAction($record, $data);
                     })
                     // To Auto Fill The Form
                     ->mountUsing(
                         function (Forms\ComponentContainer $form, Order $record) {
-                            $statuses = $record->statuses;
-
-                            $filled_form = [];
-                            foreach ($statuses as $status) {
-                                foreach (array_keys($status->specifications) as $specification_key) {
-                                    $key = StatusInputsTypes::getInputName($status->status->specifications[$specification_key]["type"], $specification_key, $status->status->id);
-                                    $filled_form[$key] = $status->specifications[$specification_key];
-                                }
-                            }
-
-                            return   $form->fill($filled_form);
+                            return   $form->fill((new OrderStatusService)->getOldData($record));
                         }
                     )
                     // To Get The Form
                     ->form(
                         function (Order $record) {
-                            $statuses_count = $record->statuses()->count();
                             return [
-                                Wizard::make(Status::getTypeSteps($record->type))
-                                    ->startOnStep($statuses_count + 1),
+                                Wizard::make((new OrderStatusService)->getTypeSteps($record))
+                                    ->startOnStep((new OrderStatusService)->getFormCurrentStep($record))
+                                    ->nextAction(
+                                        fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
+                                    ),
                             ];
                         }
                     ),
@@ -263,12 +247,25 @@ class OrderResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return "طلب";
+    }
+    public static function getPluralLabel(): string
+    {
+        return "الطلبات";
+    }
+    public static function getNavigationLabel(): string
+    {
+        return "الطلبات";
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
     public static function getNavigationBadgeColor(): ?string
     {
-        return static::getModel()::count() > 10 ? 'warning' : 'danger';
+        return static::getModel()::count() > 10 ? 'warning' : 'info';
     }
 }

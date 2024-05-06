@@ -54,7 +54,8 @@
                         <p class="fontsize_20 bottommargin_10 grey" style="direction: rtl;"><strong>Professional Life:</strong></p>
                         <p class="line_heght_2 bottommargin_-10"style="direction: rtl;">
                             Salami spare ribs nisi labore, tail boudin sed id sausage fatback sunt urkey. Ut pork belly voluptate leberkas sirloin biltong strip steak pariatur alcatra beef ribs venison veniam labore.
-                        </p>           
+                        </p>     
+                        <a href="#" class="theme_button muted_button ">Order</a>      
                     </div>  
                        <!-- Other tab content -->
     <div class="tab-pane fade" id="tab4">
@@ -108,6 +109,7 @@
                     <div class="media-body">
                         <p class="margin_0 small-text grey"><strong>Fast &amp; Effective service</strong></p>
                         <p class="margin_0">Voluptatem accusantium doloremque laudantium totam </p>
+                        
                     </div>
                 </div>
 			</div>

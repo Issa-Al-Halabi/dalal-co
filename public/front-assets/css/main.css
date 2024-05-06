@@ -1062,7 +1062,7 @@ li.media:after {
 
     .table_section .row,
     .table_section [class*=col-] {
-        display: block;
+        
         width: auto
     }
 
@@ -3942,10 +3942,13 @@ section .intro_section .slide_description_wrapper {
         padding-bottom: 28px
     }
 
-    .sf-menu>li>a:hover,
-    .sf-menu>li.active>a {
-        color: #0082ca
-    }
+
+
+
+.mainmenu.nav.sf-menu li:hover a {
+    color: #103e55; 
+}
+
 
     .bordered_items .sf-menu {
         text-align: center
@@ -3956,7 +3959,7 @@ section .intro_section .slide_description_wrapper {
     }
 
     .bordered_items .sf-menu>li>a:after {
-        content: "";
+       
         position: absolute;
         display: block;
         height: 3px;
@@ -3990,11 +3993,7 @@ section .intro_section .slide_description_wrapper {
         background-color: rgba(255, 255, 255, .1)
     }
 
-    .header_white .sf-menu>li>a:hover,
-    .header_white .sf-menu>li.active>a,
-    .header_white .sf-menu>li.sfHover>a {
-        color: #02a992
-    }
+ 
 
     .header_white .sf-menu>li+li:before {
         background-color: #e1e1e1
@@ -10883,3 +10882,10 @@ a.soc-pocket.bg-icon:hover,
   .toggle-input:checked ~ #info {
     display: block;
   }
+  @media screen and (max-width: 767px) {
+    /* قم بتحديد تنسيق العناصر عندما يكون عرض الشاشة أقل من 767 بيكسل */
+    .footer .container .row > div {
+        display: flex;
+        flex-direction: column;
+    }
+}
