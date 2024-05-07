@@ -51,7 +51,7 @@ class OrderStatusService
         $status =  Status::find($status_id);
         $inputs = [];
 
-        $inputs[] = Placeholder::make('title_' . $status_id)
+        $inputs[] = Placeholder::make('title_placeholder_' . $status_id)
             ->label("")
             ->content($status->title);
         // Loop Through The Specifications Of The Status To Generate The Input Based On Its (type,label)
@@ -77,10 +77,11 @@ class OrderStatusService
         $specifications = [];
         foreach ($state as $key => $value) {
             // Get specificate_key and status_id From The Input Name
+            // dump($key);
             [, $specificate_key, $status_id] = StatusInputsTypes::desolveInputName($key);
 
             // If The status_id Is Equal To The Current Step's staus->id Then We Need To Add It To Specifications
-            if ($status_id == $status->id) {
+            if ($status_id == $status->id && $specificate_key != "placeholder") {
                 $specifications[$specificate_key] = $value;
             }
         }
@@ -106,13 +107,7 @@ class OrderStatusService
             [, $specificate_key, $status_id] = explode("_", $key);
             $specifications[$status_id][$specificate_key] = $value;
         }
-        // if($specifications == []){
-        //     OrderStatus::create([
-        //         'order_id' => $record->id,
-        //         'status_id' => $statusId,
-        //         'specifications' => [],
-        //     ]);
-        // }
+
         foreach ($specifications as $statusId => $specification) {
             $status_specifications = [];
 

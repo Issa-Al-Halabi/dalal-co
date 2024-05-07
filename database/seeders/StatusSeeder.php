@@ -18,17 +18,24 @@ class StatusSeeder extends Seeder
             OrderTypes::abroad => [
                 [
                     "title" => "تم استلام الدفعة الأولى و البالغة (الدفعة الأولى)",
-                    "specifications" => ["input1" => [
-                        "type" => StatusInputsTypes::Numeric,
-                        "label" => "قيمة الدفعة الأولى",
-                    ]]
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Numeric,
+                            "label" => "قيمة الدفعة الأولى",
+                        ]
+                    ]
                 ],
                 [
-                    "title" => "􀀏􀀁 الرسمية 􀀁 الجهات 􀀁 إلى 􀀁 طلبك 􀀁 تقديم 􀀁 تم",
-                    "specifications" => []
+                    "title" => "تم تقديم طلبك إلى الجهات الرسمية",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "هل تم تقدبم الطلب ؟",
+                        ]
+                    ]
                 ],
                 [
-                    "title" => "بالعاملة 􀀁 الخاصة 􀀁 الفيزا 􀀁 لإصدار 􀀁 المتوقع 􀀁 الوقت",
+                    "title" => "الوقت المتوقع لإصدار الفيزا الخاصة بالعاملة هو () يوم عمل",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Numeric,
@@ -37,7 +44,7 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "􀀁􀀉 الدولة 􀀁 رسوم 􀀊􀀁 الثانية 􀀁 الدفعة 􀀁 تسديد 􀀁 يرجى 􀀁 ،􀁪􀁪􀀐􀁪􀁪􀀐􀁪􀁪􀁪􀀁 بتاريخ 􀀁 دمشق 􀀁 مطار 􀀁 إلى 􀀁 ستصل 􀀁 العاملة 􀀁 أن 􀀁 العلم 􀀁 أخذ 􀀁 يرجى",
+                    "title" => "()يرجى أخذ العلم أن العاملة ستصل إلى مطار دمشق بتاريخ (), يرجى تسديد الدفعة الثانية",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Date,
@@ -50,7 +57,7 @@ class StatusSeeder extends Seeder
                     ],
                 ],
                 [
-                    "title" => "ريخ 􀀁 الطبي 􀀁 الفحص 􀀁 موعد 􀀁 تحديد 􀀁 تم",
+                    "title" => "()تم تحديد موعد الفحص الطبي بتاريخ",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Date,
@@ -59,16 +66,16 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "البالغة 􀀁 و􀀁 الأخيرة 􀀁 و􀀁 الثالثة 􀀁 الدفعة 􀀁 تسديد 􀀁 يرج",
+                    "title" => "()يرجى تسديد الدفعة الثالثة و الأخيرة و البالغة",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Numeric,
-                            "label" => "قيمة الدفعةالثالثة و الأخيرة",
+                            "label" => "قيمة الدفعة الثالثة و الأخيرة",
                         ]
                     ]
                 ],
                 [
-                    "title" => "بتاريخ 􀀁 المطابقة 􀀁 موعد 􀀁 تحديد 􀀁 تم",
+                    "title" => "() تم تحديد موعد المطابقة بتاريخ",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Date,
@@ -77,41 +84,63 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "􀀏􀀁 الإقامة 􀀁 لإصدار 􀀁 الانتظار 􀀁 ج",
-                    "specifications" => []
+                    "title" => "جاري الانتظار لإصدار الإقامة",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "هل يتم الانتظار لإصدار الإقامة ؟",
+                        ]
+                    ]
                 ],
                 [
-                    "title" => "􀀏􀀁 العمل 􀀁 تصريح 􀀁 و􀀁 السفر 􀀁 جواز 􀀁 و􀀁 الإقامة 􀀁 على 􀀁 للحصول 􀀁 المكتب 􀀁 مراجعة 􀀁 يرج",
-                    "specifications" => []
+                    "title" => "يرجى مراجعة المكتب للحصول على الإقامة و جواز السفر و تصريح العمل",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "الإنتقال للمرحلة القادمة",
+                        ]
+                    ]
                 ],
                 [
-                    "title" => "􀀏􀀁 للتجديد 􀀁 المكتب 􀀁 مراجعة 􀀁 يرجى 􀀁 ،􀀁􀁪􀁪􀀐􀁪􀁪􀀐􀁪􀁪􀀁 بتاريخ 􀀁 ستنتهي 􀀁􀀉 كنية 􀀁 و􀀁 اسم 􀀊􀀁 بالعاملة 􀀁 الخاصة 􀀁 الإقامة 􀀁 صلاحية 􀀁 إن",
+                    "title" => "() إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ",
                     "specifications" => ["input1" => [
                         "type" => StatusInputsTypes::Date,
                         "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثانية",
                     ]]
                 ],
                 [
-                    "title" => "􀀁 الثانية 􀀁 السنة 􀀁 إقامة 􀀁 تجديد 􀀁 ت",
-                    "specifications" => []
+                    "title" => "تم تجديد إقامة السنة الثانية",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "هل تم تجديد إقامة السنة الثانية ؟",
+                        ]
+                    ]
                 ],
                 [
-                    "title" => "􀀏􀀁 للتجديد 􀀁 المكتب 􀀁 مراجعة 􀀁 يرجى 􀀁 ،􀀁􀁪􀁪􀀐􀁪􀁪􀀐􀁪􀁪􀀁 بتاريخ 􀀁 ستنتهي 􀀁􀀉 كنية 􀀁 و􀀁 اسم 􀀊􀀁 بالعاملة 􀀁 الخاصة 􀀁 الإقامة 􀀁 صلاحية 􀀁 إ",
+                    "title" => "() إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ",
                     "specifications" => ["input1" => [
                         "type" => StatusInputsTypes::Date,
                         "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثالثة",
                     ]]
                 ],
                 [
-                    "title" => "􀁪􀁪􀀐􀁪􀁪􀀐􀀁􀁪􀁪􀀁 بتاريخ 􀀁 سينتهي 􀀁􀀉 كنية 􀀁 و􀀁 اسم 􀀊􀀁 العاملة 􀀁 عقد 􀀁 إ",
-                    "specifications" => []
+                    "title" => "تم تجديد إقامة السنة الثالثة",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "هل تم تجديد إقامة السنة الثالثة ؟",
+                        ]
+                    ]
                 ],
                 [
-                    "title" => "بنجاح 􀀁 الثالثة 􀀁 السنة 􀀁 إقامة 􀀁 تجديد 􀀁 ت",
-                    "specifications" => ["input1" => [
-                        "type" => StatusInputsTypes::Date,
-                        "label" => "تاريخ إنتهاء العقد الخاص بالعاملة",
-                    ]]
+                    "title" => "() إن عقد العاملة سينتهي بتاريخ",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Date,
+                            "label" => "تاريخ إنتهاء العقد الخاص بالعاملة",
+                        ]
+                    ]
                 ],
             ],
             OrderTypes::immediately => []

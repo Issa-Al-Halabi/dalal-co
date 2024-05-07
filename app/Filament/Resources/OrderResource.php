@@ -20,6 +20,7 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Forms\Components\Actions\Action as NextAction;
 use App\Services\OrderStatusService;
+use Filament\Forms\Components\Grid;
 
 class OrderResource extends Resource
 {
@@ -206,7 +207,9 @@ class OrderResource extends Resource
                     ->form(
                         function (Order $record) {
                             return [
-                                Wizard::make((new OrderStatusService)->getTypeSteps($record))
+                                Wizard::make(
+                                    (new OrderStatusService)->getTypeSteps($record)
+                                )
                                     ->startOnStep((new OrderStatusService)->getFormCurrentStep($record))
                                     ->nextAction(
                                         fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
