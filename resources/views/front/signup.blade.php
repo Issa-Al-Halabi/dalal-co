@@ -30,9 +30,10 @@
                             <input type="password" name="pass" id="pass" placeholder="كلمة المرور" style="    font-family: cairo light;"/>
                         </div>
                         <div class="form-group">
-                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="password" name="re_pass" id="re_pass" placeholder="تأكيد كلمة المرور" style="    font-family: cairo light;"/>
+                          <label for="re-phone"><i class="zmdi zmdi-phone"></i></label>
+                         <input type="tel" name="re_phone" id="re_phone" placeholder="رقم الهاتف" style="font-family: cairo light;direction: rtl;"/>
                         </div>
+
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" style="    font-family: cairo light;"/>
                             <label for="agree-term" class="label-agree-term" style="    font-family: cairo light;"><span style="    margin-left: 7px;"><span></span></span>أوافق على جميع البيانات في  <a href="#" class="term-service">شروط الخدمة</a></label>
