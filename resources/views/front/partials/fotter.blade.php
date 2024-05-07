@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                 <a href="/" class="logo logo_image">
-                    <img src="front-assets/images/logo.png" style="transform: scale(2);" alt="">
+                    <img src="front-assets/images/logo.png" style="" alt="">
                 </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">

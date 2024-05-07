@@ -64,7 +64,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12" style="font-family: cairo light;">
-							<div class="slide_description_wrapper"style="font-family: cairo light;    direction: rtl;text-align: right;">>
+							<div class="slide_description_wrapper"style="font-family: cairo light;    direction: rtl;text-align: right;">
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="slideExpandUp" style="    font-family: cairo light;">
 									    <p class="small-text light margin_0" style="    font-family: cairo light;">أهلا بك في موقعنا</p>
