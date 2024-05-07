@@ -898,10 +898,7 @@ li.media:after {
     padding-bottom: 100px
 }
 
-.section_padding_120>[class*=container] {
-    padding-top: 120px;
-    padding-bottom: 120px
-}
+
 
 .section_padding_top_0>[class*=container] {
     padding-top: 0
@@ -1063,7 +1060,7 @@ li.media:after {
     .table_section .row,
     .table_section [class*=col-] {
         
-        width: auto
+        
     }
 
     [class*=col-xs]+[class*=col-xs] {
@@ -3234,8 +3231,9 @@ a.logo.vertical_logo img {
     }
 
     .page_header .toggle_menu {
-        left: auto;
-        right: 5px
+        
+        position: relative;
+        right: 112px;
     }
 }
 
@@ -9364,9 +9362,6 @@ a.color-icon:hover {
     color: #3c3c3c !important
 }
 
-a.color-icon.border-icon:hover {
-    color: #fff !important
-}
 
 a[class*=soc-].rounded-icon {
     -webkit-border-radius: 50%;
@@ -10887,5 +10882,22 @@ a.soc-pocket.bg-icon:hover,
     .footer .container .row > div {
         display: flex;
         flex-direction: column;
+    }
+}
+
+/* تعليمات CSS للشاشات بعرض 375 بكسل (حجم الهواتف المحمولة) */
+@media screen and (max-width: 767px) {
+    .logo_image {
+        transform: scale(1);
+        float: right;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .syria {
+        text-align: right;
+        float: right;
+        position: relative;
+        left: 134px;
     }
 }

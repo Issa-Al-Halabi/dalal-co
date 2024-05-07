@@ -1,20 +1,23 @@
 <nav class="mainmenu_wrapper bordered_items" style="direction: rtl;">
-    <ul class="mainmenu nav sf-menu" style="width:max-content">
-        <li class="active">
-            <a href="/">الرئيسية</a>
+    <ul class="mainmenu nav sf-menu" style="width:max-content ">
+        <li class="active" >
+            <a style="font-size: 14px;" href="/">الرئيسية</a>
         </li>
         <li>
-            <a href="about.html">الصفحات</a>
+            <a  style="font-size: 14px;"href="whoarewe">من نحن</a>
         </li>
         <li>
-            <a href="Service">الخدمات</a>
+            <a style="font-size: 14px;" href="Service">الخدمات</a>
         </li>
         <li>
-            <a href="blog-right.html">القوانين والتنظيمات</a>
+            <a style="font-size: 14px;" href="Laws">القوانين والتنظيمات</a>
         </li>
         <li>
-            <a href="whoarewe">من نحن</a>
+            <a style="font-size: 14px;" href="about.html">الاتصال بنا</a>
         </li>
+     
+      
+       
     </ul>
 </nav>
 <!-- eof main nav -->

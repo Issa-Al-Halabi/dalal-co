@@ -18,3 +18,4 @@ Route::view('/login', 'front.login');
 Route::view('/signup', 'front.signup');
 Route::view('/Service', 'front.Service');
 Route::view('/Order', 'front.Order');
+Route::view('/Laws', 'front.Laws');
