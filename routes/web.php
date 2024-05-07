@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsController;
 use App\Models\Order;
 use App\Models\Status;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,6 @@ Route::view('/signup', 'front.signup');
 Route::view('/Service', 'front.Service');
 Route::view('/Order', 'front.Order');
 Route::view('/Laws', 'front.Laws');
+
+Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");
+Route::post('/contact-us', [ContactUsController::class, "submitForm"])->name("contactUs");
