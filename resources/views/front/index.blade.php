@@ -38,13 +38,12 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="slide_description_wrapper" style="font-family: cairo light;    direction: rtl;
-    text-align: right;">
+							<div class="slide_description_wrapper" style="font-family: cairo light;    direction: rtl;   text-align: right;">
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="slideExpandUp">
 									    <p class="small-text light margin_0">أهلا بك في موقعنا</p>
 									    <h1 class="highlight" style="font-family: cairo light;">
-										افضل شركة عالمية<br>
+										  شركة الاستقدام الافضل<br>
 										<h1 style="color: #103e55; font-family: cairo light;"> في سوريا</h1>
 									    </h1>
 									</div>
@@ -70,7 +69,7 @@
 									<div class="intro-layer" data-animation="slideExpandUp" style="    font-family: cairo light;">
 									    <p class="small-text light margin_0" style="    font-family: cairo light;">أهلا بك في موقعنا</p>
 									    <h1 class="highlight" style="    font-family: cairo light;">
-										افضل شركة عالمية<br>
+										 شركة الاستقدام الافضل  <br>
 										<h1 style="color: #103e55; font-family: cairo light;"> في سوريا</h1>
 									    </h1>
 									</div>
@@ -97,7 +96,7 @@
 									<div class="intro-layer" data-animation="slideExpandUp">
 									    <p class="small-text light margin_0"style="    font-family: cairo light;"> أهلا بك في موقعنا  </p>
 										<h1 class="highlight" style="font-family: cairo light;">
-                                            أفضل شركة عالمية
+										 شركة الاستقدام الافضل
 											<h1 style="color: #103e55; font-family: cairo light;"> في سوريا</h1>
                                            </h1>
 
@@ -124,36 +123,36 @@
 			<div class="col-md-4 center_bg phone-teaser">
 				<div class="teaser media">
                     <div class="media-left" style="    font-family: cairo light;">
-                        <div class="teaser_icon sprite-icons sprite-phone-main">
+                        <div class="fab fa-whatsapp"style="color: white;     FONT-SIZE: 34px;">
                         </div>
                     </div>
                     <div class="media-body">
-                        <p class="small-text margin_0 grey" style="    font-family: cairo light;">لديك سؤال؟ اتصل بنا الآن</p>
-                        <h5 class="margin_0 fontsize_25 yantramanav" ><strong>+963-800-300-2121</strong></h5>
+                        <p class="small-text margin_0 grey" style="    font-family: cairo light;">لديك سؤال؟ اتصل بنا </p>
+                        <h5 class="margin_0 fontsize_25 yantramanav" ><strong>+963-944-941-007</strong></h5>
                     </div>
                 </div>
 			</div>
 			<div class="col-md-4 center_bg working-hours-teaser">
 				<div class="teaser media with_border">
                     <div class="media-left">
-                        <div class="teaser_icon sprite-icons sprite-clock-main">
+                        <div class="far fa-clock" style="color: white;     FONT-SIZE: 34px;">
                         </div>
                     </div>
                     <div class="media-body">
-                        <p class="small-text margin_0 grey"small-text margin_0 grey>نحن نفتح من الاثنين إلى الجمعة</p>
-                        <h5 class="margin_0 fontsize_25 yantramanav"small-text margin_0 grey><strong>08:00 - 17:00</strong></h5>
+                        <p class="small-text margin_0 grey"small-text margin_0 grey>نحن نفتح من السبت إلى للخميس</p>
+                        <h5 class="margin_0 fontsize_25 yantramanav"small-text margin_0 grey><strong>10:00 AM - 7:00 PM</strong></h5>
                     </div>
                 </div>
 			</div>
 			<div class="col-md-4 center_bg location-teaser">
 				<div class="teaser media">
                     <div class="media-left">
-                        <div class="teaser_icon sprite-icons sprite-pointer-main">
+                        <div class="fas fa-map-marker-alt"style="color: white;     FONT-SIZE: 34px;">
                         </div>
                     </div>
                     <div class="media-body">
-                        <p class="small-text margin_0 grey"small-text margin_0 grey>بحاجة للتنظيف؟ عنواننا</p>
-                        <h5 class="margin_0 yantramanav fontsize_20"small-text margin_0 grey><strong>437 دمشق St, سوريا</strong></h5>
+                        <p class="small-text margin_0 grey"small-text margin_0 grey>بحاجة الى جليسة أطفال! تفضل بزيارتنا الان</p>
+                        <h5 class="margin_0 yantramanav fontsize_20"small-text margin_0 grey><strong>أبو رمانة - ساحة المطاعم - دمشق - سوريا</strong></h5>
                     </div>
                 </div>
 			</div>
@@ -185,17 +184,7 @@
 			    		</div>
 			    	</div>
 
-			    	<div class="vertical-item">
-			    		<div class="item-media">
-			    			<img src="front-assets/images/gallery/02.jpg" alt="">
-						    <div class="media-links">
-						    	<div class="links-wrap">
-						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/02.jpg"></a>
-						    	</div>
-						    	<a class="abs-link" href="gallery-single.html"></a>
-						    </div>
-			    		</div>
-			    	</div>
+			    	
 
 			    	<div class="vertical-item">
 			    		<div class="item-media">
@@ -431,17 +420,7 @@
 			    		</div>
 			    	</div>
 
-			    	<div class="vertical-item">
-			    		<div class="item-media">
-			    			<img src="front-assets/images/gallery/02.jpg" alt="">
-						    <div class="media-links">
-						    	<div class="links-wrap">
-						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/02.jpg"></a>
-						    	</div>
-						    	<a class="abs-link" href="gallery-single.html"></a>
-						    </div>
-			    		</div>
-			    	</div>
+			    	
 
 			    	<div class="vertical-item">
 			    		<div class="item-media">
@@ -643,7 +622,7 @@
 			    		        	<div></div>
 			    		        </div>
 			    		        <p class="grey"  style="    font-family: cairo light;">
-								”أكثر مايميز شركة دلالكو هو متابعتهم لجميع الإجراءات الاستقدام من لحظة الوصول إلى لحظة المغادرة“.			    		        </p>
+								”أكثر مايميز شركة دلالكو هو متابعتهم لجميع إجراءات الاستقدام من لحظة الوصول إلى لحظة المغادرة“.			    		        </p>
 			    		        <div class="bottom-arrow with_border section_bg_color"></div>
 			    		    </div>
 
@@ -722,10 +701,10 @@
 	</div>
 </section>
 
-<section class="section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
+<section  class="section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
 	<div style="    display: flex;
     justify-content: center;">
-		<h1 style="    color: #103e55;     font-family: cairo light;">اتصــل بنا </h1>
+		<h1  style="    color: #103e55;     font-family: cairo light;">اتصــل بنا </h1>
 	</div>
 	<div class="container">
 		<div class="row">
