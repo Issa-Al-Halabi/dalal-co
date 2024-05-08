@@ -44,7 +44,7 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "()يرجى أخذ العلم أن العاملة ستصل إلى مطار دمشق بتاريخ (), يرجى تسديد الدفعة الثانية",
+                    "title" => "يرجى أخذ العلم أن العاملة ستصل إلى مطار دمشق بتاريخ (), يرجى تسديد الدفعة الثانية()",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Date,
@@ -57,7 +57,7 @@ class StatusSeeder extends Seeder
                     ],
                 ],
                 [
-                    "title" => "()تم تحديد موعد الفحص الطبي بتاريخ",
+                    "title" => "تم تحديد موعد الفحص الطبي بتاريخ ()",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Date,
@@ -66,7 +66,7 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "()يرجى تسديد الدفعة الثالثة و الأخيرة و البالغة",
+                    "title" => "يرجى تسديد الدفعة الثالثة و الأخيرة و البالغة ()",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Numeric,
@@ -75,7 +75,7 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "() تم تحديد موعد المطابقة بتاريخ",
+                    "title" => "تم تحديد موعد المطابقة بتاريخ ()",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Date,
@@ -102,7 +102,7 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "() إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ",
+                    "title" => "إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ ()",
                     "specifications" => ["input1" => [
                         "type" => StatusInputsTypes::Date,
                         "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثانية",
@@ -118,7 +118,7 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "() إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ",
+                    "title" => "إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ ()",
                     "specifications" => ["input1" => [
                         "type" => StatusInputsTypes::Date,
                         "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثالثة",
@@ -134,7 +134,7 @@ class StatusSeeder extends Seeder
                     ]
                 ],
                 [
-                    "title" => "() إن عقد العاملة سينتهي بتاريخ",
+                    "title" => "إن عقد العاملة سينتهي بتاريخ ()",
                     "specifications" => [
                         "input1" => [
                             "type" => StatusInputsTypes::Date,
@@ -142,8 +142,109 @@ class StatusSeeder extends Seeder
                         ]
                     ]
                 ],
+
             ],
-            OrderTypes::immediately => []
+            OrderTypes::immediately => [
+                [
+                    "title" => "تم استلام الدفعة الأولى و البالغة (الدفعة الأولى)",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Numeric,
+                            "label" => "قيمة الدفعة الأولى",
+                        ]
+                    ]
+                ],
+                [
+                    "title" => "تم تحديد موعد للتنازل بالهجرة و الجوازات بتاريخ()",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Date,
+                            "label" => "تاريخ موعد التنازل",
+                        ]
+                    ]
+                ],
+                [
+                    "title" => "تم تحديد موعد المطابقة بتاريخ ()",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Date,
+                            "label" => "موعد المطابقة",
+                        ]
+                    ]
+                ],
+
+                [
+                    "title" => "تم تحديد موعد توقيع العقد في مديرية الشؤون الاجتماعية و العمل بتاريخ ()",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Date,
+                            "label" => "موعد توقيع العقد",
+                        ]
+                    ]
+                ],
+
+                [
+                    "title" => "جاري الانتظار لإصدار الإقامة",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "يتم الانتظار لإصدار الإقامة ؟",
+                        ]
+                    ]
+                ],
+
+                [
+                    "title" => "يرجى مراجعة المكتب للحصول على الإقامة و جواز السفر و تصريح العمل",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "مراجعة المكتب ؟",
+                        ]
+                    ]
+                ],
+
+                [
+                    "title" => "إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ ()",
+                    "specifications" => ["input1" => [
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثانية",
+                    ]]
+                ],
+                [
+                    "title" => "تم تجديد إقامة السنة الثانية",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "هل تم تجديد إقامة السنة الثانية ؟",
+                        ]
+                    ]
+                ],
+                [
+                    "title" => "إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ ()",
+                    "specifications" => ["input1" => [
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثالثة",
+                    ]]
+                ],
+                [
+                    "title" => "تم تجديد إقامة السنة الثالثة",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Toggle,
+                            "label" => "هل تم تجديد إقامة السنة الثالثة ؟",
+                        ]
+                    ]
+                ],
+                [
+                    "title" => "إن عقد العاملة سينتهي بتاريخ ()",
+                    "specifications" => [
+                        "input1" => [
+                            "type" => StatusInputsTypes::Date,
+                            "label" => "تاريخ إنتهاء العقد الخاص بالعاملة",
+                        ]
+                    ]
+                ],
+            ]
         ];
         foreach (array_keys($statuses) as $order_type) {
             foreach ($statuses[$order_type] as $status) {
@@ -151,7 +252,7 @@ class StatusSeeder extends Seeder
                     'order_type' => $order_type,
                     'title' => $status["title"],
                     'specifications' => $status["specifications"],
-                ]);
+                ]); 
             }
         }
     }
