@@ -8,7 +8,7 @@ return [
         'navigation_badge' => true,
         'navigation_group' => true,
         'is_globally_searchable' => false,
-        'show_model_path' => true,
+        'show_model_path' => false,
         'is_scoped_to_tenant' => true,
         'cluster' => null,
     ],
@@ -31,6 +31,7 @@ return [
 
     'permission_prefixes' => [
         'resource' => [
+            'Access',
             'view',
             'view_any',
             'create',

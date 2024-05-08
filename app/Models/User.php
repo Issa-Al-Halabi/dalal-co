@@ -38,5 +38,6 @@ class User extends Authenticatable
     public function canAccessPanel(Panel $panel): bool
     {
         return true;
+        return $this->can('view_any_panel');
     }
 }

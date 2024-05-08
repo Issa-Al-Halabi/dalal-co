@@ -3,13 +3,16 @@
 namespace App\Policies;
 
 use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Illuminate\Auth\Access\HandlesAuthorization;
 
-class RolePolicy
+class ContactUsPolicy
 {
-    use HandlesAuthorization;
-
+    /**
+     * Create a new policy instance.
+     */
+    public function __construct()
+    {
+        //
+    }
     /**
      * Determine whether the user can view any models.
      *
@@ -18,19 +21,18 @@ class RolePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_role');
+        return $user->can('view_any_contact::us');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Role  $role
      * @return bool
      */
-    public function view(User $user, Role $role): bool
+    public function view(User $user): bool
     {
-        return $user->can('view_role');
+        return $user->can('view_contact::us');
     }
 
     /**
@@ -41,31 +43,29 @@ class RolePolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_role');
+        return $user->can('create_contact::us');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Role  $role
      * @return bool
      */
-    public function update(User $user, Role $role): bool
+    public function update(User $user): bool
     {
-        return $user->can('update_role');
+        return $user->can('update_contact::us');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Role  $role
      * @return bool
      */
-    public function delete(User $user, Role $role): bool
+    public function delete(User $user): bool
     {
-        return $user->can('delete_role');
+        return $user->can('delete_contact::us');
     }
 
     /**
@@ -76,17 +76,16 @@ class RolePolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->can('delete_any_role');
+        return $user->can('delete_any_contact::us');
     }
 
     /**
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Role  $role
      * @return bool
      */
-    public function forceDelete(User $user, Role $role): bool
+    public function forceDelete(User $user): bool
     {
         return $user->can('{{ ForceDelete }}');
     }
@@ -106,10 +105,9 @@ class RolePolicy
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Role  $role
      * @return bool
      */
-    public function restore(User $user, Role $role): bool
+    public function restore(User $user): bool
     {
         return $user->can('{{ Restore }}');
     }
@@ -126,15 +124,14 @@ class RolePolicy
     }
 
     /**
-     * Determine whether the user can replicate.
+     * Determine whether the user can bulk restore.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Role  $role
      * @return bool
      */
-    public function replicate(User $user, Role $role): bool
+    public function replicate(User $user): bool
     {
-        return $user->can('{{ Replicate }}');
+        return $user->can('replicate_contact::us');
     }
 
     /**
@@ -145,7 +142,6 @@ class RolePolicy
      */
     public function reorder(User $user): bool
     {
-        return $user->can('{{ Reorder }}');
+        return $user->can('reorder_contact::us');
     }
-
 }

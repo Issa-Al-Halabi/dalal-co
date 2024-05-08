@@ -15,14 +15,19 @@
                 <!-- eof main nav -->
                 <span class="toggle_menu" style="left: 90px;"><span></span></span>
                 <a href="login" class="theme_button muted_button">تسحيل الدخول </a>
-                <!-- <a href="appointment.html" class="" style="color:#103f55; text-align: left;">
-                    <img src="front-assets/images/bir.png" alt="Flag"
-                        style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
-                </a> -->
-                <a href="appointment.html" class="syria" style="color:#103f55; text-align: left;">
-                    <img src="/front-assets/images/syria.png" alt="Flag"
-                        style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> Ar
-                </a>
+
+                @if (app()->getLocale() == 'ar')
+                    <a href="{{ route("en") }}" class="syria" style="color:#103f55; text-align: left;">
+                        <img src="/front-assets/images/syria.png" alt="Flag"
+                            style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> Ar
+                    </a>
+                @else
+                    <a href="{{ route("ar") }}" class="" style="color:#103f55; text-align: left;">
+                        <img src="front-assets/images/bir.png" alt="Flag"
+                            style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
+                    </a>
+                @endif
+
             </div>
         </div>
 

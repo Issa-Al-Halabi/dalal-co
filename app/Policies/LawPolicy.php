@@ -4,12 +4,15 @@ namespace App\Policies;
 
 use App\Models\User;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
-
-class UserPolicy
+class LawPolicy
 {
-    use HandlesAuthorization;
-
+    /**
+     * Create a new policy instance.
+     */
+    public function __construct()
+    {
+        //
+    }
     /**
      * Determine whether the user can view any models.
      *
@@ -18,7 +21,7 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_user');
+        return $user->can('view_any_law');
     }
 
     /**
@@ -29,7 +32,7 @@ class UserPolicy
      */
     public function view(User $user): bool
     {
-        return $user->can('view_user');
+        return $user->can('view_law');
     }
 
     /**
@@ -40,7 +43,7 @@ class UserPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_user');
+        return $user->can('create_law');
     }
 
     /**
@@ -51,7 +54,7 @@ class UserPolicy
      */
     public function update(User $user): bool
     {
-        return $user->can('update_user');
+        return $user->can('update_law');
     }
 
     /**
@@ -62,7 +65,7 @@ class UserPolicy
      */
     public function delete(User $user): bool
     {
-        return $user->can('delete_user');
+        return $user->can('delete_law');
     }
 
     /**
@@ -73,7 +76,7 @@ class UserPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->can('delete_any_user');
+        return $user->can('delete_any_law');
     }
 
     /**
@@ -128,7 +131,7 @@ class UserPolicy
      */
     public function replicate(User $user): bool
     {
-        return $user->can('replicate_user');
+        return $user->can('replicate_law');
     }
 
     /**
@@ -139,6 +142,6 @@ class UserPolicy
      */
     public function reorder(User $user): bool
     {
-        return $user->can('reorder_user');
+        return $user->can('reorder_law');
     }
 }
