@@ -11,6 +11,35 @@ use Filament\Forms\Components\Placeholder;
 
 class OrderStatusService
 {
+
+    public function getOrderStatusLabel($record)
+    {
+        $statuses_count = $record->statuses()->count();
+
+        if ($statuses_count == 0) {
+            return 'حالة ابتدائية';
+        }
+        else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+            return 'الطلب منتهي';
+        }
+
+        return "الخطوة " . $statuses_count;
+    }
+
+    public function getOrderStatusLabelColor($record)
+    {
+        $statuses_count = $record->statuses()->count();
+
+        if ($statuses_count == 0) {
+            return 'warning';
+        }
+        else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+            return 'success';
+        }
+
+        return "info";
+    }
+
     public function getFormCurrentStep($record)
     {
         $statuses_count = $record->statuses()->count();
