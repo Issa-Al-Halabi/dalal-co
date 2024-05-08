@@ -14,9 +14,14 @@
                 @include('front.partials.navbar')
                 <!-- eof main nav -->
                 <span class="toggle_menu" style="left: 90px;"><span></span></span>
-                <a href="login" class="theme_button muted_button">تسحيل الدخول </a>
-                <!--  <a href="appointment.html" class="syria" style="color:#103f55; text-align: left;">
-                    Ar
+                @if (!Auth::check())
+                    <a href="{{ route('login') }}" class="theme_button muted_button">تسجيل الدخول </a>
+                @else
+                    <a href="{{ route('logout') }}" class="theme_button muted_button">تسجيل الخروج </a>
+                @endif
+                <!-- <a href="appointment.html" class="" style="color:#103f55; text-align: left;">
+                    <img src="front-assets/images/bir.png" alt="Flag"
+                        style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
                 </a> -->
                 <a href="appointment.html" class="syria" style="color:#103f55; text-align: left;">
                      En

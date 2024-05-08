@@ -22,6 +22,7 @@ class LawResource extends Resource
     protected static ?string $model = Law::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
@@ -136,5 +137,28 @@ class LawResource extends Resource
             'create' => Pages\CreateLaw::route('/create'),
             'edit' => Pages\EditLaw::route('/{record}/edit'),
         ];
+    }
+
+    
+    public static function getModelLabel(): string
+    {
+        return "قانون";
+    }
+    public static function getPluralLabel(): string
+    {
+        return "القوانين والمراسيم";
+    }
+    public static function getNavigationLabel(): string
+    {
+        return "القوانين والمراسيم";
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::count() > 10 ? 'warning' : 'info';
     }
 }
