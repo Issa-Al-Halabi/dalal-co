@@ -7,7 +7,22 @@
     <link rel="stylesheet" href="{{asset('front-assets/fonts/material-design-iconic-font.css')}}">
 
     <title>المستند</title>
-
+    <style>
+        @media screen and (max-width: 768px) {
+            .signin-image img {
+                transform: scale(1ٍ); /* تقليل حجم الشعار على الأجهزة الصغيرة */
+            }
+            .signup-image-link{
+                font-size: 14px;
+    color: #222;
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 116px;
+    left: 161px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- نموذج تسجيل الدخول -->
