@@ -3,6 +3,7 @@
 @section('content')
 
 <body>
+	
 <div class="preloader">
     <div class="preloader_image"></div>
 </div>
@@ -38,17 +39,17 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="slide_description_wrapper" style="font-family: cairo light;    direction: rtl;   text-align: right;">
+							<div class="slide_description_wrapper" style="font-family: cairo light;       direction: rtl;   text-align: right;">
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="slideExpandUp">
 									    <p class="small-text light margin_0">أهلا بك في موقعنا</p>
-									    <h1 class="highlight" style="font-family: cairo light;">
+									    <h1 class="highlight" style="font-family: cairo light;font-size: 39px;">
 										  شركة الاستقدام الافضل<br>
-										<h1 style="color: #103e55; font-family: cairo light;"> في سوريا</h1>
+										<h1 style="color: #103e55; font-family: cairo light;font-size: 39px;"> في سورية</h1>
 									    </h1>
 									</div>
 									<div class="intro-layer" data-animation="slideExpandUp">
-										<p class="light">
+										<p class="light" style="font-size: 16px; ">
 										๏	كادر محترف و مدرّب للرد على استفساراتكم على مدار اليوم.										</p>
 										<a href="/Order" class="theme_button color1 topmargin_15" style="font-family: cairo light;">الخدمات</a>
 									</div>
@@ -68,13 +69,13 @@
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="slideExpandUp" style="    font-family: cairo light;">
 									    <p class="small-text light margin_0" style="    font-family: cairo light;">أهلا بك في موقعنا</p>
-									    <h1 class="highlight" style="    font-family: cairo light;">
+									    <h1 class="highlight" style="font-size: 39px;font-family: cairo light;">
 										 شركة الاستقدام الافضل  <br>
-										<h1 style="color: #103e55; font-family: cairo light;"> في سوريا</h1>
+										<h1 style="color: #103e55; font-family: cairo light;font-size: 39px;"> في سورية</h1>
 									    </h1>
 									</div>
 									<div class="intro-layer" data-animation="slideExpandUp">
-										<p class="light">
+										<p class="light"style="font-size: 16px; ">
 										๏	عاملات خبيرات و مؤهلات للعناية المنزلية، رعاية الأطفال و رعاية كبار السن.										</p>
 										<a href="/Order" class="theme_button color1 topmargin_15"> الخدمات</a>
 									</div>
@@ -95,14 +96,14 @@
 								<div class="slide_description">
 									<div class="intro-layer" data-animation="slideExpandUp">
 									    <p class="small-text light margin_0"style="    font-family: cairo light;"> أهلا بك في موقعنا  </p>
-										<h1 class="highlight" style="font-family: cairo light;">
+										<h1 class="highlight" style="font-family: cairo light;font-size: 39px;">
 										 شركة الاستقدام الافضل
-											<h1 style="color: #103e55; font-family: cairo light;"> في سوريا</h1>
+											<h1 style="color: #103e55; font-family: cairo light;font-size: 39px;"> في سورية</h1>
                                            </h1>
 
 									</div>
 									<div class="intro-layer" data-animation="slideExpandUp">
-										<p class="light">
+										<p class="light"style="font-size: 16px; ">
 										๏	نقدم لكم أفضل الخدمات في مجال الاستقدام و بأسعار منافسة.										</p>
 										<a href="/Order" class="theme_button color1 topmargin_15"> الخدمات</a>
 									</div>
@@ -128,7 +129,7 @@
                     </div>
                     <div class="media-body">
                         <p class="small-text margin_0 grey" style="    font-family: cairo light;">لديك سؤال؟ اتصل بنا </p>
-                        <h5 class="margin_0 fontsize_25 yantramanav" ><strong>+963-944-941-007</strong></h5>
+                        <h5 class="margin_0 fontsize_25 yantramanav" ><strong>+963944941007</strong></h5>
                     </div>
                 </div>
 			</div>
@@ -139,7 +140,7 @@
                         </div>
                     </div>
                     <div class="media-body">
-                        <p class="small-text margin_0 grey"small-text margin_0 grey>نحن نفتح من السبت إلى للخميس</p>
+                        <p class="small-text margin_0 grey"small-text margin_0 grey>نحن نعمل من السبت إلى للخميس</p>
                         <h5 class="margin_0 fontsize_25 yantramanav"small-text margin_0 grey><strong>10:00 AM - 7:00 PM</strong></h5>
                     </div>
                 </div>
@@ -152,7 +153,10 @@
                     </div>
                     <div class="media-body">
                         <p class="small-text margin_0 grey"small-text margin_0 grey>بحاجة الى جليسة أطفال! تفضل بزيارتنا الان</p>
-                        <h5 class="margin_0 yantramanav fontsize_20"small-text margin_0 grey><strong>أبو رمانة - ساحة المطاعم - دمشق - سوريا</strong></h5>
+						<h5 class="margin_0 yantramanav fontsize_20"small-text margin_0 grey><strong style="display:flex; justify-content: center;"> ابو رمانة - ساحة المطاعم</strong></h5>
+
+                        <h5 class="margin_0 yantramanav fontsize_20"small-text margin_0 grey><strong style="display:flex; justify-content: center;"> دمشق - سورية</strong></h5>
+
                     </div>
                 </div>
 			</div>
@@ -184,7 +188,40 @@
 			    		</div>
 			    	</div>
 
-			    	
+					<div class="vertical-item">
+			    		<div class="item-media">
+			    			<img src="front-assets/images/gallery/kbar.jpg" alt="">
+						    <div class="media-links">
+						    	<div class="links-wrap">
+						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/kbar.jpg"></a>
+						    	</div>
+						    	<a class="abs-link" href="gallery-single.html"></a>
+						    </div>
+			    		</div>
+			    	</div>
+					
+					<div class="vertical-item">
+			    		<div class="item-media">
+			    			<img src="front-assets/images/gallery/romm.jpg" alt="">
+						    <div class="media-links">
+						    	<div class="links-wrap">
+						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/romm.jpg"></a>
+						    	</div>
+						    	<a class="abs-link" href="gallery-single.html"></a>
+						    </div>
+			    		</div>
+			    	</div>
+					<div class="vertical-item">
+			    		<div class="item-media">
+			    			<img src="front-assets/images/gallery/Room SERVICE.1.jpg" alt="">
+						    <div class="media-links">
+						    	<div class="links-wrap">
+						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/Room SERVICE.1.jpg"></a>
+						    	</div>
+						    	<a class="abs-link" href="gallery-single.html"></a>
+						    </div>
+			    		</div>
+			    	</div>
 
 			    	<div class="vertical-item">
 			    		<div class="item-media">
@@ -320,8 +357,8 @@
             <div class="col-sm-12 text-center">
                 <p class="small-text margin_0" style="    color: #143d53;">شركة خدمات التنظيف المفضلة لديك</p>
                 <h2 class="topmargin_10"style="    color: #143d53;     font-family: cairo light;">
-				تقديم خدمات تنظيف عالية الجودة<br>
-                    <strong class="medium" style="color: #143d53;">بأسعار معقولة</strong>
+				تقديم خدمات الستقدام بأسعار منافسة<br>
+                    <strong class="medium" style="color: #143d53;"> و عروض خاصة </strong>
                 </h2>
             </div>
         </div>
@@ -342,7 +379,7 @@
                         <img class="media-object round" src="front-assets/images/service02.jpg" alt="">
                     </div>
                     <div class="media-body"style="    font-family: cairo light;">
-                        <h5 class="text-uppercase inline-block darklinks normal_spacing"style="    font-family: cairo light;" ><a href="#"><strong>خادمة</strong><br> خدمات</a></h5>
+                        <h5 class="text-uppercase inline-block darklinks normal_spacing"style="    font-family: cairo light;" ><a href="#"><strong>خدمات تنظيف </strong><br> </a></h5>
                         <a href="#" class="round_button pull-right">
                             <i class="rt-icon2-angle-right"></i>
                         </a>
@@ -377,7 +414,7 @@
                         <img class="media-object round" src="front-assets/images/service05.jpg" alt="">
                     </div>
                     <div class="media-body">
-                        <h5 class="text-uppercase inline-block darklinks normal_spacing" style="    font-family: cairo light;"><a href="#"><strong>خادمة</strong><br> خدمات</a></h5>
+                        <h5 class="text-uppercase inline-block darklinks normal_spacing" style="    font-family: cairo light;"><a href="#"><strong>خدمات نظيف</strong><br> </a></h5>
                         <a href="#" class="round_button pull-right">
                             <i class="rt-icon2-angle-right"></i>
                         </a>
@@ -419,8 +456,39 @@
 						    </div>
 			    		</div>
 			    	</div>
-
-			    	
+					<div class="vertical-item">
+			    		<div class="item-media">
+			    			<img src="front-assets/images/gallery/Room SERVICE.1.jpg" alt="">
+						    <div class="media-links">
+						    	<div class="links-wrap">
+						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/Room SERVICE.1.jpg"></a>
+						    	</div>
+						    	<a class="abs-link" href="gallery-single.html"></a>
+						    </div>
+			    		</div>
+			    	</div>
+					<div class="vertical-item">
+			    		<div class="item-media">
+			    			<img src="front-assets/images/gallery/romm.jpg" alt="">
+						    <div class="media-links">
+						    	<div class="links-wrap">
+						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/romm.jpg"></a>
+						    	</div>
+						    	<a class="abs-link" href="gallery-single.html"></a>
+						    </div>
+			    		</div>
+			    	</div>
+					<div class="vertical-item">
+			    		<div class="item-media">
+			    			<img src="front-assets/images/gallery/kbar.jpg" alt="">
+						    <div class="media-links">
+						    	<div class="links-wrap">
+						    		<a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="front-assets/images/gallery/kbar.jpg"></a>
+						    	</div>
+						    	<a class="abs-link" href="gallery-single.html"></a>
+						    </div>
+			    		</div>
+			    	</div>
 
 			    	<div class="vertical-item">
 			    		<div class="item-media">
@@ -558,9 +626,7 @@
 				ماذا قالوا
                     <strong style="color: #103e55;">عنا</strong>
                 </h2>
-                <p >
-					ابجد ابجد ابجد
-                </p>
+                
             </div>
 		</div>
 
@@ -633,64 +699,6 @@
 			    		    </div>
 			    		</blockquote>
 			    	</div>
-
-			    	<div class="vertical-item text-center">
-			    		<blockquote class="quote-item">
-			    		    <div class="quote-body with_border color2 section_bg_color" style="direction: rtl">
-			    		        <div class="top-color-border">
-			    		        	<div></div>
-			    		        </div>
-			    		        <p class="grey"  style="    font-family: cairo light;">
-			    		        	"On the other hand, we denounce with righteous indignation and dislike men so beguiled"
-			    		        </p>
-			    		        <div class="bottom-arrow with_border section_bg_color"></div>
-			    		    </div>
-
-			    		    <img src="front-assets/images/face01.jpg" alt="" class="media-object">
-			    		    <div class="blockquote-meta">
-			    		        <h5  style="    font-family: cairo light;">Stephen Hill</h5>
-			    		        <span class="small-text"  style="    font-family: cairo light;">SEO Analyst</span>
-			    		    </div>
-			    		</blockquote>
-			    	</div>
-
-			    	<div class="vertical-item text-center">
-			    		<blockquote class="quote-item">
-			    		    <div class="quote-body with_border color3 section_bg_color">
-			    		        <div class="top-color-border">
-			    		        	<div></div>
-			    		        </div>
-			    		        <p class="grey"  style="    font-family: cairo light;">
-			    		        	"Demoralized by the charms of pleasure of the moment, so blinded by desire"
-			    		        </p>
-			    		        <div class="bottom-arrow with_border section_bg_color"></div>
-			    		    </div>
-
-			    		    <img src="front-assets/images/face02.jpg" alt="" class="media-object">
-			    		    <div class="blockquote-meta">
-			    		        <h5  style="    font-family: cairo light;">Jacqueline Bowman</h5>
-			    		        <span class="small-text"  style="    font-family: cairo light;">Marketing Manager</span>
-			    		    </div>
-			    		</blockquote>
-			    	</div>
-
-			    	<div class="vertical-item text-center">
-			    		<blockquote class="quote-item">
-			    		    <div class="quote-body with_border color1 section_bg_color">
-			    		        <div class="top-color-border">
-			    		        	<div></div>
-			    		        </div>
-			    		        <p class="grey"  style="    font-family: cairo light;">
-			    		        	"That they cannot foresee the pain and trouble that are bound to ensue and equal blame"
-			    		        </p>
-			    		        <div class="bottom-arrow with_border section_bg_color"></div>
-			    		    </div>
-
-			    		    <img src="front-assets/images/face03.jpg" alt="" class="media-object">
-			    		    <div class="blockquote-meta">
-			    		        <h5  style="    font-family: cairo light;">Rafaela Meyers</h5>
-			    		        <span class="small-text"  style="    font-family: cairo light;">Director</span>
-			    		    </div>
 			    		</blockquote>
 			    	</div>
 
@@ -701,13 +709,13 @@
 	</div>
 </section>
 
-<section  class="section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
+<section id="contactSection"  class= "section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
 	<div style="    display: flex;
     justify-content: center;">
 		<h1  style="    color: #103e55;     font-family: cairo light;">اتصــل بنا </h1>
 	</div>
 	<div class="container">
-		<div class="row">
+		<div class="row" style="    padding-bottom: 20px;">
 			<div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-12">
 				<form class="contact-form columns_padding_5 row to_animate animated fadeInUp" method="post" action="https://html.modernwebtemplates.com/">
 

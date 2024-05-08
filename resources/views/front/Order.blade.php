@@ -38,7 +38,6 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs text-center" role="tablist">
                     <li class="active"><a href="#tab1" role="tab" data-toggle="tab">السيرة الذاتية</a></li>
-                   
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content top-color-border bottommargin_30">
@@ -56,9 +55,10 @@
                                 <li>معلومات اخرى:</li>
                             </ul>
                         </p>
-                        <a href="#" class="theme_button muted_button ">Order</a>
+                        <!-- زر الطلب -->
+                        <!-- <a href="login" id="orderButton" class="theme_button muted_button">Order</a> -->
+                        <a href="#" id="orderButton" class="theme_button muted_button">Order</a>
                     </div>  
-                   
                 </div><!-- eof .tab-content -->
             </div>
         </div>
@@ -105,5 +105,30 @@
         </div>
     </div>
 </section>
+
+<!-- تضمين مكتبة SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Function to display SweetAlert
+    function displaySweetAlert() {
+        // Show SweetAlert with a message
+        Swal.fire({
+            title: 'تم الطلب!',
+            text: 'شكرًا لك على طلبك. سنتصل بك قريبًا.',
+            icon: 'success',
+            confirmButtonText: 'حسنًا'
+        });
+    }
+
+    // Add click event listener to the order button
+    document.getElementById('orderButton').addEventListener('click', function(event) {
+        // Prevent the default action of the button
+        event.preventDefault();
+        
+        // Call the function to display SweetAlert
+        displaySweetAlert();
+    });
+</script>
 
 @endsection

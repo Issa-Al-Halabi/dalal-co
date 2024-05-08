@@ -1149,7 +1149,7 @@ h1 {
 }
 
 h2 {
-    font-size: 36px
+    font-size: 27px
 }
 
 h3 {
@@ -1682,7 +1682,7 @@ p>[class*=rt-icon]+[class*=rt-icon] {
 }
 
 .social-block a.social-icon {
-    margin: 2px 0
+    margin: 2px 4px
 }
 
 .social-block a.social-icon+a.social-icon {
@@ -4130,7 +4130,7 @@ section .intro_section .slide_description_wrapper {
     position: absolute;
     top: 5px;
   
-    margin-left: -30px;
+    margin-left: -89px;
     display: none;
     width: 113px;
     height: 60px;
@@ -7727,7 +7727,7 @@ aside .widget_tag_cloud a:hover {
 }
 
 .small-text {
-    font-size: 11px;
+    font-size: 16px;
     text-transform: uppercase;
     font-weight: 700
 }
@@ -10897,6 +10897,6 @@ a.soc-pocket.bg-icon:hover,
         text-align: right;
         float: left;
         position: relative;
-        left: 10px;
+        left: 57px;
     }
 }
