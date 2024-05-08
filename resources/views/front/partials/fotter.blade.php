@@ -1,5 +1,5 @@
 <footer class="footer ls table_section" style="direction: rtl;">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 
 
     <div class="container">
@@ -13,13 +13,13 @@
                 <nav class="mainmenu_wrapper bordered_items">
                     <ul class="mainmenu nav sf-menu">
                         <li><a href="/">الرئيسية</a></li>
-                        <li><a href="blog-right.html"> من نحن</a></li>
-                        <li><a href="Service ">الخدمات</a></li>
-                        <li><a href="blog-right.html">القوانين والتنظيمات</a></li>
-                        <li><a href="about.html">الاتصال بنا</a></li>
-                       
-                        
-                        
+                        <li><a href="/blog-right.html"> من نحن</a></li>
+                        <li><a href="/Service ">الخدمات</a></li>
+                        <li><a href="/blog-right.html">القوانين والتنظيمات</a></li>
+                        <li><a href="/about.html">الاتصال بنا</a></li>
+
+
+
                     </ul>
                 </nav>
             </div>
@@ -29,7 +29,7 @@
                         <span class="inline-block social-block">
                             <a href="#"
                                 class="social-icon color-icon border-icon rounded-icon soc-facebook grey-border"></a>
-                            
+
                             <a href="#"
                                 class="social-icon color-icon border-icon rounded-icon soc-instagram grey-border"></a>
                             <a href="#"
@@ -38,32 +38,36 @@
                         </span>
                     </div>
                     <div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-phone grey-border">
-        <i class="bi bi-telephone"></i>
-    </a>
-    <a href="tel:0113310150" class="grey-border"> : 0113310150 </a>
-</div>
+                        <a href="#" class="social-icon color-icon border-icon rounded-icon soc-phone grey-border">
+                            <i class="bi bi-telephone"></i>
+                        </a>
+                        <a href="tel:0113310150" class="grey-border"> : 0113310150 </a>
+                    </div>
 
-<div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-whatsapp grey-border">
-        <i class="bi bi-whatsapp"></i>
-    </a>
-    <a href="https://wa.me/963944941007" class="grey-border" style="direction: ltr;">  +963944941007: </a>
-</div>
+                    <div style="display: flex; align-items: center;">
+                        <a href="#"
+                            class="social-icon color-icon border-icon rounded-icon soc-whatsapp grey-border">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://wa.me/963944941007" class="grey-border" style="direction: ltr;"> +963944941007:
+                        </a>
+                    </div>
 
-<div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-email grey-border">
-        <i class="bi bi-envelope"></i>
-    </a>
-    <a href="mailto:info@dalal-co.com" class="grey-border"> : info@dalal-co.com </a>
-</div>
+                    <div style="display: flex; align-items: center;">
+                        <a href="#" class="social-icon color-icon border-icon rounded-icon soc-email grey-border">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                        <a href="mailto:info@dalal-co.com" class="grey-border"> : info@dalal-co.com </a>
+                    </div>
 
-<div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-website grey-border">
-        <i class="bi bi-globe"></i>
-    </a>
-    <a href="#" class="grey-border" style="font-family: cairo light;"> : دمشق - آبو رمانة، ساحة المطاعم </a>
-</div>
+                    <div style="display: flex; align-items: center;">
+                        <a href="#"
+                            class="social-icon color-icon border-icon rounded-icon soc-website grey-border">
+                            <i class="bi bi-globe"></i>
+                        </a>
+                        <a href="#" class="grey-border" style="font-family: cairo light;"> : دمشق - آبو رمانة،
+                            ساحة المطاعم </a>
+                    </div>
 
 
                 </div>

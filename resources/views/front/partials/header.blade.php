@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="col-md-9 col-xs-9 text-right"style="color:#103f55; text-align: left;">
-                
+
                 <!-- main nav start -->
                 @include('front.partials.navbar')
                 <!-- eof main nav -->
@@ -20,8 +20,8 @@
                         style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
                 </a> -->
                 <a href="appointment.html" class="syria" style="color:#103f55; text-align: left;">
-                    <img src="front-assets/images/syria.png" alt="Flag"
-                        style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
+                    <img src="/front-assets/images/syria.png" alt="Flag"
+                        style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> Ar
                 </a>
             </div>
         </div>
