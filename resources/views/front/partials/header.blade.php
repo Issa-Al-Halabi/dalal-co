@@ -8,7 +8,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-9 col-xs-9 text-right"style="color:#103f55; text-align: left;">
+            <div class="col-md-9 col-xs-9 text-right"style="color:#103f55; text-align: left; font-family: cairo light;">
 
                 <!-- main nav start -->
                 @include('front.partials.navbar')
@@ -23,10 +23,18 @@
                     <img src="front-assets/images/bir.png" alt="Flag"
                         style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
                 </a> -->
-                <a href="appointment.html" class="syria" style="color:#103f55; text-align: left;">
-                    <img src="/front-assets/images/syria.png" alt="Flag"
-                        style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> Ar
-                </a>
+                @if (app()->getLocale() == 'ar')
+                    <a href="{{ route('en') }}" class="syria" style="color:#103f55; text-align: left;">
+                        <img src="/front-assets/images/syria.png" alt="Flag"
+                            style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> Ar
+                    </a>
+                @else
+                    <a href="{{ route('ar') }}" class="" style="color:#103f55; text-align: left;">
+                        <img src="front-assets/images/bir.png" alt="Flag"
+                            style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
+                    </a>
+                @endif
+                {{-- {{ Auth::user()->roles }} --}}
             </div>
         </div>
 

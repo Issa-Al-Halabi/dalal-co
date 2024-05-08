@@ -10,7 +10,8 @@
                 class="col-lg-12 col-md-12 col-sm-12 text-center bottommargin_30" @endif>
                     <div class="vertical-item title-absolute">
                         <div class="item-media team_member_photo">
-                            <img src="{{ asset('storage/' . $maid->image) }}" alt="">
+                            <img src="{{ asset('storage/' . $maid->image) }}" alt=""
+                                style="max-width: 100%; height: auto;">
                         </div>
                     </div>
                     <div class="item-content with_padding text-center">
@@ -20,7 +21,7 @@
                     </div>
                 </div>
                 @if (isset($maid->video))
-                    <div class="col-lg-7 col-md-7 col-sm-12 text-center bottommargin_30" style="    padding-top: 101px;">
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-center bottommargin_30" style="padding-top: 101px;">
                         <div class="vertical-item title-absolute">
                             <div class="item-media team_member_video">
                                 <!-- Here's the video -->
@@ -31,7 +32,6 @@
                     </div>
                 @endif
             </div>
-        </div>
     </section>
 
     <!-- المحتوى الجديد -->
@@ -43,7 +43,6 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs text-center" role="tablist">
                         <li class="active"><a href="#tab1" role="tab" data-toggle="tab">السيرة الذاتية</a></li>
-
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content top-color-border bottommargin_30">
@@ -66,9 +65,9 @@
                                 <li>معلومات اخرى: {!! $maid->description !!}</li>
                             </ul>
                             </p>
-                            <a href="#" class="theme_button muted_button ">Order</a>
+                            <!-- زر الطلب -->
+                            <a href="#" id="orderButton" class="theme_button muted_button">أطلب الان</a>
                         </div>
-
                     </div><!-- eof .tab-content -->
                 </div>
             </div>
@@ -115,4 +114,29 @@
             </div>
         </div>
     </section>
+
+    <!-- تضمين مكتبة SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Function to display SweetAlert
+        function displaySweetAlert() {
+            // Show SweetAlert with a message
+            Swal.fire({
+                title: 'تم الطلب!',
+                text: 'شكرًا لك على طلبك. سنتصل بك قريبًا.',
+                icon: 'success',
+                confirmButtonText: 'حسنًا'
+            });
+        }
+
+        // Add click event listener to the order button
+        document.getElementById('orderButton').addEventListener('click', function(event) {
+            // Prevent the default action of the button
+            event.preventDefault();
+
+            // Call the function to display SweetAlert
+            displaySweetAlert();
+        });
+    </script>
 @endsection
