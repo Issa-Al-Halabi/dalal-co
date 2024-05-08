@@ -10,11 +10,6 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function accessPanel(User $user): bool
-    {
-        return $user->can('access_role');
-    }
-
     /**
      * Determine whether the user can view any models.
      *

@@ -34,6 +34,7 @@
                             style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
                     </a>
                 @endif
+                {{-- {{ Auth::user()->roles }} --}}
             </div>
         </div>
 
