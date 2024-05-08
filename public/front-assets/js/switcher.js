@@ -2,143 +2,143 @@
 /////////////////////////////////////////////
 //DELETE FOLLOWING CODE TO DISABLE SWITCHER//
 /////////////////////////////////////////////
-jQuery(document).ready(function(){
+// jQuery(document).ready(function(){
 
-window.patternClasses = [];
+// window.patternClasses = [];
 
-var deleteAllCookiesHTML = '';
-if (jQuery.cookie) {
-	if(!jQuery.isEmptyObject( jQuery.cookie() )) {
-		deleteAllCookiesHTML = '<span class="rt-icon2-delete-outline" data-toggle="tooltip" data-placement="top" title="Clear All Styles (Page will be reloaded)"></span>';
-	}
-}
+// var deleteAllCookiesHTML = '';
+// if (jQuery.cookie) {
+// 	if(!jQuery.isEmptyObject( jQuery.cookie() )) {
+// 		deleteAllCookiesHTML = '<span class="rt-icon2-delete-outline" data-toggle="tooltip" data-placement="top" title="Clear All Styles (Page will be reloaded)"></span>';
+// 	}
+// }
 		
-var switcherHTML = '<div id="switcher">';
-		switcherHTML +=    '<div class="color_switcher_header"><h4>Styles Selector</h4>';
+// var switcherHTML = '<div id="switcher">';
+// 		switcherHTML +=    '<div class="color_switcher_header"><h4>Styles Selector</h4>';
 		
-		switcherHTML +=    		deleteAllCookiesHTML;
-		switcherHTML +=    '</div>';
-		switcherHTML +=    '<div id="switcher_accent_color">';
-		switcherHTML +=    		'<p>Accent color:</p>';
-		switcherHTML +=    		'<ul id="switcher-colors" class="list-inline">';
-		switcherHTML +=        		'<li>';
-		switcherHTML +=            		'<a href="#" data-color="" class="color1"></a>';
-		switcherHTML +=        		'</li>';
-		switcherHTML +=        		'<li>';
-		switcherHTML +=            		'<a href="#" data-color="2" class="color2"></a>';
-		switcherHTML +=        		'</li>';
-		switcherHTML +=        		'<li>';
-		switcherHTML +=            		'<a href="#" data-color="3" class="color3"></a>';
-		switcherHTML +=        		'</li>';
-		switcherHTML +=    		'</ul>';
-		switcherHTML +=    	'</div>';
-		switcherHTML +=    '<div id="switcher_color_scheme">';
-		switcherHTML +=    		'<p>Color scheme:</p>';
-		switcherHTML +=    		'<ul id="switcher-version" class="list-inline">';
-		switcherHTML +=        		'<li class="active">';
-		switcherHTML +=            		'<a href="#" class="light">Light</a>';
-		switcherHTML +=        		'</li>';
-		switcherHTML +=        		'<li>';
-		switcherHTML +=            		'<a href="#" class="dark">Dark</a>';
-		switcherHTML +=        		'</li>';
-		switcherHTML +=    		'</ul>';
-		switcherHTML +=    '</div>';
-		switcherHTML +=    '<div id="switcher_layout">';
-		switcherHTML +=    		'<p>Layout style:</p>';
-		switcherHTML +=    		'<div class="checkbox checkbox-slider--b-flat">';
-		switcherHTML +=    		    '<label>';
-		switcherHTML +=    		        '<input type="checkbox" id="layout"> <span>Boxed</span>';
-		switcherHTML +=    		    '</label>';
-		switcherHTML +=    		'</div>';
-		switcherHTML +=    		'<div class="checkbox checkbox-slider--b-flat">';
-		switcherHTML +=    		    '<label id="boxed_margin" class="hidden">';
-		switcherHTML +=    		        '<input type="checkbox"> <span>Vertical Margins</span>';
-		switcherHTML +=    		    '</label>';		
-		switcherHTML +=    		'</div>';
-		switcherHTML +=		'</div>';
-		switcherHTML +=    '<div id="switcher_patterns">';
-		switcherHTML +=    		'<p class="for-toggle hidden">Boxed Patterns</p>';
-		switcherHTML +=    		'<ul id="switcher-patterns" class="list-inline for-toggle hidden">';
+// 		switcherHTML +=    		deleteAllCookiesHTML;
+// 		switcherHTML +=    '</div>';
+// 		switcherHTML +=    '<div id="switcher_accent_color">';
+// 		switcherHTML +=    		'<p>Accent color:</p>';
+// 		switcherHTML +=    		'<ul id="switcher-colors" class="list-inline">';
+// 		switcherHTML +=        		'<li>';
+// 		switcherHTML +=            		'<a href="#" data-color="" class="color1"></a>';
+// 		switcherHTML +=        		'</li>';
+// 		switcherHTML +=        		'<li>';
+// 		switcherHTML +=            		'<a href="#" data-color="2" class="color2"></a>';
+// 		switcherHTML +=        		'</li>';
+// 		switcherHTML +=        		'<li>';
+// 		switcherHTML +=            		'<a href="#" data-color="3" class="color3"></a>';
+// 		switcherHTML +=        		'</li>';
+// 		switcherHTML +=    		'</ul>';
+// 		switcherHTML +=    	'</div>';
+// 		switcherHTML +=    '<div id="switcher_color_scheme">';
+// 		switcherHTML +=    		'<p>Color scheme:</p>';
+// 		switcherHTML +=    		'<ul id="switcher-version" class="list-inline">';
+// 		switcherHTML +=        		'<li class="active">';
+// 		switcherHTML +=            		'<a href="#" class="light">Light</a>';
+// 		switcherHTML +=        		'</li>';
+// 		switcherHTML +=        		'<li>';
+// 		switcherHTML +=            		'<a href="#" class="dark">Dark</a>';
+// 		switcherHTML +=        		'</li>';
+// 		switcherHTML +=    		'</ul>';
+// 		switcherHTML +=    '</div>';
+// 		switcherHTML +=    '<div id="switcher_layout">';
+// 		switcherHTML +=    		'<p>Layout style:</p>';
+// 		switcherHTML +=    		'<div class="checkbox checkbox-slider--b-flat">';
+// 		switcherHTML +=    		    '<label>';
+// 		switcherHTML +=    		        '<input type="checkbox" id="layout"> <span>Boxed</span>';
+// 		switcherHTML +=    		    '</label>';
+// 		switcherHTML +=    		'</div>';
+// 		switcherHTML +=    		'<div class="checkbox checkbox-slider--b-flat">';
+// 		switcherHTML +=    		    '<label id="boxed_margin" class="hidden">';
+// 		switcherHTML +=    		        '<input type="checkbox"> <span>Vertical Margins</span>';
+// 		switcherHTML +=    		    '</label>';		
+// 		switcherHTML +=    		'</div>';
+// 		switcherHTML +=		'</div>';
+// 		switcherHTML +=    '<div id="switcher_patterns">';
+// 		switcherHTML +=    		'<p class="for-toggle hidden">Boxed Patterns</p>';
+// 		switcherHTML +=    		'<ul id="switcher-patterns" class="list-inline for-toggle hidden">';
 
-		for (var i = 1; i < 12; i++) {
-			switcherHTML +=    		    '<li>';
-			switcherHTML +=    		        '<a href="#" class="pattern' + i + '" data-pattern="pattern' + i + '">';
-			switcherHTML +=    		            '<img src="front-assets/img/pattern' + i + '.png" alt="" width="40" height="40" title="pattern' + i + '">';
-			switcherHTML +=    		        '</a>';
-			switcherHTML +=    		    '</li>';
-        	//available patterns
-        	window.patternClasses.push('pattern' + i);
-		};
+// 		for (var i = 1; i < 12; i++) {
+// 			switcherHTML +=    		    '<li>';
+// 			switcherHTML +=    		        '<a href="#" class="pattern' + i + '" data-pattern="pattern' + i + '">';
+// 			switcherHTML +=    		            '<img src="front-assets/img/pattern' + i + '.png" alt="" width="40" height="40" title="pattern' + i + '">';
+// 			switcherHTML +=    		        '</a>';
+// 			switcherHTML +=    		    '</li>';
+//         	//available patterns
+//         	window.patternClasses.push('pattern' + i);
+// 		};
 
-		switcherHTML +=    		'</ul>';
-		switcherHTML +=    '</div>';
-		switcherHTML +='</div>';
+// 		switcherHTML +=    		'</ul>';
+// 		switcherHTML +=    '</div>';
+// 		switcherHTML +='</div>';
 
-		jQuery('body').append(switcherHTML);
+// 		jQuery('body').append(switcherHTML);
 
-		//switcher toggle
-        jQuery('#switcher span[class="rt-icon2-brush"]').on('click', function(){
-            jQuery('#switcher').toggleClass('active');
-        });
+// 		//switcher toggle
+//         jQuery('#switcher span[class="rt-icon2-brush"]').on('click', function(){
+//             jQuery('#switcher').toggleClass('active');
+//         });
 		
-		//switcher reset all styles
-        jQuery('#switcher span[class="rt-icon2-delete-outline"]').on('click', function(){
-            cookieClass.deleteAllCookies();
-        });
+// 		//switcher reset all styles
+//         jQuery('#switcher span[class="rt-icon2-delete-outline"]').on('click', function(){
+//             cookieClass.deleteAllCookies();
+//         });
 
 
-        //boxed or wide
-        jQuery('#layout').on('click', {patterns: patternClasses}, switcherClass.switchBoxedWide);
+//         //boxed or wide
+//         jQuery('#layout').on('click', {patterns: patternClasses}, switcherClass.switchBoxedWide);
 
-        //boxed with top and bottom margins (enable only whet "boxed" is active)
-        jQuery('#boxed_margin').find("input").on('change', switcherClass.switchBoxedMargins);
+//         //boxed with top and bottom margins (enable only whet "boxed" is active)
+//         jQuery('#boxed_margin').find("input").on('change', switcherClass.switchBoxedMargins);
         
-        //pattern switcher
-        jQuery('#switcher-patterns a').on('click', {patterns: patternClasses}, function( e ) {
-			switcherClass.switchPatterns( e, jQuery(this).data('pattern'));
-        });
+//         //pattern switcher
+//         jQuery('#switcher-patterns a').on('click', {patterns: patternClasses}, function( e ) {
+// 			switcherClass.switchPatterns( e, jQuery(this).data('pattern'));
+//         });
 
-        //color switcher
-        jQuery('#switcher-colors a').on('click', switcherClass.switchColorScheme);
+//         //color switcher
+//         jQuery('#switcher-colors a').on('click', switcherClass.switchColorScheme);
 
-		//version switcher
-        jQuery('#switcher-version a').on('click', switcherClass.switchDarkLight);
-
-
-        //if cookie set - changing color scheme
-        if (cookieClass.returnTrueOrFalseCookie('colorScheme')) {
-        	jQuery('#switcher-colors a[data-color="' + cookieClass.getCookieValue('colorScheme') + '"]').trigger('click');
-        }
+// 		//version switcher
+//         jQuery('#switcher-version a').on('click', switcherClass.switchDarkLight);
 
 
-        //if cookie set - changing to dark version
-        if (cookieClass.returnTrueOrFalseCookie('dark')) {
-        	cookieClass.toggleTrueOrFalseCookie('dark');
-        	jQuery('#switcher-version .dark').trigger('click');
-        }
+//         //if cookie set - changing color scheme
+//         if (cookieClass.returnTrueOrFalseCookie('colorScheme')) {
+//         	jQuery('#switcher-colors a[data-color="' + cookieClass.getCookieValue('colorScheme') + '"]').trigger('click');
+//         }
 
 
-        //if cookies set - changing layout
-        if (cookieClass.returnTrueOrFalseCookie('boxed')) {
-        	if (cookieClass.returnTrueOrFalseCookie('topBottomMargins')) {
-        		var topBottomMarginsCookie = cookieClass.getCookieValue('topBottomMargins');
-        	}
-        	if (cookieClass.returnTrueOrFalseCookie('pattern')) {
-        		var patternCookie = cookieClass.getCookieValue('pattern');
-        	}
-        	switcherClass.switchBoxedWide();
-        	cookieClass.toggleTrueOrFalseCookie("boxed");
-        	jQuery('#layout').prop('checked', true);
+//         //if cookie set - changing to dark version
+//         if (cookieClass.returnTrueOrFalseCookie('dark')) {
+//         	cookieClass.toggleTrueOrFalseCookie('dark');
+//         	jQuery('#switcher-version .dark').trigger('click');
+//         }
 
-        	if (topBottomMarginsCookie) {
-        		jQuery('#boxed_margin').find('input').prop('checked', true).trigger('change');
-        	}
-        	if (patternCookie) {
-        		jQuery('#switcher-patterns').find('a[data-pattern="' + patternCookie + '"]').trigger('click');
-        	}
+
+//         //if cookies set - changing layout
+//         if (cookieClass.returnTrueOrFalseCookie('boxed')) {
+//         	if (cookieClass.returnTrueOrFalseCookie('topBottomMargins')) {
+//         		var topBottomMarginsCookie = cookieClass.getCookieValue('topBottomMargins');
+//         	}
+//         	if (cookieClass.returnTrueOrFalseCookie('pattern')) {
+//         		var patternCookie = cookieClass.getCookieValue('pattern');
+//         	}
+//         	switcherClass.switchBoxedWide();
+//         	cookieClass.toggleTrueOrFalseCookie("boxed");
+//         	jQuery('#layout').prop('checked', true);
+
+//         	if (topBottomMarginsCookie) {
+//         		jQuery('#boxed_margin').find('input').prop('checked', true).trigger('change');
+//         	}
+//         	if (patternCookie) {
+//         		jQuery('#switcher-patterns').find('a[data-pattern="' + patternCookie + '"]').trigger('click');
+//         	}
         	
-        }
-});
+//         }
+// });
 
 var cookieClass = {
 	deleteAllCookies: function () {

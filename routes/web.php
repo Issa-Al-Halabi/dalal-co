@@ -3,8 +3,6 @@
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\AuthController;
-use App\Models\Order;
-use App\Models\Status;
 use Illuminate\Support\Facades\Route;
 
 

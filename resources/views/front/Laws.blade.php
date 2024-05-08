@@ -10,7 +10,8 @@
                             alt="Card image cap" style="max-width:50%">
                         <div class="card-body  text-center">
                             <h5 class="card-title" style="color: #103e55;">{{ $law->name }}</h5>
-                            <a href="{{ asset('storage/' . $law->file) }}" class="theme_button muted_button">تحميل الملف</a>
+                            <a href="{{ asset('storage/' . $law->file) }}" target="_blank"
+                                class="theme_button muted_button">تحميل الملف</a>
                         </div>
                     </div>
                 </div>

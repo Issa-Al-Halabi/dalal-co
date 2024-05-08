@@ -4,7 +4,10 @@
     <section class="ls section_padding_120 team_member">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-12 text-center bottommargin_30">
+                <div
+                    @if (isset($maid->video)) class="col-lg-5 col-md-5 col-sm-12 text-center bottommargin_30"
+                @else
+                class="col-lg-12 col-md-12 col-sm-12 text-center bottommargin_30" @endif>
                     <div class="vertical-item title-absolute">
                         <div class="item-media team_member_photo">
                             <img src="{{ asset('storage/' . $maid->image) }}" alt="">
@@ -16,15 +19,17 @@
                         </h2>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-7 col-sm-12 text-center bottommargin_30" style="    padding-top: 101px;">
-                    <div class="vertical-item title-absolute">
-                        <div class="item-media team_member_video">
-                            <!-- Here's the video -->
-                            <iframe width="100%" height="315" src="{{ asset('storage/' . $maid->video) }}"
-                                frameborder="0" allowfullscreen></iframe>
+                @if (isset($maid->video))
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-center bottommargin_30" style="    padding-top: 101px;">
+                        <div class="vertical-item title-absolute">
+                            <div class="item-media team_member_video">
+                                <!-- Here's the video -->
+                                <iframe width="100%" height="315" src="{{ asset('storage/' . $maid->video) }}"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </section>
@@ -47,8 +52,12 @@
                                     الذاتية:</strong></p>
                             <p class="line_heght_2">
                             <ul style="direction: rtl;">
-                                <li>الأسم بالعربي: {{ $maid->full_name }} </li>
-                                <li>الأسم بالأجنبي: {{ $maid->full_name }}</li>
+                                <li>الأسم بالعربي:
+                                    {{ ($maid->getTranslations()['first_name']['ar'] ?? '') . ' ' . ($maid->getTranslations()['last_name']['ar'] ?? '') }}
+                                </li>
+                                <li>الأسم بالأجنبي:
+                                    {{ ($maid->getTranslations()['first_name']['en'] ?? '') . ' ' . ($maid->getTranslations()['last_name']['en'] ?? '') }}
+                                </li>
                                 <li>الجنسية: {{ $maid->nationality }}</li>
                                 <li>العمر: {{ $maid->age }}</li>
                                 <li>الدول التي عملت بها: {{ implode(' , ', $maid->countries) }}</li>

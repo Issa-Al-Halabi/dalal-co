@@ -18,10 +18,10 @@ return new class extends Migration
             $table->integer('age');
             $table->string('nationality');
             $table->longText('description');
-            $table->string('languages');
+            $table->string('languages')->default('{"ar":[],"en":[]}');
             $table->string('countries');
             $table->string('experiences');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->string('video')->nullable();
             $table->timestamps();
         });
