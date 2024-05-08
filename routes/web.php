@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\App;
@@ -24,6 +25,11 @@ Route::group([
 
     Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");
     Route::post('/contact-us', [ContactUsController::class, "submitForm"])->name("contactUs");
+
+    // login - signup
+    Route::post('/login', [AuthController::class, "login"])->name("login");
+    Route::post('/signup', [AuthController::class, "signup"])->name("signup");
+    Route::get('/logout', [AuthController::class, "logout"])->name("logout");
 
     // For Translating To Arabic
     Route::get('/ar', function (Request $request) {
