@@ -153,11 +153,11 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
                     ->state(
-                        fn (Order $record) =>
-                        "الخطوة " . $record->statuses()->count()
+                        fn (Order $record) => (new OrderStatusService)->getOrderStatusLabel($record)
                     )
                     ->searchable()
                     ->badge()
+                    ->color(fn (Order $record) =>(new OrderStatusService)->getOrderStatusLabelColor($record))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('type')

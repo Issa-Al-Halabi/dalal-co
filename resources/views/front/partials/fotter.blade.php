@@ -1,5 +1,5 @@
 <footer class="footer ls table_section" style="direction: rtl;">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 
 
     <div class="container">
@@ -13,13 +13,13 @@
                 <nav class="mainmenu_wrapper bordered_items">
                     <ul class="mainmenu nav sf-menu">
                         <li><a href="/">الرئيسية</a></li>
-                        <li><a href="blog-right.html"> من نحن</a></li>
-                        <li><a href="Service ">الخدمات</a></li>
-                        <li><a href="blog-right.html">القوانين والتنظيمات</a></li>
-                        <li><a href="about.html">الاتصال بنا</a></li>
-                       
-                        
-                        
+                        <li><a href="/blog-right.html"> من نحن</a></li>
+                        <li><a href="/Service ">الخدمات</a></li>
+                        <li><a href="/blog-right.html">القوانين والتنظيمات</a></li>
+                        <li><a href="/about.html">الاتصال بنا</a></li>
+
+
+
                     </ul>
                 </nav>
             </div>

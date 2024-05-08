@@ -55,6 +55,18 @@ class MaidResource extends Resource
                         ->label("اللغات")
                         ->placeholder("أكتب اللغات"),
 
+
+                    Forms\Components\TagsInput::make('countries')
+                        ->required()
+                        ->label("الدول التي عملت بها")
+                        ->placeholder("أكتب الدول"),
+
+                    Forms\Components\TextInput::make('experiences')
+                        ->required()
+                        ->label("الخبرات")
+                        ->maxLength(255)
+                        ->columnSpanFull(),
+
                     TinyEditor::make('description')
                         ->required()
                         ->label("الوصف")
@@ -85,6 +97,15 @@ class MaidResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label("#")
+                    ->sortable(),
+
+                Tables\Columns\ImageColumn::make('image')
+                    ->label("الصورة")
+                    ->disk('public')
+                    ->visibility('private'),
+
                 Tables\Columns\TextColumn::make('first_name')
                     ->label("الأسم الأول")
                     ->sortable()
@@ -111,10 +132,16 @@ class MaidResource extends Resource
                     ->sortable()
                     ->searchable(),
 
-                Tables\Columns\ImageColumn::make('image')
-                    ->label("الصورة")
-                    ->disk('public')
-                    ->visibility('private'),
+                Tables\Columns\TextColumn::make('countries')
+                    ->label("الدول التي عملت بها")
+                    ->badge()
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('experiences')
+                    ->label("الخبرات")
+                    ->sortable()
+                    ->searchable(),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->label("تاريخ الانشاء")

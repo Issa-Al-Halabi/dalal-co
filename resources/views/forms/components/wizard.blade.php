@@ -1,8 +1,8 @@
 <div {{ $attributes }}>
-    {{ $getChildComponentContainer() }}
-    <style>
+    {{ $getChildComponentContainer }}
+    {{-- <style>
         .grid-flow-col {
             grid-auto-flow: row!important;
         }
-    </style>
+    </style> --}}
 </div>

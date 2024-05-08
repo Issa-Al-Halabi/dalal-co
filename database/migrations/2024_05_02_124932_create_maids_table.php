@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('nationality');
             $table->longText('description');
             $table->string('languages');
+            $table->string('countries');
+            $table->string('experiences');
             $table->string('image')->nullable();
             $table->string('video')->nullable();
             $table->timestamps();
