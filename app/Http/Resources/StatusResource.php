@@ -37,7 +37,7 @@ class StatusResource extends JsonResource
             return  $status->description;
         }
         $specifications = $order_status->specifications;
-        $maid_name = Order::find( request()->id)->maid->fullName;
+        $maid_name = Order::find(request()->id)->maid->fullName;
         $status->description = str_replace("(name)", $maid_name, $status->description);
 
         if (isset($specifications["input1"])) {
