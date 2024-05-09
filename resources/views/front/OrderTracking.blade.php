@@ -2,6 +2,14 @@
 
 @section('content')
     <style>
+        .title {
+            display: flex;
+            margin: 60px auto 0px;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
         .dots {
             display: flex;
             margin: 60px auto 0px;
@@ -112,6 +120,10 @@
 
         {{-- <link rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css"> --}}
+        <div class="title">
+            {{ $order->maid->fullName }}
+
+        </div>
         <div class="dots">
             <div class="dot">
                 <div class="green-dot"></div>
