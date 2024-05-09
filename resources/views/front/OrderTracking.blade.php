@@ -79,13 +79,15 @@
         }
 
         .step.completed {
-            color: green;
+            background-color: green;
+            color: white;
             border: green 1px solid;
             cursor: pointer;
         }
 
         .step.working {
-            color: orange;
+            background-color: orange;
+            color: white;
             border: orange 1px solid;
         }
 

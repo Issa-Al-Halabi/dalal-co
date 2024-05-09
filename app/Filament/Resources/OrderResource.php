@@ -223,7 +223,7 @@ class OrderResource extends Resource
                 ActionGroup::make(
                     [
                         Tables\Actions\ViewAction::make(),
-                        Tables\Actions\EditAction::make(),
+                        // Tables\Actions\EditAction::make(),
                         Tables\Actions\DeleteAction::make(),
                     ]
                 )
@@ -247,7 +247,7 @@ class OrderResource extends Resource
         return [
             'index' => Pages\ListOrders::route('/'),
             'create' => Pages\CreateOrder::route('/create'),
-            'edit' => Pages\EditOrder::route('/{record}/edit'),
+            // 'edit' => Pages\EditOrder::route('/{record}/edit'),
         ];
     }
 

@@ -23,7 +23,7 @@
                                 {{ $order->maid->last_name }}
                             </h5>
                             {{-- <p class="card-text">{{ $maid->description }}</p> --}}
-                            <a href="{{ route('OrderTrack', $order->maid) }}" class="theme_button muted_button">تتبع</a>
+                            <a href="{{ route('OrderTrack', $order->id) }}" class="theme_button muted_button">تتبع</a>
                         </div>
                     </div>
                 </div>
