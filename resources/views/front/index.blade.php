@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                                                                                                                                                                                        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                    <![endif]-->
+                                                                                                                                                                                                        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                    <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -27,9 +27,6 @@
         <!-- wrappers for visual page editor and boxed version of template -->
         <div id="canvas">
             <div id="box_wrapper">
-
-                <!-- template sections -->
-
 
 
                 <section class="intro_section page_mainslider ls">
@@ -107,7 +104,7 @@
                                         <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="font-family: cairo light;    direction: rtl;
-                                                                                                                                                                                                                                                                                                       text-align: right;">
+                                                                                                                                                                                                                                                                                                                       text-align: right;">
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
                                                         <p
@@ -416,8 +413,8 @@
                             </div>
                         </div>
                         <!--[if lt IE 9]>
-                                                                                                                                                                                       <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                      <![endif]-->
+                                                                                                                                                                                                       <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                      <![endif]-->
 
                         <!-- search modal -->
                         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal"
@@ -500,298 +497,318 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            </section>
+                </section>
 
-            <section class="ls gallery-section">
-                <div class="container-fluid">
-                    <div class="row columns_padding_0">
-                        <div class="col-sm-12">
-                            <div class="owl-carousel" data-margin="0" data-nav="true" data-items="7"
-                                data-responsive-xlg="7" data-responsive-lg="6" data-responsive-md="4"
-                                data-responsive-sm="3" data-responsive-xs="1">
+                <section class="ls gallery-section">
+                    <div class="container-fluid">
+                        <div class="row columns_padding_0">
+                            <div class="col-sm-12">
+                                <div class="owl-carousel" data-margin="0" data-nav="true" data-items="7"
+                                    data-responsive-xlg="7" data-responsive-lg="6" data-responsive-md="4"
+                                    data-responsive-sm="3" data-responsive-xs="1">
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/01.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/01.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/01.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/01.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/Room SERVICE.1.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/Room SERVICE.1.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/Room SERVICE.1.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/Room SERVICE.1.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/romm.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/romm.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/romm.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/romm.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/kbar.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/kbar.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/kbar.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/kbar.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/03.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/03.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/03.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/03.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/04.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/04.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/04.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/04.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/05.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/05.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/05.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/05.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/06.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/06.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/06.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/06.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/07.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/07.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/07.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/07.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/08.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/08.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/08.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/08.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/09.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/09.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/09.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/09.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/10.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/10.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/10.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/10.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/11.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/11.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/11.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/11.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="vertical-item">
-                                    <div class="item-media">
-                                        <img src="front-assets/images/gallery/12.jpg" alt="">
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="front-assets/images/gallery/12.jpg"></a>
+                                    <div class="vertical-item">
+                                        <div class="item-media">
+                                            <img src="front-assets/images/gallery/12.jpg" alt="">
+                                            <div class="media-links">
+                                                <div class="links-wrap">
+                                                    <a class="p-view prettyPhoto" title=""
+                                                        data-gal="prettyPhoto[gal]"
+                                                        href="front-assets/images/gallery/12.jpg"></a>
+                                                </div>
+                                                <a class="abs-link" href="gallery-single.html"></a>
                                             </div>
-                                            <a class="abs-link" href="gallery-single.html"></a>
                                         </div>
                                     </div>
+
+
+
+                                </div><!-- .owl-carousel -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="ls testimonials-section section_padding_45">
+                    <div class="container">
+                        <div class="row" style="direction: rtl">
+                            <div class="col-lg-offset-1 col-lg-10 col-sm-12 text-center">
+                                <p class="small-text margin_0">عملائنا</p>
+                                <h2 class="topmargin_10 bottommargin_25"
+                                    style="  font-family: cairo light;   color: #103e55;">
+                                    ماذا قالوا
+                                    <strong style="color: #103e55;">عنا</strong>
+                                </h2>
+
+                            </div>
+                        </div>
+
+                        <div class="row columns_padding_0">
+                            <div class="col-sm-12">
+                                <div class="owl-carousel testimonials-owl-carousel" data-margin="30" data-nav="true"
+                                    data-items="8" data-responsive-xlg="3" data-responsive-lg="3" data-responsive-md="3"
+                                    data-responsive-sm="2" data-responsive-xs="1">
+
+                                    <div class="vertical-item text-center"
+                                        style="direction: rtl; font-family: cairo light;">
+                                        <blockquote class="quote-item">
+                                            <div class="quote-body with_border color2 section_bg_color">
+                                                <div class="top-color-border">
+                                                    <div></div>
+                                                </div>
+                                                <p class="grey">
+                                                    ”.دلالكو هي واحدة من أفضل شركات الاستقدام في سورية، خدماتهم تتميز
+                                                    بالسرعة و
+                                                    المرونة و الاهتمام بالتفاصيل“
+                                                </p>
+                                                <div class="bottom-arrow with_border section_bg_color"></div>
+                                            </div>
+
+                                            <img src="front-assets/images/face01.jpg" alt=""
+                                                class="media-object">
+                                            <div class="blockquote-meta" style="    font-family: cairo light;">
+                                                <h5 style="    font-family: cairo light;">د. خليل زريق</h5>
+                                                <span class="small-text" style="    font-family: cairo light;">طبيب
+                                                    أسنان</span>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+
+                                    <div class="vertical-item text-center">
+                                        <blockquote class="quote-item">
+                                            <div class="quote-body with_border color3 section_bg_color"
+                                                style="DIRECTION: RTL;">
+                                                <div class="top-color-border">
+                                                    <div></div>
+                                                </div>
+                                                <p class="grey" style="    font-family: cairo light;">
+                                                    ”شركة دلالكو هي الشركة الوحيدة التي تقدم خدمات التعاقد الفوري، فلا حاجة
+                                                    للانتظار بعد اليوم ! “.
+                                                </p>
+                                                <div class="bottom-arrow with_border section_bg_color"></div>
+                                            </div>
+
+                                            <img src="front-assets/images/face02.jpg" alt=""
+                                                class="media-object">
+                                            <div class="blockquote-meta">
+                                                <h5 style="    font-family: cairo light;">
+                                                    السيد فراس عيسى </h5>
+                                                <span class="small-text">عميل دائم </span>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+
+                                    <div class="vertical-item text-center">
+                                        <blockquote class="quote-item">
+                                            <div class="quote-body with_border color1 section_bg_color"
+                                                style="DIRECTION: RTL;">
+                                                <div class="top-color-border">
+                                                    <div></div>
+                                                </div>
+                                                <p class="grey" style="    font-family: cairo light;">
+                                                    ”أكثر مايميز شركة دلالكو هو متابعتهم لجميع إجراءات الاستقدام من لحظة
+                                                    الوصول
+                                                    إلى لحظة المغادرة“. </p>
+                                                <div class="bottom-arrow with_border section_bg_color"></div>
+                                            </div>
+
+                                            <img src="front-assets/images/face03.jpg" alt=""
+                                                class="media-object">
+                                            <div class="blockquote-meta">
+                                                <h5 style="    font-family: cairo light;">السيدة هلا مراد </h5>
+                                                <span class="small-text" style="    font-family: cairo light;">ربة منزل
+                                                </span>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+                                    </blockquote>
                                 </div>
-
-
 
                             </div><!-- .owl-carousel -->
                         </div>
                     </div>
-                </div>
-            </section>
-            <section class="ls testimonials-section section_padding_45">
-                <div class="container">
-                    <div class="row" style="direction: rtl">
-                        <div class="col-lg-offset-1 col-lg-10 col-sm-12 text-center">
-                            <p class="small-text margin_0">عملائنا</p>
-                            <h2 class="topmargin_10 bottommargin_25"
-                                style="  font-family: cairo light;   color: #103e55;">
-                                ماذا قالوا
-                                <strong style="color: #103e55;">عنا</strong>
-                            </h2>
 
-                        </div>
-                    </div>
-
-                    <div class="row columns_padding_0">
-                        <div class="col-sm-12">
-                            <div class="owl-carousel testimonials-owl-carousel" data-margin="30" data-nav="true"
-                                data-items="8" data-responsive-xlg="3" data-responsive-lg="3" data-responsive-md="3"
-                                data-responsive-sm="2" data-responsive-xs="1">
-
-                                <div class="vertical-item text-center" style="direction: rtl; font-family: cairo light;">
-                                    <blockquote class="quote-item">
-                                        <div class="quote-body with_border color2 section_bg_color">
-                                            <div class="top-color-border">
-                                                <div></div>
-                                            </div>
-                                            <p class="grey">
-                                                ”.دلالكو هي واحدة من أفضل شركات الاستقدام في سورية، خدماتهم تتميز بالسرعة و
-                                                المرونة و الاهتمام بالتفاصيل“
-                                            </p>
-                                            <div class="bottom-arrow with_border section_bg_color"></div>
-                                        </div>
-
-                                        <img src="front-assets/images/face01.jpg" alt="" class="media-object">
-                                        <div class="blockquote-meta" style="    font-family: cairo light;">
-                                            <h5 style="    font-family: cairo light;">د. خليل زريق</h5>
-                                            <span class="small-text" style="    font-family: cairo light;">طبيب
-                                                أسنان</span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-
-                                <div class="vertical-item text-center">
-                                    <blockquote class="quote-item">
-                                        <div class="quote-body with_border color3 section_bg_color"
-                                            style="DIRECTION: RTL;">
-                                            <div class="top-color-border">
-                                                <div></div>
-                                            </div>
-                                            <p class="grey" style="    font-family: cairo light;">
-                                                ”شركة دلالكو هي الشركة الوحيدة التي تقدم خدمات التعاقد الفوري، فلا حاجة
-                                                للانتظار بعد اليوم ! “.
-                                            </p>
-                                            <div class="bottom-arrow with_border section_bg_color"></div>
-                                        </div>
-
-                                        <img src="front-assets/images/face02.jpg" alt="" class="media-object">
-                                        <div class="blockquote-meta">
-                                            <h5 style="    font-family: cairo light;">
-                                                السيد فراس عيسى </h5>
-                                            <span class="small-text">عميل دائم </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-
-                                <div class="vertical-item text-center">
-                                    <blockquote class="quote-item">
-                                        <div class="quote-body with_border color1 section_bg_color"
-                                            style="DIRECTION: RTL;">
-                                            <div class="top-color-border">
-                                                <div></div>
-                                            </div>
-                                            <p class="grey" style="    font-family: cairo light;">
-                                                ”أكثر مايميز شركة دلالكو هو متابعتهم لجميع إجراءات الاستقدام من لحظة الوصول
-                                                إلى لحظة المغادرة“. </p>
-                                            <div class="bottom-arrow with_border section_bg_color"></div>
-                                        </div>
-
-                                        <img src="front-assets/images/face03.jpg" alt="" class="media-object">
-                                        <div class="blockquote-meta">
-                                            <h5 style="    font-family: cairo light;">السيدة هلا مراد </h5>
-                                            <span class="small-text" style="    font-family: cairo light;">ربة منزل
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                </blockquote>
-                            </div>
-
-                        </div><!-- .owl-carousel -->
-                    </div>
-                </div>
-
+                </section>
+            </div>
         </div>
-        </section>
 
         <section id="contactSection"
             class="section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
@@ -801,7 +818,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-12">
-                        <form class="contact-form columns_padding_5 row to_animate animated fadeInUp" method="POST"
+                        <form class="contact-form columns_padding_5 row " method="POST"
                             action="{{ route('contactUs') }}">
                             @csrf
                             <div class="col-sm-6">
@@ -870,7 +887,6 @@
                                 </div>
                             </div>
 
-
                             <div class="col-sm-12">
 
                                 <p class="contact-form-message">
@@ -897,6 +913,7 @@
                                     </div>
                                 @endif
                             </div>
+
                         </form>
                     </div>
                 </div>

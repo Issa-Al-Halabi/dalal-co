@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="icon" type="" href="front-assets/images/logo.png">
-    <link rel="shortcut icon" type="" href="front-assets/images/logo.png">
+    <link rel="icon" type="" href=" {{ asset('front-assets/images/logo.png') }}">
+    <link rel="shortcut icon" type="" href="{{ asset('front-assets/images/logo.png') }}">
 
 
     <link rel="stylesheet" href="{{ asset('front-assets/css/bootstrap.min.css') }}">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('front-assets/css/fonts.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <script src="front-assets/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="{{ asset('front-assets/js/vendor/modernizr-2.6.2.min.js') }}"></script>
 
     <!--[if lt IE 9]>
         <script src="js/vendor/html5shiv.min.js"></script>

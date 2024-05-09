@@ -139,7 +139,7 @@ class LawResource extends Resource
         ];
     }
 
-    
+
     public static function getModelLabel(): string
     {
         return "قانون";
@@ -159,6 +159,6 @@ class LawResource extends Resource
     }
     public static function getNavigationBadgeColor(): ?string
     {
-        return static::getModel()::count() > 10 ? 'warning' : 'info';
+        return static::getModel()::count() > 10 ? 'warning' : 'primary';
     }
 }

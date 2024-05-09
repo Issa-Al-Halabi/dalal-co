@@ -31,6 +31,11 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function scopeDoesHaveRole($query)
     {
         return $query->has("roles");

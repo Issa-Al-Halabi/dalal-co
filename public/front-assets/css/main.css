@@ -1059,8 +1059,8 @@ li.media:after {
 
     .table_section .row,
     .table_section [class*=col-] {
-        
-        
+
+
     }
 
     [class*=col-xs]+[class*=col-xs] {
@@ -1592,7 +1592,7 @@ p>[class*=rt-icon]+[class*=rt-icon] {
 
 .theme_buttons.color1 a,
 .theme_button.color1 {
-    background-color: #103e55!important; 
+    background-color: #103e55!important;
 }
 
 .theme_buttons.color2 a,
@@ -2029,7 +2029,7 @@ body.boxed {
     width: auto;
     height: auto
 }
-
+/*
 .pattern1 {
     background-image: url(../img/pattern1.png)
 }
@@ -2072,7 +2072,7 @@ body.boxed {
 
 .pattern11 {
     background-image: url(../img/pattern11.png)
-}
+} */
 
 .boxed .container {
     max-width: 100%;
@@ -3231,8 +3231,8 @@ a.logo.vertical_logo img {
     }
 
     .page_header .toggle_menu {
-        
-       
+
+
     }
 }
 
@@ -3943,7 +3943,7 @@ section .intro_section .slide_description_wrapper {
 
 
 .mainmenu.nav.sf-menu li:hover a {
-    color: #103e55; 
+    color: #103e55;
 }
 
 
@@ -3956,7 +3956,7 @@ section .intro_section .slide_description_wrapper {
     }
 
     .bordered_items .sf-menu>li>a:after {
-       
+
         position: absolute;
         display: block;
         height: 3px;
@@ -3990,7 +3990,7 @@ section .intro_section .slide_description_wrapper {
         background-color: rgba(255, 255, 255, .1)
     }
 
- 
+
 
     .header_white .sf-menu>li+li:before {
         background-color: #e1e1e1
@@ -4096,7 +4096,7 @@ section .intro_section .slide_description_wrapper {
 
 @media(min-width:1200px) {
     .sf-menu>li>a {
-        
+
         padding-right: 28px
     }
 
@@ -4129,7 +4129,7 @@ section .intro_section .slide_description_wrapper {
 .toggle_menu {
     position: absolute;
     top: 5px;
-  
+
     margin-left: -89px;
     display: none;
     width: 113px;
@@ -10877,7 +10877,7 @@ a.soc-pocket.bg-icon:hover,
 #info {
     display: none;
   }
-  
+
   /* Show the information when the checkbox is checked */
   .toggle-input:checked ~ #info {
     display: block;

@@ -22,6 +22,7 @@ Route::group([
     Route::get('/MaidDetail/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
     Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders");
+    Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack");
 
     // contact us
     Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");
