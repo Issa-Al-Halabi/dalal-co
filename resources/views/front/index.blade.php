@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                                                                                                                                                                                                                                                                                                <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                                                                                                                            <![endif]-->
+                                                                                                                                                                                                                                                                                                    <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                                                                                                                <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -104,7 +104,7 @@
                                         <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="font-family: cairo light;    direction: rtl;
-                                                                                                                                                                                                                                                                                                                                                                                                               text-align: right;">
+                                                                                                                                                                                                                                                                                                                                                                                                                   text-align: right;">
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
                                                         <p
@@ -206,7 +206,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/01.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -220,7 +220,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/kbar.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -234,7 +234,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/romm.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -247,7 +247,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/Room SERVICE.1.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/03.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -275,7 +275,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/04.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -289,7 +289,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/05.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -303,7 +303,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/06.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -317,7 +317,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/07.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +331,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/08.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -345,7 +345,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/09.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -359,7 +359,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/10.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -373,7 +373,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/11.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -387,7 +387,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/12.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -412,11 +412,6 @@
                                 </h2>
                             </div>
                         </div>
-                        <!--[if lt IE 9]>
-                                                                                                                                                                                                                                                                                               <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                                                                                                                              <![endif]-->
-
-                        <!-- search modal -->
                         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal"
                             id="search_modal">
                             <div class="widget widget_search">
@@ -516,7 +511,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/01.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -529,7 +524,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/Room SERVICE.1.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -542,7 +537,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/romm.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -555,7 +550,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/kbar.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -569,7 +564,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/03.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -583,7 +578,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/04.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -597,7 +592,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/05.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -611,7 +606,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/06.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -625,7 +620,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/07.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -639,7 +634,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/08.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -653,7 +648,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/09.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -667,7 +662,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/10.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -681,7 +676,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/11.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -695,7 +690,7 @@
                                                         data-gal="prettyPhoto[gal]"
                                                         href="front-assets/images/gallery/12.jpg"></a>
                                                 </div>
-                                                <a class="abs-link" href="gallery-single.html"></a>
+                                                <a class="abs-link"></a>
                                             </div>
                                         </div>
                                     </div>
