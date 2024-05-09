@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Filament\Resources\ContactUsResource;
 use App\Http\Requests\ContactUsRequest;
+use App\Mail\ConfirmationMail;
 use App\Mail\ContactUsMail;
 use App\Mail\OrderMail;
 use App\Models\ContactUs;
@@ -34,7 +35,7 @@ class ContactUsController extends Controller
 
         $contactUs->save();
 
-
+        // send a message for me
         Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactUsMail(
             $request->first_name,
             $request->last_name,
@@ -43,6 +44,9 @@ class ContactUsController extends Controller
             $request->subject,
             $request->message
         ));
+
+        // send a message for the user
+        Mail::to($request->email)->send(new ConfirmationMail());
 
         $name = $request->first_name . " " . $request->last_name;
         Notification::make()
@@ -67,10 +71,10 @@ class ContactUsController extends Controller
             ])
             ->sendToDatabase(User::doesHaveRole()->get());
 
-        return redirect()->back()->with('message', "تم ارسال البيانات بنجاح");
+        return redirect(url("/") . "#contactSection")->with('message', "تم ارسال البيانات بنجاح");
     }
 
-    public function sendMail(ContactUsRequest $request)
+    public function sendOrderMail(ContactUsRequest $request)
     {
         try {
             $user = User::find($request->user_id);
@@ -79,10 +83,14 @@ class ContactUsController extends Controller
             $user_name = $user->name;
             $maid_full_name = $maid->first_name . " " . $maid->last_name;
 
+            // send a message for me
             Mail::to(env('MAIL_FROM_ADDRESS'))->send(new OrderMail(
                 $user_name,
                 $maid_full_name,
             ));
+
+            // send a message for the user
+            Mail::to($user->email)->send(new ConfirmationMail(true));
 
             Notification::make()
                 ->title('طلب خادمة جديد')

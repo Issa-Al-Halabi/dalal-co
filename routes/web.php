@@ -28,7 +28,7 @@ Route::group([
     Route::post('/contact-us', [ContactUsController::class, "submitForm"])->name("contactUs");
 
     // send Mail
-    Route::post('/send-mail', [ContactUsController::class, "sendMail"])->name("sendMail");
+    Route::post('/send-mail', [ContactUsController::class, "sendOrderMail"])->name("sendMail");
 
     // login - signup
     Route::post('/login', [AuthController::class, "login"])->name("login");

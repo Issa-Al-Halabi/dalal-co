@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                            <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                        <![endif]-->
+                                                                                                                                                                                        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                    <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -107,7 +107,7 @@
                                         <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="font-family: cairo light;    direction: rtl;
-                                                                                                                                           text-align: right;">
+                                                                                                                                                                                                                                                                                                       text-align: right;">
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
                                                         <p
@@ -416,8 +416,8 @@
                             </div>
                         </div>
                         <!--[if lt IE 9]>
-                           <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                          <![endif]-->
+                                                                                                                                                                                       <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                      <![endif]-->
 
                         <!-- search modal -->
                         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal"
@@ -806,21 +806,31 @@
                             @csrf
                             <div class="col-sm-6">
                                 <p class="contact-form-name">
-                                    <label for="last_name" class="sr-only">First name<span
+                                    <label for="last_name" class="sr-only">Last name<span
                                             class="required">*</span></label>
                                     <input type="text" aria-required="true" size="30" value=""
                                         name="last_name" id="last_name" class="form-control"
                                         placeholder="الأسم الأخير ">
                                 </p>
+                                <div>
+                                    @error('last_name')
+                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <p class="contact-form-name">
-                                    <label for="first_name" class="sr-only">Last name<span
+                                    <label for="first_name" class="sr-only">First name<span
                                             class="required">*</span></label>
                                     <input type="text" aria-required="true" size="30" value=""
                                         name="first_name" id="first_name" class="form-control"
                                         placeholder="الأسم الأول	 ">
                                 </p>
+                                <div>
+                                    @error('first_name')
+                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="col-sm-12">
                                 <p class="contact-form-email">
@@ -828,6 +838,11 @@
                                     <input type="text" aria-required="true" size="30" value=""
                                         name="email" id="email" class="form-control" placeholder="الأيميل ">
                                 </p>
+                                <div>
+                                    @error('email')
+                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="col-sm-12">
                                 <p class="contact-form-phone">
@@ -836,6 +851,11 @@
                                     <input type="text" aria-required="true" size="30" value=""
                                         name="phone" id="phone" class="form-control" placeholder="رقم الهاتف ">
                                 </p>
+                                <div>
+                                    @error('phone')
+                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="col-sm-12">
                                 <p class="contact-form-subject">
@@ -843,6 +863,11 @@
                                     <input type="text" aria-required="true" size="30" value=""
                                         name="subject" id="subject" class="form-control" placeholder=" موضوع">
                                 </p>
+                                <div>
+                                    @error('subject')
+                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
 
 
@@ -853,6 +878,11 @@
                                     <textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control"
                                         placeholder="رسالة"></textarea>
                                 </p>
+                                <div>
+                                    @error('message')
+                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="col-sm-12">
@@ -867,7 +897,6 @@
                                     </div>
                                 @endif
                             </div>
-
                         </form>
                     </div>
                 </div>
