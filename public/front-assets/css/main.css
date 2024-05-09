@@ -3221,7 +3221,7 @@ a.logo.vertical_logo img {
     }
 }
 
-@media(max-width:599px) {
+@media(max-width:767px) {
     .page_header .row>div.text-right {
         padding: 0
     }
@@ -4191,6 +4191,12 @@ section .intro_section .slide_description_wrapper {
 
 .toggle_menu span:after {
     top: 6px
+}
+
+@media(min-width:767px )and (max-width:991px) {
+    .lang-switcher {
+        margin-left: 40px;
+    }
 }
 
 @media(max-width:991px) {

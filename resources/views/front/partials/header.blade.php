@@ -24,12 +24,12 @@
                         style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
                 </a> -->
                 @if (app()->getLocale() == 'ar')
-                    <a href="{{ route('en') }}" class="syria" style="color:#103f55; text-align: left;">
+                    <a href="{{ route('en') }}" class="syria lang-switcher" style="color:#103f55; text-align: left;">
                         <img src="/front-assets/images/syria.png" alt="Flag"
                             style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> Ar
                     </a>
                 @else
-                    <a href="{{ route('ar') }}" class="" style="color:#103f55; text-align: left;">
+                    <a href="{{ route('ar') }}" class="lang-switcher" style="color:#103f55; text-align: left;">
                         <img src="front-assets/images/bir.png" alt="Flag"
                             style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
                     </a>
