@@ -143,6 +143,6 @@ class ContactUsResource extends Resource
     }
     public static function getNavigationBadgeColor(): ?string
     {
-        return static::getModel()::count() > 10 ? 'warning' : 'info';
+        return static::getModel()::count() > 10 ? 'warning' : 'primary';
     }
 }

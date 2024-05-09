@@ -21,6 +21,7 @@ Route::group([
     Route::get('/Service', [FrontController::class, "services"]);
     Route::get('/Order/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
+    Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack");
 
 
     Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");
@@ -48,4 +49,5 @@ Route::group([
 
         return redirect()->back();
     })->name('en');
+
 });

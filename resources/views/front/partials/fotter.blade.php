@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                 <a href="/" class="logo logo_image">
-                    <img src="front-assets/images/logo.png" style="" alt="">
+                    <img src="{{ asset('front-assets/images/logo.png') }}" style="" alt="">
                 </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -27,43 +27,50 @@
                 <div class="social-block" style="align-items: flex-start;">
                     <div class="col-lg-2 col-sm-3 col-xs-12 text-right">
                         <span class="inline-block social-block">
-                        <a href="#" class="social-icon color-icon border-icon rounded-icon soc-facebook grey-border bi bi-facebook"></a>
-          
-                        <a href="#" class="social-icon color-icon border-icon rounded-icon soc-instagram grey-border bi bi-instagram"></a>
-                        <a href="#" class="social-icon color-icon border-icon rounded-icon soc-youtube grey-border bi bi-youtube"></a>
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon soc-facebook grey-border bi bi-facebook"></a>
+
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon soc-instagram grey-border bi bi-instagram"></a>
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon soc-youtube grey-border bi bi-youtube"></a>
                         </span>
                     </div>
-   <!-- لايقونة الهاتف -->
-<div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-phone grey-border">
-        <i class="fas fa-phone-alt"></i>
-    </a>
-    <a href="tel:0113310150" class="grey-border"> 0113310150 </a>
-</div>
+                    <!-- لايقونة الهاتف -->
+                    <div style="display: flex; align-items: center;">
+                        <a href="#" class="social-icon color-icon border-icon rounded-icon soc-phone grey-border">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                        <a href="tel:0113310150" class="grey-border"> 0113310150 </a>
+                    </div>
 
-<!-- لايقونة الواتساب -->
-<div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-whatsapp grey-border">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://wa.me/963944941007" class="grey-border" style="direction: ltr;"> +963944941007 </a>
-</div>
+                    <!-- لايقونة الواتساب -->
+                    <div style="display: flex; align-items: center;">
+                        <a href="#"
+                            class="social-icon color-icon border-icon rounded-icon soc-whatsapp grey-border">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://wa.me/963944941007" class="grey-border" style="direction: ltr;"> +963944941007
+                        </a>
+                    </div>
 
-<!-- لايقونة البريد الإلكتروني -->
-<div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-email grey-border">
-        <i class="fas fa-envelope"></i>
-    </a>
-    <a href="mailto:info@dalal-co.com" class="grey-border"> info@dalal-co.com </a>
-</div>
+                    <!-- لايقونة البريد الإلكتروني -->
+                    <div style="display: flex; align-items: center;">
+                        <a href="#" class="social-icon color-icon border-icon rounded-icon soc-email grey-border">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="mailto:info@dalal-co.com" class="grey-border"> info@dalal-co.com </a>
+                    </div>
 
-<!-- لايقونة الموقع الإلكتروني -->
-<div style="display: flex; align-items: center;">
-    <a href="#" class="social-icon color-icon border-icon rounded-icon soc-website grey-border">
-        <i class="fas fa-globe"></i>
-    </a>
-    <a href="#" class="grey-border" style="font-family: cairo light;"> دمشق - آبو رمانة، ساحة المطاعم </a>
-</div>
+                    <!-- لايقونة الموقع الإلكتروني -->
+                    <div style="display: flex; align-items: center;">
+                        <a href="#"
+                            class="social-icon color-icon border-icon rounded-icon soc-website grey-border">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <a href="#" class="grey-border" style="font-family: cairo light;"> دمشق - آبو رمانة، ساحة
+                            المطاعم </a>
+                    </div>
 
 
 

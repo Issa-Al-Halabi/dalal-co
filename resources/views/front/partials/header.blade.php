@@ -4,7 +4,7 @@
             <div class="col-md-3 col-xs-3 nowrap">
                 <div class="display_table" style="padding: initial;">
                     <a href="/" class="logo logo_image display_table_cell"style="transform: scale(2);">
-                        <img src="front-assets/images/logo.png" alt="">
+                        <img src="{{ asset('front-assets/images/logo.png') }}" alt="">
                     </a>
                 </div>
             </div>

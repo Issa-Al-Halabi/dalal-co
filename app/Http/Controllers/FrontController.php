@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\StatusResource;
 use App\Models\Law;
 use App\Models\Maid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
+use App\Models\Status;
+use App\Models\User;
+use Carbon\Carbon;
 
 class FrontController extends Controller
 {
@@ -12,18 +18,36 @@ class FrontController extends Controller
     {
         return view("front.index");
     }
+
     public function services()
     {
         $maids = Maid::doesntHave("order")->get();
         return view("front.Service", compact("maids"));
     }
+
     public function maidInfo(Maid $maid)
     {
         return view("front.Order", compact("maid"));
     }
+
     public function laws()
     {
         $laws = Law::all();
         return view("front.Laws", compact("laws"));
+    }
+
+    public function OrderTracking(Request $request)
+    {
+        $user = User::with(['orders', 'orders.statuses'])->find(Auth::id());
+
+        if (!$user) {
+            abort(403);
+        }
+
+        $order = Order::findOrFail($request->id);
+
+        $data['statuses'] = json_decode($this->resource(Status::where("order_type", $order->type)->get(), StatusResource::class)->toJson());
+
+        return view('front.OrderTracking', $data);
     }
 }
