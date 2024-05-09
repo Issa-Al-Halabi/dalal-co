@@ -19,13 +19,14 @@ Route::group([
     Route::view('/login', 'front.login');
     Route::view('/signup', 'front.signup');
     Route::get('/Service', [FrontController::class, "services"]);
-    Route::get('/Order/{maid}', [FrontController::class, "maidInfo"])->name("Order");
+    Route::get('/MaidDetail/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
+    Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders");
 
     // contact us
     Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");
     Route::post('/contact-us', [ContactUsController::class, "submitForm"])->name("contactUs");
-    
+
     // send Mail
     Route::post('/send-mail', [ContactUsController::class, "sendMail"])->name("sendMail");
 
