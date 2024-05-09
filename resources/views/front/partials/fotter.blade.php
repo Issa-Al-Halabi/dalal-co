@@ -78,9 +78,14 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="padding-right: 14px;">
                 <div class="text-center">
-                    <a href="/login" class="theme_button muted_button">تسجيل الدخول </a>
+                        @if (!Auth::check())
+                    <a href="{{ route('login') }}" class="theme_button muted_button">تسجيل الدخول </a>
+                @else
+                    <a href="{{ route('logout') }}" class="theme_button muted_button">تسجيل الخروج </a>
+                @endif
                 </div>
             </div>
+
         </div>
         <div class="row">
             <div class="col-xs-12 text-center" style="    padding-top: 26px;">

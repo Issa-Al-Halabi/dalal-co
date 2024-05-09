@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\StatusResource;
 use App\Models\Law;
 use App\Models\Maid;
-use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
