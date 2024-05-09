@@ -80,6 +80,9 @@ class MaidResource extends Resource
                         ->disk('public')
                         ->imageEditor()
                         ->downloadable()
+                        ->imageResizeMode('cover')
+                        ->imageResizeTargetWidth('450')
+                        ->imageResizeTargetHeight('450')
                         ->columnSpanFull(),
 
                     Forms\Components\FileUpload::make('video')
@@ -104,6 +107,8 @@ class MaidResource extends Resource
                 Tables\Columns\ImageColumn::make('image')
                     ->label("الصورة")
                     ->disk('public')
+                    ->width("50px")
+                    ->height("50px")
                     ->visibility('private'),
 
                 Tables\Columns\TextColumn::make('first_name')

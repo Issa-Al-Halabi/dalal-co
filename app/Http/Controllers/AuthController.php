@@ -24,7 +24,7 @@ class AuthController extends Controller
 
     public function signup(AuthRequest $request)
     {
-        User::create([
+        $user = User::create([
             'name' =>  $request->name,
             "password" =>  $request->password,
             'email' =>  $request->email,

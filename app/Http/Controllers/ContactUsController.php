@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Filament\Resources\ContactUsResource;
 use App\Http\Requests\ContactUsRequest;
+use App\Mail\ConfirmationMail;
 use App\Mail\ContactUsMail;
+use App\Mail\OrderMail;
 use App\Models\ContactUs;
+use App\Models\Maid;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Filament\Notifications\Notification;
+use Filament\Notifications\Actions\Action;
 
 class ContactUsController extends Controller
 {
@@ -28,7 +35,8 @@ class ContactUsController extends Controller
 
         $contactUs->save();
 
-        Mail::to($request->email)->send(new ContactUsMail(
+        // send a message for me
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactUsMail(
             $request->first_name,
             $request->last_name,
             $request->email,
@@ -37,6 +45,77 @@ class ContactUsController extends Controller
             $request->message
         ));
 
-        return redirect()->back()->with('message', "تم ارسال البيانات بنجاح");
+        // send a message for the user
+        Mail::to($request->email)->send(new ConfirmationMail());
+
+        $name = $request->first_name . " " . $request->last_name;
+        Notification::make()
+            ->title('التواصل بنا')
+            ->success()
+            ->body(' تم التواصل معك من قبل ' . $name)
+            ->actions([
+                Action::make('seeIt')
+                    ->button()
+                    ->url(ContactUsResource::getUrl('index'))
+                    ->color('success')
+                    ->close(),
+
+                Action::make('markAsRead')
+                    ->button()
+                    ->markAsRead(),
+
+                Action::make('remove')
+                    ->button()
+                    ->color('danger')
+                    ->close(),
+            ])
+            ->sendToDatabase(User::doesHaveRole()->get());
+
+        return redirect(url("/") . "#contactSection")->with('message', "تم ارسال البيانات بنجاح");
+    }
+
+    public function sendOrderMail(ContactUsRequest $request)
+    {
+        try {
+            $user = User::find($request->user_id);
+            $maid = Maid::find($request->maid_id);
+
+            $user_name = $user->name;
+            $maid_full_name = $maid->first_name . " " . $maid->last_name;
+
+            // send a message for me
+            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new OrderMail(
+                $user_name,
+                $maid_full_name,
+            ));
+
+            // send a message for the user
+            Mail::to($user->email)->send(new ConfirmationMail(true));
+
+            Notification::make()
+                ->title('طلب خادمة جديد')
+                ->success()
+                ->body($maid_full_name . ' تم طلبها من قبل ' . $user_name)
+                ->actions([
+                    Action::make('markAsRead')
+                        ->button()
+                        ->markAsRead(),
+                    Action::make('remove')
+                        ->button()
+                        ->color('danger')
+                        ->close(),
+                ])
+                ->sendToDatabase(User::doesHaveRole()->get());
+
+            return response()->json([
+                "status" => "success",
+                "message" => "تم ارسال طلبك بنجاح",
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                "status" => "failed",
+                "message" => "لم يتم ارسال الطلب",
+            ]);
+        }
     }
 }

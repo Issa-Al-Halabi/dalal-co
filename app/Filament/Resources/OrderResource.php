@@ -146,9 +146,10 @@ class OrderResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('maid.full_name')
+                Tables\Columns\TextColumn::make('maid.first_name')
                     ->label("اسم الخادمة")
-                    ->sortable(),
+                    ->sortable()
+                    ->state(fn (Order $record) => $record->maid->first_name . " " . $record->maid->first_name),
 
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
@@ -157,7 +158,7 @@ class OrderResource extends Resource
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (Order $record) =>(new OrderStatusService)->getOrderStatusLabelColor($record))
+                    ->color(fn (Order $record) => (new OrderStatusService)->getOrderStatusLabelColor($record))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('type')

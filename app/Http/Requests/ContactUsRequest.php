@@ -26,6 +26,7 @@ class ContactUsRequest extends FormRequest
 
         return match ($this->route()->getActionMethod()) {
             'submitForm'   =>  $this->getsubmitFormRule(),
+            'sendOrderMail'   =>  $this->getSendMailRule(),
         };
     }
 
@@ -41,15 +42,12 @@ class ContactUsRequest extends FormRequest
         ];
     }
 
-    protected function failedValidation(Validator $validator)
-    {
-        $response = [
-            'status' => 'failure',
-            'status_code' => 400,
-            'message' => 'Bad Request',
-            'errors' => $validator->errors()->first(),
-        ];
 
-        throw new HttpResponseException(response()->json($response, 400));
+    public function getSendMailRule()
+    {
+        return [
+            'user_id' => 'required|exists:users,id',
+            'maid_id' => 'required|exists:maids,id',
+        ];
     }
 }

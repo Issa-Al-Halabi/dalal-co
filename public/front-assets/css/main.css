@@ -3113,7 +3113,7 @@ a.logo.vertical_logo img {
 @media(min-width:1200px) {
     .mainmenu_wrapper {
         margin-top: 4px;
-        margin-left: 155px
+        margin-left: 120px
     }
 }
 
@@ -3221,7 +3221,7 @@ a.logo.vertical_logo img {
     }
 }
 
-@media(max-width:599px) {
+@media(max-width:767px) {
     .page_header .row>div.text-right {
         padding: 0
     }
@@ -4064,7 +4064,7 @@ section .intro_section .slide_description_wrapper {
 
 @media(min-width:992px) and (max-width:1199px) {
     .sf-menu>li>a {
-        padding-left: 23px;
+        padding-left: 10px;
         padding-right: 24px
     }
 
@@ -4191,6 +4191,12 @@ section .intro_section .slide_description_wrapper {
 
 .toggle_menu span:after {
     top: 6px
+}
+
+@media(min-width:767px )and (max-width:991px) {
+    .lang-switcher {
+        margin-left: 40px;
+    }
 }
 
 @media(max-width:991px) {

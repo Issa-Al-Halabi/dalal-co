@@ -12,8 +12,13 @@
         <li>
             <a style="font-size: 14px;" href="/Laws"> الأنظمة والقوانين</a>
         </li>
+        @auth('web')
+            <li>
+                <a style="font-size: 14px;" href="{{ route('Orders') }}"> تتبع طلباتي</a>
+            </li>
+        @endauth
         <li>
-            <a style="font-size: 14px;" href="{{url('/')}}#contactSection">الاتصال بنا</a>
+            <a style="font-size: 14px;" href="{{ url('/') }}#contactSection">الاتصال بنا</a>
         </li>
 
     </ul>

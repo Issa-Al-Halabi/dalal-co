@@ -19,13 +19,17 @@ Route::group([
     Route::view('/login', 'front.login');
     Route::view('/signup', 'front.signup');
     Route::get('/Service', [FrontController::class, "services"]);
-    Route::get('/Order/{maid}', [FrontController::class, "maidInfo"])->name("Order");
+    Route::get('/MaidDetail/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
+    Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders");
     Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack");
 
-
+    // contact us
     Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");
     Route::post('/contact-us', [ContactUsController::class, "submitForm"])->name("contactUs");
+
+    // send Mail
+    Route::post('/send-mail', [ContactUsController::class, "sendOrderMail"])->name("sendMail");
 
     // login - signup
     Route::post('/login', [AuthController::class, "login"])->name("login");
@@ -33,7 +37,7 @@ Route::group([
     Route::get('/logout', [AuthController::class, "logout"])->name("logout");
 
     // For Translating To Arabic
-    Route::get('/ar', function (Request $request) {
+    Route::get('/ar', function () {
 
         Session::put("locale", "ar");
         App::setLocale("ar");
@@ -49,5 +53,4 @@ Route::group([
 
         return redirect()->back();
     })->name('en');
-
 });
