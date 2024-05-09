@@ -101,6 +101,11 @@
             font-size: 18px;
             font-weight: bold;
         }
+
+        .extra-services {
+            direction: rtl;
+            padding-right: 50px;
+        }
     </style>
     <section>
         {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
@@ -145,8 +150,19 @@
                     <p>أنقر على أي مرحلة منجزة لرؤية التفاصيل</p>
                 </div>
             </div>
-
         </div>
+
+        @if (isset($order->book_ticket) || isset($order->deliver_service))
+            <div class="extra-services">
+                <h2>خدمات إضافية مأجورة</h2>
+                @if (isset($order->book_ticket))
+                    <p> حجز تذكرة سفر , قيمة التذكرة الخاصة بالعاملة هي {{ $order->book_ticket }} ل.س</p>
+                @endif
+                @if (isset($order->deliver_service))
+                    <p> خدمة التوصيل إلى مطار دمشق الدولي هي {{ $order->deliver_service }} ل.س</p>
+                @endif
+            </div>
+        @endif
 
         <script>
             let text = document.querySelector('#statusText p');

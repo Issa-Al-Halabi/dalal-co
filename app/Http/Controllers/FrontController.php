@@ -51,9 +51,9 @@ class FrontController extends Controller
             abort(403);
         }
 
-        $order = Order::findOrFail($request->id);
+        $data['order'] = Order::findOrFail($request->id);
 
-        $data['statuses'] = json_decode($this->resource(Status::where("order_type", $order->type)->get(), StatusResource::class)->toJson());
+        $data['statuses'] = json_decode($this->resource(Status::where("order_type",  $data['order']->type)->get(), StatusResource::class)->toJson());
 
         return view('front.OrderTracking', $data);
     }

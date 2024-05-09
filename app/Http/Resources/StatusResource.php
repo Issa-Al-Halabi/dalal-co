@@ -53,6 +53,9 @@ class StatusResource extends JsonResource
     public function getOrderStatus($status)
     {
         $order = Order::with("statuses")->find(request()->id);
+        if (!$order->status_id) {
+            return "not-completed";
+        }
         $next_id = Status::where('id', '>', $order->status_id)->min('id');
         if ($status->id == $next_id) {
             return "working";
