@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Filament\Resources\ContactUsResource;
+use App\Filament\Resources\OrderResource;
 use App\Http\Requests\ContactUsRequest;
 use App\Mail\ConfirmationMail;
 use App\Mail\ContactUsMail;
@@ -97,6 +98,11 @@ class ContactUsController extends Controller
                 ->success()
                 ->body($maid_full_name . ' تم طلبها من قبل ' . $user_name)
                 ->actions([
+                    Action::make('makeOrder')
+                        ->button()
+                        ->url(OrderResource::getUrl('create'))
+                        ->color('success')
+                        ->close(),
                     Action::make('markAsRead')
                         ->button()
                         ->markAsRead(),
