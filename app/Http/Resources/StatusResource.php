@@ -37,7 +37,7 @@ class StatusResource extends JsonResource
             return  $status->description;
         }
         $specifications = $order_status->specifications;
-        $maid_name = Order::find( request()->id)->maid->fullName;
+        $maid_name = Order::find(request()->id)->maid->fullName;
         $status->description = str_replace("(name)", $maid_name, $status->description);
 
         if (isset($specifications["input1"])) {
@@ -53,6 +53,9 @@ class StatusResource extends JsonResource
     public function getOrderStatus($status)
     {
         $order = Order::with("statuses")->find(request()->id);
+        if (!$order->status_id) {
+            return "not-completed";
+        }
         $next_id = Status::where('id', '>', $order->status_id)->min('id');
         if ($status->id == $next_id) {
             return "working";
