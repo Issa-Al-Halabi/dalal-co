@@ -26,6 +26,7 @@ class ContactUsRequest extends FormRequest
 
         return match ($this->route()->getActionMethod()) {
             'submitForm'   =>  $this->getsubmitFormRule(),
+            'sendMail'   =>  $this->getSendMailRule(),
         };
     }
 
@@ -38,6 +39,15 @@ class ContactUsRequest extends FormRequest
             'phone' => 'required|numeric|digits_between:3,14',
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
+        ];
+    }
+
+
+    public function getSendMailRule()
+    {
+        return [
+            'user_id' => 'required|exists:users,id',
+            'maid_id' => 'required|exists:maids,id',
         ];
     }
 

@@ -115,6 +115,64 @@
         </div>
     </section>
 
+    {{-- to order --}}
+    @if (Auth::check())
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            let title = 'تأكيد';
+            let text = 'هل انت متاكد بانك تريد اتمام العملية؟؟';
+            let icon = 'warning';
+            let confirmButtonText = 'متاكد';
+            let action = () => {
+                axios({
+                    method: 'post',
+                    url: '/send-mail',
+                    data: {
+                        user_id: {{ auth()->user()->id }},
+                        maid_id: {{ $maid->id }}
+                    }
+                }).then((response) => {
+                    let data = response.data;
+                    console.log(data);
+                    if (data["status"] == "success") {
+                        Swal.fire({
+                            title: "تم اتمام الطلب",
+                            text: data["message"],
+                            icon: "success",
+                            confirmButtonText: "الرجوع",
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "حدث خطأ ما",
+                            text: data["message"],
+                            icon: "error",
+                            confirmButtonText: "الرجوع",
+                        });
+                    }
+                }, (error) => {
+                    // console.log(error);
+                    Swal.fire({
+                        title: "حدث خطأ ما",
+                        text: "حدث خطأ ما يرجى التاكد من اتصالك بالانترنت",
+                        icon: "error",
+                        confirmButtonText: "الرجوع",
+                    });
+                    // Swal.close()
+                });
+            };
+        </script>
+    @else
+        <script>
+            let title = 'لا يمكن اتمام الطلب';
+            let text = 'يرجى تسجيل الدخول لتتمكن من الطلب';
+            let icon = 'error';
+            let confirmButtonText = 'تسجيل الدخول';
+            let action = () => {
+                window.location.href = "/login";
+            };
+        </script>
+    @endif
+
     <!-- تضمين مكتبة SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -123,10 +181,21 @@
         function displaySweetAlert() {
             // Show SweetAlert with a message
             Swal.fire({
-                title: 'تم الطلب!',
-                text: 'شكرًا لك على طلبك. سنتصل بك قريبًا.',
-                icon: 'success',
-                confirmButtonText: 'حسنًا'
+                title: title,
+                text: text,
+                icon: icon,
+                confirmButtonText: confirmButtonText,
+                didOpen: () => {
+                    // console.log("open");
+                },
+            }).then((result) => {
+                console.log(result);
+                if (result.isConfirmed) {
+                    action();
+                    // console.log("Confirmed");
+                } else {
+                    // console.log("close");
+                }
             });
         }
 

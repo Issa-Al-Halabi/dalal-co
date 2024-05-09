@@ -22,9 +22,12 @@ Route::group([
     Route::get('/Order/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
 
-
+    // contact us
     Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");
     Route::post('/contact-us', [ContactUsController::class, "submitForm"])->name("contactUs");
+    
+    // send Mail
+    Route::post('/send-mail', [ContactUsController::class, "sendMail"])->name("sendMail");
 
     // login - signup
     Route::post('/login', [AuthController::class, "login"])->name("login");
@@ -32,7 +35,7 @@ Route::group([
     Route::get('/logout', [AuthController::class, "logout"])->name("logout");
 
     // For Translating To Arabic
-    Route::get('/ar', function (Request $request) {
+    Route::get('/ar', function () {
 
         Session::put("locale", "ar");
         App::setLocale("ar");
