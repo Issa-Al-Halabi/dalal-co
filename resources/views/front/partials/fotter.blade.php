@@ -25,10 +25,10 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="social-block" style="align-items: flex-start;">
-                    <div class="col-lg-2 col-sm-3 col-xs-12 text-right">
+                    <div class="col-lg-2 col-sm-3 col-xs-12 text-right" style="padding-bottom: 17px;">
                         <span class="inline-block social-block">
                             <a href="#"
-                                class="social-icon color-icon border-icon rounded-icon soc-facebook grey-border bi bi-facebook"></a>
+                                class="social-icon color-icon border-icon rounded-icon soc-facebook grey-border bi bi-facebook" style="margin: 0;"></a>
 
                             <a href="#"
                                 class="social-icon color-icon border-icon rounded-icon soc-instagram grey-border bi bi-instagram"></a>
@@ -88,8 +88,8 @@
 
         </div>
         <div class="row">
-            <div class="col-xs-12 text-center" style="    padding-top: 26px;">
-                <span class="small-text">Dalal Co- شركة استقدام خادمات ©2024 </span>
+            <div class="col-xs-12 text-center fontCairo" style="padding-top: 26px;">
+                <span class="small-text">Dalal Co - شركة استقدام خادمات ©2024 </span>
             </div>
         </div>
     </div>

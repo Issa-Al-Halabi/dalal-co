@@ -10,7 +10,7 @@
             <a style="font-size: 14px;" href="/Service">الخدمات</a>
         </li>
         <li>
-            <a style="font-size: 14px;" href="/Laws"> الأنظمة والقوانين</a>
+            <a style="font-size: 14px;" href="/Laws"> الأنظمة و القوانين</a>
         </li>
         @auth('web')
             <li>

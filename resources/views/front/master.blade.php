@@ -4,7 +4,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-<!-- Mirrored from html.modernwebtemplates.com/ecoclean/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Apr 2024 09:24:21 GMT -->
 @include('front.partials.head')
 <body>
 <div class="preloader">
@@ -47,5 +46,4 @@
 
     </body>
 
-<!-- Mirrored from html.modernwebtemplates.com/ecoclean/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Apr 2024 09:24:42 GMT -->
 </html>

@@ -1,6 +1,12 @@
 @charset "UTF-8";
-@import "https://fonts.googleapis.com/css?family=Yantramanav:300,500,700";
-@import "https://fonts.googleapis.com/css?family=Roboto:300";
+/* @import "https://fonts.googleapis.com/css?family=Yantramanav:300,500,700";
+@import "https://fonts.googleapis.com/css?family=Roboto:300"; */
+
+.fontCairo {
+    font-family: "Cairo", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
 
 .modal-backdrop.in {
     filter: alpha(opacity=80);
@@ -399,7 +405,7 @@ input[type=radio]:focus {
     line-height: 28px;
     display: block;
     padding: 11px 65px 11px 40px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Cairo", sans-serif;
     color: #fff;
     background-color: #ffd800;
     border: none;
@@ -1120,7 +1126,7 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Cairo", sans-serif;
     font-size: 15px;
     font-weight: 400;
     line-height: 23px;
@@ -1135,7 +1141,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: yantramanav, sans-serif;
+    font-family: "Cairo", sans-serif;
     font-weight: 300;
     letter-spacing: -.05em;
     line-height: 1;
@@ -1682,7 +1688,7 @@ p>[class*=rt-icon]+[class*=rt-icon] {
 }
 
 .social-block a.social-icon {
-    margin: 2px 4px
+    margin: 2px 8px
 }
 
 .social-block a.social-icon+a.social-icon {
@@ -3113,7 +3119,6 @@ a.logo.vertical_logo img {
 @media(min-width:1200px) {
     .mainmenu_wrapper {
         margin-top: 4px;
-        margin-left: 120px
     }
 }
 
@@ -3364,7 +3369,7 @@ a.logo.vertical_logo img {
 
 @media(min-width:1200px) {
     .teasers-table .teaser {
-        padding: 0 35px !important
+        padding: 0 10px !important
     }
 }
 
@@ -6625,7 +6630,7 @@ aside .widget_tag_cloud a:hover {
 }
 
 .quote-item .quote-body p {
-    max-width: 240px;
+    max-width: 290px;
     margin: auto
 }
 
@@ -6749,7 +6754,7 @@ aside .widget_tag_cloud a:hover {
 }
 
 .contact-form .contact-form-submit {
-    margin-bottom: 0
+    margin-bottom: 30px;
 }
 
 .contact-form-respond {
@@ -7527,7 +7532,7 @@ aside .widget_tag_cloud a:hover {
 }
 
 .yantramanav {
-    font-family: yantramanav, sans-serif
+    font-family: "Cairo", sans-serif
 }
 
 .columns_padding_0 [class*=col-] {
