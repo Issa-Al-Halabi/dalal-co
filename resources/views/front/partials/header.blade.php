@@ -26,7 +26,7 @@
                 @if (app()->getLocale() == 'ar')
                     <a href="{{ route('en') }}" class="syria lang-switcher" style="color:#103f55; text-align: left;">
                         <img src="/front-assets/images/syria.png" alt="Flag"
-                            style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> Ar
+                            style="margin-right: 5px; width: 20px; height: 20px;text-align: left;"> En
                     </a>
                 @else
                     <a href="{{ route('ar') }}" class="lang-switcher" style="color:#103f55; text-align: left;">

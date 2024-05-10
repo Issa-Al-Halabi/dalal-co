@@ -12,7 +12,7 @@
                             <h5 class="card-title"style="color: #103e55;">{{ $maid->first_name }} {{ $maid->last_name }}
                             </h5>
                             {{-- <p class="card-text">{{ $maid->description }}</p> --}}
-                            <a href="{{ route('Order', $maid) }}" class="theme_button muted_button">أطلب</a>
+                            <a href="{{ route('Order', $maid) }}" class="theme_button muted_button">التفاصيل</a>
                         </div>
                     </div>
                 </div>

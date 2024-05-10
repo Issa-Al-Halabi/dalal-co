@@ -59,14 +59,22 @@
                                 </li>
                                 <li>الجنسية: {{ $maid->nationality }}</li>
                                 <li>العمر: {{ $maid->age }}</li>
-                                <li>الدول التي عملت بها: {{ implode(' , ', $maid->countries) }}</li>
-                                <li>اللغات: {{ implode(' , ', $maid->languages) }}</li>
-                                <li>الخبرات: {{ $maid->experiences }}</li>
+                                <li>الدول التي عملت بها: </li>
+                                <li>اللغات: </li>
+                                <li>الخبرات: </li>
                                 <li>معلومات اخرى: {!! $maid->description !!}</li>
                             </ul>
                             </p>
-                            <!-- زر الطلب -->
-                            <a href="#" id="orderButton" class="theme_button muted_button">أطلب الان</a>
+                            <?php if($maid->id % 2 == 0) {
+                                ?>
+                                <!-- زر الطلب -->
+                                <a href="#" id="orderButton" class="theme_button muted_button">أطلب الان</a>
+                                <?php
+                            } else {
+                                ?>
+                                <a href="#!" id="orderButton2" class="theme_button muted_button" style="background-color: #212121;"  data-toggle="tooltip" data-placement="top" title="الخادمة لم تعد متوفرة">أطلب الان</a>
+                                <?php
+                            } ?>
                         </div>
                     </div><!-- eof .tab-content -->
                 </div>

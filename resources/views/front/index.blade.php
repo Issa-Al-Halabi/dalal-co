@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <p class="small-text margin_0 grey  text-center" >لديك سؤال؟
+                                        <p class="small-text margin_0 grey  text-center"  style="padding-bottom: 5px">لديك سؤال؟
                                             اتصل بنا </p>
                                         <h5 class="margin_0 fontsize_16 yantramanav numberClass  text-center"><strong>+963944941007</strong></h5>
                                     </div>
@@ -158,7 +158,7 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <p class="small-text margin_0 grey text-center">نحن نعمل من السبت إلى
+                                        <p class="small-text margin_0 grey text-center" style="padding-bottom: 5px">نحن نعمل من السبت إلى
                                             للخميس</p>
                                         <h5 class="margin_0 fontsize_16 yantramanav text-center"><strong>10:00
                                                 AM - 7:00 PM</strong></h5>
@@ -172,9 +172,9 @@
                                         </div>
                                     </div>
                                     <div class="media-body" style="overflow: unset;">
-                                        <p class="small-text margin_0 grey text-center">بحاجة الى جليسة أطفال!
+                                        <p class="small-text margin_0 grey text-center" style="padding-bottom: 5px">بحاجة الى جليسة أطفال!
                                             تفضل بزيارتنا الان</p>
-                                        <h5 class="margin_0 yantramanav fontsize_16 "><strong
+                                        <h5 class="margin_0 yantramanav fontsize_16 "  style="padding-bottom: 3px"><strong
                                                 style="display:flex; justify-content: center;"> ابو رمانة - ساحة
                                                 المطاعم</strong></h5>
 
