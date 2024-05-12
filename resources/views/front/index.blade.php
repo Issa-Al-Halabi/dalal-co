@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <![endif]-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -98,7 +98,7 @@
                                         <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="    direction: rtl;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               text-align: right;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   text-align: right;">
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
                                                         <p class="small-text light margin_0">
@@ -141,7 +141,9 @@
                                             سؤال؟
                                             اتصل بنا </p>
                                         <h5 class="margin_0 fontsize_16 yantramanav numberClass  text-center">
-                                            <strong>+963944941007</strong>
+                                            <a href="tel:+963944941007">
+                                                <strong>+963944941007</strong>
+                                            </a>
                                         </h5>
                                     </div>
                                 </div>

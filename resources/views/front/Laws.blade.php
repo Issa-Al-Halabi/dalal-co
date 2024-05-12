@@ -18,6 +18,8 @@
                     <div class="card text-center">
                         <div class="card-body  text-center">
                             <h5 class="card-title" style="color: #103e55;">{{ $law->name }}</h5>
+                            <p>{{ strip_tags(substr($law->content, 0, 60)) }}...
+                            </p>
                             <a href="{{ route('lawDetail', $law->id) }}" class="theme_button muted_button">عرض</a>
                         </div>
                     </div>
