@@ -1064,10 +1064,7 @@ li.media:after {
 @media screen and (max-width:767px) {
 
     .table_section .row,
-    .table_section [class*=col-] {
-
-
-    }
+    .table_section [class*=col-] {}
 
     [class*=col-xs]+[class*=col-xs] {
         margin-top: 0 !important
@@ -1598,7 +1595,7 @@ p>[class*=rt-icon]+[class*=rt-icon] {
 
 .theme_buttons.color1 a,
 .theme_button.color1 {
-    background-color: #103e55!important;
+    background-color: #103e55 !important;
 }
 
 .theme_buttons.color2 a,
@@ -1689,6 +1686,43 @@ p>[class*=rt-icon]+[class*=rt-icon] {
 
 .social-block a.social-icon {
     margin: 2px 8px
+}
+
+.social-block a.social-icon.facebook {
+    background-color: #1877F2;
+    color: white;
+    border-radius: 50%;
+}
+
+.social-block a.social-icon.facebook:hover {
+    background-color: white;
+    color: #1877F2 !important;
+}
+
+.social-block a.social-icon.instagram {
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+    color: white;
+    border-radius: 50%;
+}
+
+.social-block a.social-icon.instagram:hover {
+    color: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%) !important;
+    background: none;   
+    background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: white;
+}
+
+.social-block a.social-icon.youtube {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+}
+
+.social-block a.social-icon.youtube:hover {
+    background-color: white;
+    color: red !important;
 }
 
 .social-block a.social-icon+a.social-icon {
@@ -2035,6 +2069,7 @@ body.boxed {
     width: auto;
     height: auto
 }
+
 /*
 .pattern1 {
     background-image: url(../img/pattern1.png)
@@ -2891,7 +2926,7 @@ body.boxed {
 
 .cs .theme_buttons a.color1:hover,
 .cs .theme_button.color1:hover {
-    background-color: #02a992!important;
+    background-color: #02a992 !important;
     color: #fff !important
 }
 
@@ -3235,10 +3270,7 @@ a.logo.vertical_logo img {
         display: none
     }
 
-    .page_header .toggle_menu {
-
-
-    }
+    .page_header .toggle_menu {}
 }
 
 .modal-open .page_header_wrapper,
@@ -3947,9 +3979,9 @@ section .intro_section .slide_description_wrapper {
 
 
 
-.mainmenu.nav.sf-menu li:hover a {
-    color: #103e55;
-}
+    .mainmenu.nav.sf-menu li:hover a {
+        color: #103e55;
+    }
 
 
     .bordered_items .sf-menu {
@@ -4198,7 +4230,7 @@ section .intro_section .slide_description_wrapper {
     top: 6px
 }
 
-@media(min-width:767px )and (max-width:991px) {
+@media(min-width:767px)and (max-width:991px) {
     .lang-switcher {
         margin-left: 40px;
     }
@@ -10879,17 +10911,20 @@ a.soc-pocket.bg-icon:hover,
 .checkbox-slider--b-flat input+span:before {
     box-shadow: none
 }
+
 #info {
     display: none;
-  }
+}
 
-  /* Show the information when the checkbox is checked */
-  .toggle-input:checked ~ #info {
+/* Show the information when the checkbox is checked */
+.toggle-input:checked~#info {
     display: block;
-  }
-  @media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 767px) {
+
     /* قم بتحديد تنسيق العناصر عندما يكون عرض الشاشة أقل من 767 بيكسل */
-    .footer .container .row > div {
+    .footer .container .row>div {
         display: flex;
         flex-direction: column;
     }
