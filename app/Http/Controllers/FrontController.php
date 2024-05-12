@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\PaginationHelper;
 use App\Http\Resources\StatusResource;
 use App\Models\Law;
 use App\Models\Maid;
@@ -21,7 +22,9 @@ class FrontController extends Controller
 
     public function services()
     {
-        $maids = Maid::doesntHave("order")->get();
+        $maids = Maid::all()->load('order')->sortBy('order.maid_id');
+        $maids = PaginationHelper::paginate($maids, 10, request()->page, ['path' => request()->url()]);
+
         return view("front.Service", compact("maids"));
     }
 
