@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                                                                                                                                                                                                                                                                                                    <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                                                                                                                                <![endif]-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -42,18 +42,17 @@
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
                                                         <p class="small-text light margin_0">أهلا بك في موقعنا</p>
-                                                        <h1 class="highlight"
-                                                            style="font-size: 39px;">
+                                                        <h1 class="highlight" style="font-size: 39px;">
                                                             شركة الاستقدام الأفضل<br>
-                                                            <h1
-                                                                style="color: #103e55; font-size: 39px;">
+                                                            <h1 style="color: #103e55; font-size: 39px;">
                                                                 في سورية</h1>
                                                         </h1>
                                                     </div>
                                                     <div class="intro-layer" data-animation="slideExpandUp">
-                                                        <p class="light" style="font-size: 16px; ">كادر محترف و مدرّب للرد على استفساراتكم على مدار اليوم.</p>
-                                                        <a href="/Order" class="theme_button color1 topmargin_15"
-                                                            >الخدمات</a>
+                                                        <p class="light" style="font-size: 16px; ">كادر محترف و مدرّب للرد
+                                                            على استفساراتكم على مدار اليوم.</p>
+                                                        <a href="/Order"
+                                                            class="theme_button color1 topmargin_15">الخدمات</a>
                                                     </div>
                                                 </div> <!-- eof .slide_description -->
                                             </div> <!-- eof .slide_description_wrapper -->
@@ -66,19 +65,15 @@
                                 <img src="front-assets/images/slide01.jpg" alt="">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-sm-12" >
+                                        <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="    direction: rtl;text-align: right;">
                                                 <div class="slide_description">
-                                                    <div class="intro-layer" data-animation="slideExpandUp"
-                                                        >
-                                                        <p class="small-text light margin_0"
-                                                            >أهلا بك في موقعنا</p>
-                                                        <h1 class="highlight"
-                                                            style="font-size: 39px;">
+                                                    <div class="intro-layer" data-animation="slideExpandUp">
+                                                        <p class="small-text light margin_0">أهلا بك في موقعنا</p>
+                                                        <h1 class="highlight" style="font-size: 39px;">
                                                             شركة الاستقدام الأفضل <br>
-                                                            <h1
-                                                                style="color: #103e55; font-size: 39px;">
+                                                            <h1 style="color: #103e55; font-size: 39px;">
                                                                 في سورية</h1>
                                                         </h1>
                                                     </div>
@@ -103,17 +98,14 @@
                                         <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="    direction: rtl;
-                                                                                                                                                                                                                                                                                                                                                                                                                   text-align: right;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               text-align: right;">
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
-                                                        <p
-                                                            class="small-text light margin_0">
+                                                        <p class="small-text light margin_0">
                                                             أهلا بك في موقعنا </p>
-                                                        <h1 class="highlight"
-                                                            style="font-size: 39px;">
+                                                        <h1 class="highlight" style="font-size: 39px;">
                                                             شركة الاستقدام الأفضل
-                                                            <h1
-                                                                style="color: #103e55; font-size: 39px;">
+                                                            <h1 style="color: #103e55; font-size: 39px;">
                                                                 في سورية</h1>
                                                         </h1>
 
@@ -140,14 +132,17 @@
                         <div class="row">
                             <div class="col-md-4 center_bg phone-teaser">
                                 <div class="teaser media">
-                                    <div class="media-left" >
+                                    <div class="media-left">
                                         <div class="fab fa-whatsapp" style="color: white;     FONT-SIZE: 34px;">
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <p class="small-text margin_0 grey  text-center"  style="padding-bottom: 5px">لديك سؤال؟
+                                        <p class="small-text margin_0 grey  text-center" style="padding-bottom: 5px">لديك
+                                            سؤال؟
                                             اتصل بنا </p>
-                                        <h5 class="margin_0 fontsize_16 yantramanav numberClass  text-center"><strong>+963944941007</strong></h5>
+                                        <h5 class="margin_0 fontsize_16 yantramanav numberClass  text-center">
+                                            <strong>+963944941007</strong>
+                                        </h5>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +153,8 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <p class="small-text margin_0 grey text-center" style="padding-bottom: 5px">نحن نعمل من السبت إلى
+                                        <p class="small-text margin_0 grey text-center" style="padding-bottom: 5px">نحن
+                                            نعمل من السبت إلى
                                             للخميس</p>
                                         <h5 class="margin_0 fontsize_16 yantramanav text-center"><strong>10:00
                                                 AM - 7:00 PM</strong></h5>
@@ -172,9 +168,10 @@
                                         </div>
                                     </div>
                                     <div class="media-body" style="overflow: unset;">
-                                        <p class="small-text margin_0 grey text-center" style="padding-bottom: 5px">بحاجة الى جليسة أطفال!
+                                        <p class="small-text margin_0 grey text-center" style="padding-bottom: 5px">بحاجة
+                                            الى جليسة أطفال!
                                             تفضل بزيارتنا الان</p>
-                                        <h5 class="margin_0 yantramanav fontsize_16 "  style="padding-bottom: 3px"><strong
+                                        <h5 class="margin_0 yantramanav fontsize_16 " style="padding-bottom: 3px"><strong
                                                 style="display:flex; justify-content: center;"> ابو رمانة - ساحة
                                                 المطاعم</strong></h5>
 
@@ -419,8 +416,7 @@
                         <div class="row" style="direction: rtl">
                             <div class="col-lg-offset-1 col-lg-10 col-sm-12 text-center">
                                 <p class="small-text margin_0">عملائنا</p>
-                                <h2 class="topmargin_10 bottommargin_25"
-                                    style="     color: #103e55;">
+                                <h2 class="topmargin_10 bottommargin_25" style="     color: #103e55;">
                                     ماذا قالوا
                                     <strong style="color: #103e55;">عنا</strong>
                                 </h2>
@@ -434,8 +430,7 @@
                                     data-items="8" data-responsive-xlg="3" data-responsive-lg="3" data-responsive-md="3"
                                     data-responsive-sm="2" data-responsive-xs="1">
 
-                                    <div class="vertical-item text-center"
-                                        style="direction: rtl; ">
+                                    <div class="vertical-item text-center" style="direction: rtl; ">
                                         <blockquote class="quote-item">
                                             <div class="quote-body with_border color2 section_bg_color">
                                                 <div class="top-color-border">
@@ -451,9 +446,9 @@
 
                                             <img src="front-assets/images/face01.jpg" alt=""
                                                 class="media-object">
-                                            <div class="blockquote-meta" >
-                                                <h5 >د. خليل زريق</h5>
-                                                <span class="small-text" >طبيب
+                                            <div class="blockquote-meta">
+                                                <h5>د. خليل زريق</h5>
+                                                <span class="small-text">طبيب
                                                     أسنان</span>
                                             </div>
                                         </blockquote>
@@ -466,7 +461,7 @@
                                                 <div class="top-color-border">
                                                     <div></div>
                                                 </div>
-                                                <p class="grey" >
+                                                <p class="grey">
                                                     ”شركة دلالكو هي الشركة الوحيدة التي تقدم خدمات التعاقد الفوري، فلا حاجة
                                                     للانتظار بعد اليوم ! “.
                                                 </p>
@@ -476,7 +471,7 @@
                                             <img src="front-assets/images/face02.jpg" alt=""
                                                 class="media-object">
                                             <div class="blockquote-meta">
-                                                <h5 >
+                                                <h5>
                                                     السيد فراس عيسى </h5>
                                                 <span class="small-text">عميل دائم </span>
                                             </div>
@@ -490,7 +485,7 @@
                                                 <div class="top-color-border">
                                                     <div></div>
                                                 </div>
-                                                <p class="grey" >
+                                                <p class="grey">
                                                     ”أكثر مايميز شركة دلالكو هو متابعتهم لجميع إجراءات الاستقدام من لحظة
                                                     الوصول
                                                     إلى لحظة المغادرة“. </p>
@@ -500,8 +495,8 @@
                                             <img src="front-assets/images/face03.jpg" alt=""
                                                 class="media-object">
                                             <div class="blockquote-meta">
-                                                <h5 >السيدة هلا مراد </h5>
-                                                <span class="small-text" >ربة منزل
+                                                <h5>السيدة هلا مراد </h5>
+                                                <span class="small-text">ربة منزل
                                                 </span>
                                             </div>
                                         </blockquote>
@@ -511,6 +506,33 @@
                         </div>
                     </div>
                 </section>
+
+                {{-- for showing the success submiting conratcus form message --}}
+                @if (session()->has('message'))
+                    <div class="alert alert-success" id="form-submited-message"
+                        style="position: fixed;left: 0;top: 70px;z-index: 999;width: 100%;text-align: center;">
+                        {{ session('message') }}
+                    </div>
+                    <script>
+                        function sleep(ms) {
+                            return new Promise(resolve => setTimeout(resolve, ms));
+                        }
+                        async function changeElementTop() {
+                            let formSubmitedMessage = document.getElementById("form-submited-message");
+                            console.log(formSubmitedMessage);
+                            for (let i = 0; i < 1000; i++) {
+                                await sleep(20);
+                                let elementTop = parseInt(formSubmitedMessage.style.top);
+                                formSubmitedMessage.style.top = (elementTop - 10) + "px";
+                            }
+                        }
+                        setTimeout(() => {
+                            changeElementTop();
+                        }, 4000);
+                    </script>
+                @endif
+                {{-- ========================================================== --}}
+
                 <section id="contactSection"
                     class="section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
                     <div style="display: flex;justify-content: center;">
@@ -529,7 +551,7 @@
                                         <p class="contact-form-name">
                                             <label for="first_name" class="sr-only">First name<span
                                                     class="required">*</span></label>
-                                            <input  type="text" aria-required="true" size="30"
+                                            <input type="text" aria-required="true" size="30"
                                                 value="{{ old('first_name') }}" name="first_name" id="first_name"
                                                 class="form-control" placeholder="الأسم الأول	 ">
                                         </p>
@@ -622,11 +644,7 @@
                                             <button type="submit" id="contact_form_submit" name="contact_submit"
                                                 class="theme_button margin_0 color1">أرسل رسالة</button>
                                         </p>
-                                        @if (session()->has('message'))
-                                            <div class="alert alert-success">
-                                                {{ session('message') }}
-                                            </div>
-                                        @endif
+
                                     </div>
 
                                 </form>

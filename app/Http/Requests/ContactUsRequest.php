@@ -34,11 +34,11 @@ class ContactUsRequest extends FormRequest
     {
         return [
             'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|email',
+            'last_name' => 'max:255',
+            'email' => 'nullable|email',
             'phone' => 'required|numeric|digits_between:3,14',
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string',
+            'subject' => 'max:255',
+            'message' => '',
         ];
     }
 

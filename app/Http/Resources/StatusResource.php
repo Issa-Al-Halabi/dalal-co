@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Enums\OrderStatusStatus;
 use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\Status;
@@ -33,12 +34,17 @@ class StatusResource extends JsonResource
     {
         $order_status = OrderStatus::where("order_id", request()->id)->where("status_id", $status->id)->get()->first();
 
+        $maid_name = Order::find(request()->id)->maid->fullName;
+        $status->description = str_replace("(name)", $maid_name, $status->description);
+
         if (!$order_status) {
+            $status->description = str_replace("input1", "", $status->description);
+            $status->description = str_replace("input2", "", $status->description);
+
             return  $status->description;
         }
         $specifications = $order_status->specifications;
-        $maid_name = Order::find(request()->id)->maid->fullName;
-        $status->description = str_replace("(name)", $maid_name, $status->description);
+
 
         if (isset($specifications["input1"])) {
             $status->description = str_replace("(input1)", $specifications["input1"], $status->description);
@@ -54,16 +60,16 @@ class StatusResource extends JsonResource
     {
         $order = Order::with("statuses")->find(request()->id);
         if (!$order->status_id) {
-            return "not-completed";
+            return OrderStatusStatus::notcompleted;
         }
         $next_id = Status::where('id', '>', $order->status_id)->min('id');
         if ($status->id == $next_id) {
-            return "working";
+            return OrderStatusStatus::working;
         }
         $order_statuses = $order->statuses()->pluck("status_id")->toArray();
         if (in_array($status->id, $order_statuses)) {
-            return "completed";
+            return OrderStatusStatus::completed;
         }
-        return "not-completed";
+        return OrderStatusStatus::notcompleted;
     }
 }

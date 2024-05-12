@@ -37,17 +37,12 @@ class ContactUsController extends Controller
         $contactUs->save();
 
         // send a message for me
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactUsMail(
-            $request->first_name,
-            $request->last_name,
-            $request->email,
-            $request->phone,
-            $request->subject,
-            $request->message
-        ));
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactUsMail($contactUs));
 
-        // send a message for the user
-        Mail::to($request->email)->send(new ConfirmationMail());
+        if ($request->email != null) {
+            // send a message for the user
+            Mail::to($request->email)->send(new ConfirmationMail());
+        }
 
         $name = $request->first_name . " " . $request->last_name;
         Notification::make()

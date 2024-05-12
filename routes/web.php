@@ -6,6 +6,8 @@ use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,6 +23,7 @@ Route::group([
     Route::get('/Service', [FrontController::class, "services"]);
     Route::get('/MaidDetail/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
+    Route::get('/lawDetail/{id}', [FrontController::class, "lawDetail"])->name("lawDetail");
     Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders");
     Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack");
 
@@ -53,4 +56,9 @@ Route::group([
 
         return redirect()->back();
     })->name('en');
+
+    Route::get('generate', function () {
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        echo 'ok';
+    });
 });
