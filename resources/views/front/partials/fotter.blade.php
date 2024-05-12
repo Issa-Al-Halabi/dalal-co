@@ -4,24 +4,19 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-1 col-md-3 col-sm-3 col-xs-12">
                 <a href="/" class="logo logo_image">
                     <img src="{{ asset('front-assets/images/logo.png') }}" style="" alt="">
                 </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <nav class="mainmenu_wrapper bordered_items">
-                    <ul class="mainmenu nav sf-menu">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <ul class="mainmenu nav ">
                         <li><a href="/">الرئيسية</a></li>
                         <li><a href="/blog-right.html"> من نحن</a></li>
                         <li><a href="/Service ">الخدمات</a></li>
                         <li><a href="/blog-right.html">القوانين والتنظيمات</a></li>
                         <li><a href="/about.html">الاتصال بنا</a></li>
-
-
-
                     </ul>
-                </nav>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="social-block" style="align-items: flex-start;">
@@ -45,7 +40,7 @@
                     </div>
 
                     <!-- لايقونة الواتساب -->
-                    <div style="display: flex; align-items: center;">
+                    <div style="display: flex; align-items: center;    gap: 10px;">
                         <a href="#"
                             class="social-icon color-icon border-icon rounded-icon soc-whatsapp grey-border">
                             <i class="fab fa-whatsapp"></i>
@@ -55,7 +50,7 @@
                     </div>
 
                     <!-- لايقونة البريد الإلكتروني -->
-                    <div style="display: flex; align-items: center;">
+                    <div style="display: flex; align-items: center;    gap: 10px;">
                         <a href="#" class="social-icon color-icon border-icon rounded-icon soc-email grey-border">
                             <i class="fas fa-envelope"></i>
                         </a>
@@ -63,7 +58,7 @@
                     </div>
 
                     <!-- لايقونة الموقع الإلكتروني -->
-                    <div style="display: flex; align-items: center;">
+                    <div style="display: flex; align-items: center;    gap: 10px;">
                         <a href="#"
                             class="social-icon color-icon border-icon rounded-icon soc-website grey-border">
                             <i class="fas fa-globe"></i>
@@ -76,7 +71,7 @@
 
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="padding-right: 14px;">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-right: 14px;">
                 <div class="text-center">
                         @if (!Auth::check())
                     <a href="{{ route('login') }}" class="theme_button muted_button">تسجيل الدخول </a>

@@ -7,7 +7,7 @@
             <a style="font-size: 14px;"href="/whoarewe">من نحن</a>
         </li>
         <li>
-            <a style="font-size: 14px;" href="/Service">الخدمات</a>
+            <a style="font-size: 14px;" href="/Service">الخادمات</a>
         </li>
         <li>
             <a style="font-size: 14px;" href="/Laws"> الأنظمة و القوانين</a>
