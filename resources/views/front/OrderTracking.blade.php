@@ -55,12 +55,11 @@
         }
 
         .extra-services {
-            direction: rtl;
-            padding-right: 50px;
+            /* padding-right: 50px; */
         }
 
         /* -------------------------------------------------------------------------
-                                                                                                                                                                                                                                                        /*   visibility: visible; */
+                                                                                                                                                                                                                                                                                                            /*   visibility: visible; */
         @charset "UTF-8";
         @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Roboto:wght@400;500&display=swap");
 
@@ -195,15 +194,15 @@
         <div class="dots" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
             <div class="dot">
                 <div class="green-dot"></div>
-                المراحل المنجزة
+                @lang('tracking_order.completed_tasks')
             </div>
             <div class="dot">
                 <div class="orange-dot"></div>
-                المرحلة التي يتم العمل عليها
+                @lang('tracking_order.working_on_tasks')
             </div>
             <div class="dot">
                 <div class="gray-dot"></div>
-                المراحل غير المنجزة
+                @lang('tracking_order.uncompleted_tasks')
             </div>
         </div>
         <div class="container padding-bottom-3x mb-1">
@@ -232,14 +231,26 @@
         </div>
 
         @if (isset($order->book_ticket) || isset($order->deliver_service))
-            <div class="extra-services">
-                <h2>خدمات إضافية مأجورة</h2>
-                @if (isset($order->book_ticket))
-                    <p> حجز تذكرة سفر , قيمة التذكرة الخاصة بالعاملة هي {{ $order->book_ticket }} ل.س</p>
-                @endif
-                @if (isset($order->deliver_service))
-                    <p> خدمة التوصيل إلى مطار دمشق الدولي هي {{ $order->deliver_service }} ل.س</p>
-                @endif
+            <div class="container">
+                <div class="extra-services" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                    <h2>
+                        @lang('tracking_order.additional_paid_services')
+                    </h2>
+                    @if (isset($order->book_ticket))
+                        <p>
+                            @lang('tracking_order.cost_of_the_maid_ticket')
+                            {{ $order->book_ticket }}
+                            @lang('tracking_order.sp')
+                        </p>
+                    @endif
+                    @if (isset($order->deliver_service))
+                        <p>
+                            @lang('tracking_order.delivery_service')
+                            {{ $order->deliver_service }}
+                            @lang('tracking_order.sp')
+                        </p>
+                    @endif
+                </div>
             </div>
         @endif
 
