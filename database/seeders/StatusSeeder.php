@@ -265,17 +265,14 @@ class StatusSeeder extends Seeder
     {
         return [
             [
-                "title" => "تم استلام الدفعة الأولى و البالغة (الدفعة الأولى)",
-                "description" => "<div>
-                                    تم استلام الدفعة الأولى و البالغة (input1) ل.س
-                                يرجى تزويدنا بالوثائق التالية للمباشرة الفورية بطلب التنازل الخاص بكم:
-                                <ul>
-                                    <li>صورة هوية</li>
-                                    <li>سند إقامة مصدّق من المختار و البلدية (نسختين) </li>
-                                    <li>توقيع سند التوكيل لإجراء معاملة التنازل (سيتم التواصل معكم من قبل القسم القانوني)</li>
-                                    <li>توقيع العقد (سيتم التواصل معكم من قبل القسم القانوني)</li>
-                                </ul>
-                            </div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step1.title", [], "ar"),
+                    "en" => __("immediately_statuses.step1.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step1.description", [], "ar"),
+                    "en" => __("immediately_statuses.step1.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Numeric,
@@ -284,8 +281,14 @@ class StatusSeeder extends Seeder
                 ]
             ],
             [
-                "title" => "تم تحديد موعد للتنازل بالهجرة و الجوازات بتاريخ()",
-                "description" => "<div>تم تحديد موعد للتنازل بالهجرة و الجوازات بتاريخ (input1)</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step2.title", [], "ar"),
+                    "en" => __("immediately_statuses.step2.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step2.description", [], "ar"),
+                    "en" => __("immediately_statuses.step2.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Date,
@@ -294,8 +297,14 @@ class StatusSeeder extends Seeder
                 ]
             ],
             [
-                "title" => "تم تحديد موعد المطابقة بتاريخ ()",
-                "description" => "<div> تم تحديد موعد المطابقة بتاريخ (input1)</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step3.title", [], "ar"),
+                    "en" => __("immediately_statuses.step3.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step3.description", [], "ar"),
+                    "en" => __("immediately_statuses.step3.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Date,
@@ -305,8 +314,14 @@ class StatusSeeder extends Seeder
             ],
 
             [
-                "title" => "تم تحديد موعد توقيع العقد في مديرية الشؤون الاجتماعية و العمل بتاريخ ()",
-                "description" => "<div> تم تحديد موعد توقيع العقد في مديرية الشؤون الاجتماعية و العمل بتاريخ (input1)</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step4.title", [], "ar"),
+                    "en" => __("immediately_statuses.step4.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step4.description", [], "ar"),
+                    "en" => __("immediately_statuses.step4.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Date,
@@ -316,8 +331,14 @@ class StatusSeeder extends Seeder
             ],
 
             [
-                "title" => "جاري الانتظار لإصدار الإقامة",
-                "description" => "<div>جاري الانتظار لإصدار الإقامة</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step5.title", [], "ar"),
+                    "en" => __("immediately_statuses.step5.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step5.description", [], "ar"),
+                    "en" => __("immediately_statuses.step5.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Toggle,
@@ -327,8 +348,14 @@ class StatusSeeder extends Seeder
             ],
 
             [
-                "title" => "يرجى مراجعة المكتب للحصول على الإقامة و جواز السفر و تصريح العمل",
-                "description" => "<div>يرجى مراجعة المكتب للحصول على الإقامة و جواز السفر و تصريح العمل</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step6.title", [], "ar"),
+                    "en" => __("immediately_statuses.step6.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step6.description", [], "ar"),
+                    "en" => __("immediately_statuses.step6.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Toggle,
@@ -338,16 +365,28 @@ class StatusSeeder extends Seeder
             ],
 
             [
-                "title" => "إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ ()",
-                "description" => "<div>إن صلاحية الإقامة الخاصة بالعاملة (name) ستنتهي بتاريخ (input1) يرجى مراجعة المكتب للتجدبد</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step7.title", [], "ar"),
+                    "en" => __("immediately_statuses.step7.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step7.description", [], "ar"),
+                    "en" => __("immediately_statuses.step7.description", [], "en"),
+                ],
                 "specifications" => ["input1" => [
                     "type" => StatusInputsTypes::Date,
                     "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثانية",
                 ]]
             ],
             [
-                "title" => "تم تجديد إقامة السنة الثانية",
-                "description" => "<div>تم تجديد إقامة السنة الثانية بنجاح</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step8.title", [], "ar"),
+                    "en" => __("immediately_statuses.step8.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step8.description", [], "ar"),
+                    "en" => __("immediately_statuses.step8.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Toggle,
@@ -356,16 +395,28 @@ class StatusSeeder extends Seeder
                 ]
             ],
             [
-                "title" => "إن صلاحية الإقامة الخاصة بالعاملة ستنتهي بتاريخ ()",
-                "description" => "<div>إن صلاحية الإقامة الخاصة بالعاملة (name) ستنتهي بتاريخ (input1) يرجى مراجعة المكتب للتجدبد</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step9.title", [], "ar"),
+                    "en" => __("immediately_statuses.step9.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step9.description", [], "ar"),
+                    "en" => __("immediately_statuses.step9.description", [], "en"),
+                ],
                 "specifications" => ["input1" => [
                     "type" => StatusInputsTypes::Date,
                     "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثالثة",
                 ]]
             ],
             [
-                "title" => "تم تجديد إقامة السنة الثالثة",
-                "description" => "<div>تم تجديد إقامة السنة الثالثة بنجاح</div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step10.title", [], "ar"),
+                    "en" => __("immediately_statuses.step10.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step10.description", [], "ar"),
+                    "en" => __("immediately_statuses.step10.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Toggle,
@@ -374,15 +425,14 @@ class StatusSeeder extends Seeder
                 ]
             ],
             [
-                "title" => "إن عقد العاملة سينتهي بتاريخ ()",
-                "description" => "<div>
-                                إن عقد العاملة سينتهي بتاريخ (input1)
-                            يرجى مراجعة المكتب للعمل على استصدار الوثائق التالية :
-                                <ul>
-                                    <li>براءة ذمة</li>
-                                    <li> انفكاك من التأمينات</li>
-                                </ul>
-                            </div>",
+                "title" => [
+                    "ar" => __("immediately_statuses.step11.title", [], "ar"),
+                    "en" => __("immediately_statuses.step11.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("immediately_statuses.step11.description", [], "ar"),
+                    "en" => __("immediately_statuses.step11.description", [], "en"),
+                ],
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Date,
