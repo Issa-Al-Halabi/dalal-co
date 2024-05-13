@@ -47,17 +47,17 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="front-assets/images/logo.png" alt="صورة التسجيل"></figure>
-                        <a href="/signup" class="signup-image-link">إنشاء حساب</a>
+                        <a href="/signup" class="signup-image-link">{{ __('home.Create an account') }} </a>
                     </div>
 
                     <div class="signin-form">
 
-                        <h2 class="form-title" style="color:#163c53;">تسجيل الدخول</h2>
+                        <h2 class="form-title" style="color:#163c53;"> {{ __('home.registration') }}</h2>
                         <form method="POST" class="register-form" id="login-form">
                             @csrf
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email material-icons-name"></i></label>
-                                <input type="text" name="email" id="email" placeholder="البريد الالكتروني">
+                                <input type="text" name="email" id="email" placeholder="{{ __('home.Your E-mail') }} ">
                                 <div>
                                     @error('email')
                                         <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="password" placeholder="كلمة المرور">
+                                <input type="password" name="password" id="password" placeholder="{{ __('home.password') }} ">
                                 <div>
                                     @error('password')
                                         <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
@@ -76,11 +76,11 @@
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span
-                                        style="margin-left: 7px;"><span></span></span>تذكرني</label>
+                                        style="margin-left: 7px;"><span></span></span>{{ __('home.Remember me') }}</label>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit"
-                                    value="تسجيل الدخول">
+                                    value=" {{ __('home.sign in') }}">
                             </div>
                         </form>
                     </div>

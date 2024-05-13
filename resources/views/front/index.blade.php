@@ -188,7 +188,7 @@
                         <div class="row servicetext2">
                             <div class="col-sm-12 text-center">
                                 <p class="small-text margin_0" style="color: #143d53;">
-                                    {{ __('home.Your favorite language services company') }}
+                                    {{ __('home.Your Favorite Worship Recruitment Company') }}
                                 </p>
                                 <h2 class="topmargin_10"style="color: #143d53;">
                                     {{ __('home.Providing recruitment services at competitive prices') }} <br>
@@ -573,7 +573,7 @@
                     <h1 style="color: #103e55;"> {{ __('home.call us') }}</h1>
                 </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row contact">
                         <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-12">
                             <form style="display:none" class="contact-form columns_padding_5 row " method="POST"
                                 action="{{ route('contactUs') }}">
