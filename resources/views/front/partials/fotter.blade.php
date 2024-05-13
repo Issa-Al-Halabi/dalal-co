@@ -1,26 +1,26 @@
-<footer class="footer ls table_section" style="direction: rtl;">
+<footer class="footer ls table_section" >
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 
 
     <div class="container">
-        <div class="row">
+        <div class="row fotternew">
             <div class="col-lg-1 col-md-3 col-sm-3 col-xs-12">
                 <a href="/" class="logo logo_image">
-                    <img src="{{ asset('front-assets/images/logo.png') }}" style="" alt="">
+                    <img src="{{ asset('front-assets/images/logo.png') }}"  alt="">
                 </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <ul class="mainmenu nav ">
-                    <li><a href="/">الرئيسية</a></li>
-                    <li><a href="/blog-right.html"> من نحن</a></li>
-                    <li><a href="/Service ">الخدمات</a></li>
-                    <li><a href="/blog-right.html">القوانين والتنظيمات</a></li>
-                    <li><a href="/about.html">الاتصال بنا</a></li>
+                    <li><a href="/">{{__('home.home')}}</a></li>
+                    <li><a href="/whoarewe"> {{__('home.who are we')}} </a></li>
+                    <li><a href="/Service ">{{__('home.Maids')}}</a></li>
+                    <li><a href="/Laws">{{__('home.Regulations and laws')}} </a></li>
+                    <li><a  href="{{ url('/') }}#contactSection">{{__('home.Contact us')}} </a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="social-block" style="align-items: flex-start;">
-                    <div class="col-lg-2 col-sm-3 col-xs-12 text-right" style="padding-bottom: 17px;">
+                    <div class="col-lg-2 col-sm-3 col-xs-12 " >
                         <span class="inline-block social-block">
                             <a href="#" class="social-icon color-icon border-icon rounded-icon grey-border facebook"
                                 style="margin: 0;"><i class="fab fa-facebook"></i></a>
@@ -40,7 +40,7 @@
                     </div>
 
                     <!-- لايقونة الواتساب -->
-                    <div style="display: flex; align-items: center;    gap: 10px;">
+                    <div style="display: flex; align-items: center;">
                         <a href="#"
                             class="social-icon color-icon border-icon rounded-icon soc-whatsapp grey-border">
                             <i class="fab fa-whatsapp"></i>
@@ -50,7 +50,7 @@
                     </div>
 
                     <!-- لايقونة البريد الإلكتروني -->
-                    <div style="display: flex; align-items: center;    gap: 10px;">
+                    <div style="display: flex; align-items: center;">
                         <a href="#" class="social-icon color-icon border-icon rounded-icon soc-email grey-border">
                             <i class="fas fa-envelope"></i>
                         </a>
@@ -58,13 +58,12 @@
                     </div>
 
                     <!-- لايقونة الموقع الإلكتروني -->
-                    <div style="display: flex; align-items: center;    gap: 10px;">
+                    <div style="display: flex; align-items: center;">
                         <a href="#"
                             class="social-icon color-icon border-icon rounded-icon soc-website grey-border">
                             <i class="fas fa-globe"></i>
                         </a>
-                        <a href="#" class="grey-border" style="font-family: cairo light;"> دمشق - آبو رمانة، ساحة
-                            المطاعم </a>
+                        <a href="#" class="grey-border" style="font-family: cairo light;"> {{__('home.Damascus - Abu Rummaneh Square Restaurants')}}</a>
                     </div>
 
 
@@ -74,7 +73,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-right: 14px;">
                 <div class="text-center">
                     @if (!Auth::check())
-                        <a href="{{ route('login') }}" class="theme_button muted_button">تسجيل الدخول </a>
+                        <a href="{{ route('login') }}" class="theme_button muted_button"> {{__('home.sign in')}}  </a>
                     @else
                         <a href="{{ route('logout') }}" class="theme_button muted_button">تسجيل الخروج </a>
                     @endif
@@ -84,7 +83,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 text-center fontCairo" style="padding-top: 26px;">
-                <span class="small-text">Dalal Co - شركة استقدام خادمات ©2024 </span>
+                <span class="small-text">   Dalal Co -  ©2024 {{__('home.Maids recruitment company')}}  </span>
             </div>
         </div>
     </div>

@@ -9,9 +9,9 @@
                         <div class="card-body  text-center">
                             <h5 class="card-title" style="color: #103e55;">{{ $law->name }}</h5>
                             <a href="{{ asset('storage/' . $law->file) }}" target="_blank"
-                                class="theme_button muted_button">عرض الملف</a>
+                                class="theme_button muted_button"> {{__('home.View file')}}</a>
                             <a href="{{ asset('storage/' . $law->file) }}" target="_blank"
-                                class="theme_button muted_button">تحميل الملف</a>
+                                class="theme_button muted_button">{{__('home.download file')}} </a>
                         </div>
                     </div>
                 </div>

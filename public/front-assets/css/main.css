@@ -10946,3 +10946,65 @@ a.soc-pocket.bg-icon:hover,
         left: 57px;
     }
 }
+.slide_description_wrapper fontCairo{
+    direction: ltr;
+    text-align: left;
+}
+.slider1{
+         transform: rotatey(180deg);
+}
+.coneect{
+    direction: ltr;
+}
+.teasers-table .teaser .media-left {
+    padding-left: 0;
+    padding-right: unset;
+}
+
+.numberClass {
+    direction: ltr;
+    text-align: center;
+}
+
+.contact-form .col-md-6{
+    float: right;
+    width: 100%;
+}
+
+.text-center{
+    padding-bottom: 5px
+}
+.margin_0 yantramanav fontsize_16{
+    padding-bottom: 3px
+}
+.servicetext1{
+    display:flex;
+     justify-content: center;
+}
+.servicetext2{
+    margin-bottom: 25px;
+}
+.col-lg-2 col-sm-3 col-xs-12 text-right{
+    padding-bottom: 17px;
+
+}
+.col-lg-5.col-md-6.col-md-pull-6.col-lg-pull-7{
+    direction: ltr;
+}
+.fontCairo{
+    direction: ltr;
+}
+.topmargin_-5 .bottommargin_25{
+    direction: ltr;
+}
+.page_header_wrapper{
+    direction: ltr;
+}
+.fotternew{
+    direction: ltr;
+    
+}
+.col-lg-2 .col-sm-3 .col-xs-12  {
+    text-align: left;
+
+}
