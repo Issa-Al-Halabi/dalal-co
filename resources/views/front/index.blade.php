@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <![endif]-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -505,14 +505,13 @@
                 {{-- for showing the (Success | Error) message when submitting conratc us form --}}
                 @if (session()->has('message') || session()->has('errors'))
                     <script>
+                        let contactSection = document.getElementById("contactSection");
+
                         function sleep(ms) {
                             return new Promise(resolve => setTimeout(resolve, ms));
                         }
                         async function changeElementTop(element) {
-                            let page_header = document.querySelector(".page_header");
-                            console.log(page_header);
-                            console.log(page_header.clientHeight);
-                            element.style.top = page_header.clientHeight + "px";
+
 
                             for (let i = 0; i < 20; i++) {
                                 await sleep(20);
@@ -528,8 +527,11 @@
                             {{ session('message') }}
                         </div>
                         <script>
+                            let formSubmitedMessage = document.getElementById("form-submited-message");
+                            if (!window.location.href.includes("contactSection")) {
+                                window.location.href = window.location.href + "#contactSection";
+                            }
                             setTimeout(() => {
-                                let formSubmitedMessage = document.getElementById("form-submited-message");
                                 changeElementTop(formSubmitedMessage);
                             }, 4000);
                         </script>
@@ -553,8 +555,11 @@
             </div>
 
             <script>
+                let formSubmitedError = document.getElementById("form-submited-error");
+                if (!window.location.href.includes("contactSection")) {
+                    window.location.href = window.location.href + "#contactSection";
+                }
                 setTimeout(() => {
-                    let formSubmitedError = document.getElementById("form-submited-error");
                     changeElementTop(formSubmitedError);
                 }, 4000);
             </script>
