@@ -48,4 +48,23 @@ class AuthRequest extends FormRequest
             'terms' => 'required|in:1',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => __("messages.name_required"),
+            'name.max' => __("messages.name_max"),
+            'password.required' => __("messages.password_required"),
+            'password.max' => __("messages.password_max"),
+            'email.required' => __("messages.email_required"),
+            'email.email' => __("messages.email_email"),
+            'email.unique' => __("messages.email_unique"),
+            'phone.required' => __("messages.phone_required"),
+            'phone.numeric' => __("messages.phone_numeric"),
+            'phone.digits_between' => __("messages.phone_digits_between"),
+            'terms.required' => __("messages.terms_required"),
+
+            'subject.max' => __("messages.subject_max"),
+        ];
+    }
 }
