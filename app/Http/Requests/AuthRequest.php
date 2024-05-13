@@ -63,8 +63,6 @@ class AuthRequest extends FormRequest
             'phone.numeric' => __("messages.phone_numeric"),
             'phone.digits_between' => __("messages.phone_digits_between"),
             'terms.required' => __("messages.terms_required"),
-
-            'subject.max' => __("messages.subject_max"),
         ];
     }
 }
