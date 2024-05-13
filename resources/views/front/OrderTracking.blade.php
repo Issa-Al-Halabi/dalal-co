@@ -60,7 +60,7 @@
         }
 
         /* -------------------------------------------------------------------------
-                                                                                                                                                                                                                                            /*   visibility: visible; */
+                                                                                                                                                                                                                                                        /*   visibility: visible; */
         @charset "UTF-8";
         @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Roboto:wght@400;500&display=swap");
 
@@ -209,9 +209,7 @@
         <div class="container padding-bottom-3x mb-1">
             <div class="container">
 
-                {{-- when we translate the steps --}}
-                {{-- <div class="wizard" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}"> --}}
-                <div class="wizard" dir="rtl">
+                <div class="wizard" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
                     <div class="process">
                         <ul>
                             @php

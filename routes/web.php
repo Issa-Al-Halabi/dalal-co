@@ -58,4 +58,10 @@ Route::group([
         \Illuminate\Support\Facades\Artisan::call('storage:link');
         echo 'ok';
     });
+    Route::get('test', function () {
+        return [
+            "ar" => __("immediately_statuses.step1.title", [], "ar"),
+            "en" => __("immediately_statuses.step1.title", [], "en"),
+        ];
+    });
 });
