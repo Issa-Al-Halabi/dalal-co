@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <![endif]-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -98,7 +98,7 @@
                                         <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="    direction: rtl;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   text-align: right;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               text-align: right;">
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
                                                         <p class="small-text light margin_0">
@@ -510,7 +510,7 @@
                 </section>
 
                 {{-- ==================================================================================================================== --}}
-                {{-- for showing the (Success | Error) message when submiting conratc us form --}}
+                {{-- for showing the (Success | Error) message when submitting conratc us form --}}
                 @if (session()->has('message') || session()->has('errors'))
                     <script>
                         function sleep(ms) {
