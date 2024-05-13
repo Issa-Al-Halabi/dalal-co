@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\ContactUs;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -17,12 +18,7 @@ class ContactUsMail extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        private string $first_name,
-        private string $last_name,
-        private string $email,
-        private string $phone,
-        private string $userSubject,
-        private string $message,
+        private ContactUs $contactUs,
     ) {
     }
 
@@ -45,12 +41,7 @@ class ContactUsMail extends Mailable
         return new Content(
             view: 'mail.contact_us',
             with: [
-                'first_name' => $this->first_name,
-                'last_name' => $this->last_name,
-                'email' => $this->email,
-                'phone' => $this->phone,
-                'subject' => $this->userSubject,
-                'userMessage' => $this->message,
+                'contactUs' => $this->contactUs,
             ],
         );
     }

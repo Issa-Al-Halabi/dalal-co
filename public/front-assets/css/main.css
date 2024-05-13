@@ -1707,7 +1707,7 @@ p>[class*=rt-icon]+[class*=rt-icon] {
 
 .social-block a.social-icon.instagram:hover {
     color: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%) !important;
-    background: none;   
+    background: none;
     background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -3273,6 +3273,16 @@ a.logo.vertical_logo img {
     .page_header .toggle_menu {}
 }
 
+.theme_button.muted_button.mobile-nav{
+    display: none;
+}
+
+@media(min-width:0px) and (max-width:991.98px) {
+    .theme_button.muted_button.mobile-nav{
+        display: block !important;
+    }
+}
+
 .modal-open .page_header_wrapper,
 .modal-open .page_header.affix,
 .modal-open .modal#search_modal {
@@ -4166,10 +4176,8 @@ section .intro_section .slide_description_wrapper {
 .toggle_menu {
     position: absolute;
     top: 5px;
-
     margin-left: -89px;
     display: none;
-    width: 113px;
     height: 60px;
     cursor: pointer;
     z-index: 1001;

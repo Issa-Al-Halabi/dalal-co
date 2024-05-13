@@ -18,6 +18,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Illuminate\Support\Facades\Blade;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -25,6 +26,16 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->favicon(asset("favicon.png"))
+            // ->renderHook(
+            //     "panels::global-search.before",
+            //     fn (): string => Blade::render('<x-filament::button
+            //     href="{{ route('.'\'generateSitemap\''.') }}"
+            //     tag="a"
+            // >
+            //     تحديث ال sitemap
+            // </x-filament::button>'),
+            // )
             ->databaseNotifications(true)
             ->id('admin')
             ->path('admin')

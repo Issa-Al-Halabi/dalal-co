@@ -74,6 +74,7 @@ class MaidResource extends Resource
 
                     Forms\Components\FileUpload::make('image')
                         ->label("الصورة")
+                        ->required()
                         ->image()->fetchFileInformation(false)
                         ->directory('images/maids')
                         ->visibility('public')
@@ -142,6 +143,16 @@ class MaidResource extends Resource
                     ->badge()
                     ->sortable()
                     ->searchable(),
+
+                Tables\Columns\TextColumn::make('available')
+                    ->label("متوفرة")
+                    ->badge()
+                    ->color(fn (Maid $record) =>
+                    $record->order == null ? "info" : "danger")
+                    ->state(
+                        fn (Maid $record) =>
+                        $record->order == null ? "متوفرة" : "غير متوفرة"
+                    ),
 
                 Tables\Columns\TextColumn::make('experiences')
                     ->label("الخبرات")

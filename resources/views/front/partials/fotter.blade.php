@@ -22,12 +22,15 @@
                 <div class="social-block" style="align-items: flex-start;">
                     <div class="col-lg-2 col-sm-3 col-xs-12 " >
                         <span class="inline-block social-block">
-                            <a href="#" class="social-icon color-icon border-icon rounded-icon grey-border facebook"
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon grey-border facebook"
                                 style="margin: 0;"><i class="fab fa-facebook"></i></a>
 
-                            <a href="#" class="social-icon color-icon border-icon rounded-icon grey-border instagram">
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon grey-border instagram">
                                 <i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon color-icon border-icon rounded-icon grey-border youtube">
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon grey-border youtube">
                                 <i class="fab fa-youtube"></i></a>
                         </span>
                     </div>

@@ -12,13 +12,26 @@
         <li>
             <a style="font-size: 14px;" href="/Laws">  {{__('home.Regulations and laws')}} </a>
         </li>
-        @auth('web')
-            <li>
-                <a style="font-size: 14px;" href="{{ route('Orders') }}"> {{__('home.Track my orders')}} </a>
-            </li>
-        @endauth
+
+        <li>
+            <a style="font-size: 14px;"
+                @if (Auth::check()) href="{{ route('Orders') }}" 
+                 @else href="{{ route('login', ['trackOrder' => '1']) }}" @endif>
+                تتبع طلباتي</a>
+        </li>
+
         <li>
             <a style="font-size: 14px;" href="{{ url('/') }}#contactSection"> {{__('home.Contact us')}}</a>
+        </li>
+
+        <li>
+            @if (!Auth::check())
+                <a href="{{ route('login') }}" class="theme_button muted_button mobile-nav">تسجيل الدخول
+                </a>
+            @else
+                <a href="{{ route('logout') }}" class="theme_button muted_button mobile-nav">تسجيل الخروج
+                </a>
+            @endif
         </li>
 
     </ul>

@@ -11,15 +11,15 @@
     <body>
         <p>استمارة تواصل معنا</p>
 
-        <p>اسم العميل <span>{{ $first_name }} {{ $last_name }}</span></p>
+        <p>اسم العميل <span>{{ $contactUs->first_name }} {{ $contactUs->last_name ?? '' }}</span></p>
 
-        <p>البريد الالكتروني <span>{{ $email }}</span></p>
+        <p>البريد الالكتروني <span>{{ $contactUs->email ?? 'لا يوجد' }}</span></p>
 
-        <p>رقم الهاتف <span>{{ $phone }}</span></p>
+        <p>رقم الهاتف <span>{{ $contactUs->phone }}</span></p>
 
-        <p>الموضوع <span>{{ $subject }}</span></p>
+        <p>الموضوع <span>{{ $contactUs->subject ?? 'لا يوجد' }}</span></p>
 
-        <p>الرسالة <span>{{ $userMessage }}</span></p>
+        <p>الرسالة <span>{{ $contactUs->userMessage ?? 'لا يوجد' }}</span></p>
 
     </body>
 
