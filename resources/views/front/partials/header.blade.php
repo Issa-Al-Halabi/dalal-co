@@ -25,12 +25,12 @@
                 </a> -->
                 @if (app()->getLocale() == 'ar')
                     <a href="{{ route('en') }}" class="syria lang-switcher" style="color:#103f55; text-align: left;     padding: 22px;">
-                      
-                        En
+
+                        Ar
                     </a>
                 @else
                     <a href="{{ route('ar') }}" class="lang-switcher" style="color:#103f55; text-align: left;     padding: 22px;">
-                        Ar
+                        En
                     </a>
                 @endif
                 {{-- {{ Auth::user()->roles }} --}}
