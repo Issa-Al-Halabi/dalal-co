@@ -13,7 +13,6 @@ class Status extends Model
     public $translatable = [
         'title',
         'description',
-        'specifications',
     ];
 
     public $timestamps = false;
