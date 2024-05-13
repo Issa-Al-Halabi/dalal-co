@@ -7,6 +7,7 @@ use App\Filament\Resources\LawResource\Pages;
 use App\Filament\Resources\LawResource\RelationManagers;
 use App\Models\Law;
 use Filament\Forms;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Concerns\Translatable;
@@ -15,6 +16,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
 
 class LawResource extends Resource
 {
@@ -50,14 +52,9 @@ class LawResource extends Resource
                                     ],
                             ),
 
-                        Forms\Components\FileUpload::make('file')
-                            ->label("ملف")
+                        Forms\Components\RichEditor::make('content')
+                            ->label("المحتوى")
                             ->required()
-                            ->directory('laws')
-                            ->visibility('public')
-                            ->disk('public')
-                            ->downloadable()
-                            ->acceptedFileTypes(['application/pdf'])
                             ->columnSpanFull(),
                     ])->columns(2),
             ]);
@@ -101,18 +98,29 @@ class LawResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\Action::make('file')
-                    ->label("تحميل الملف")
-                    ->icon('heroicon-o-document-arrow-down')
-                    ->action(function ($record) {
-                        Notification::make()
-                            ->title("تم تحميل الملف بنجاح")
-                            ->icon('heroicon-o-document-text')
-                            ->iconColor('success')
-                            ->send();
-                        // dd(asset("storage/" . $record->file));
-                        return response()->download("storage/" . $record->file);
-                    }),
+                // Tables\Actions\Action::make('file')
+                //     ->label("تحميل الملف")
+                //     ->icon('heroicon-o-document-arrow-down')
+                //     ->action(function ($record) {
+                //         Notification::make()
+                //             ->title("تم تحميل الملف بنجاح")
+                //             ->icon('heroicon-o-document-text')
+                //             ->iconColor('success')
+                //             ->send();
+                //         return response()->download("storage/" . $record->file);
+                //     }),
+
+                Tables\Actions\Action::make('content')
+                    ->label("عرض المحتوى")
+                    ->icon('heroicon-o-document-text')
+                    ->form(
+                        function (Law $record) {
+                            return [
+                                Placeholder::make('')->content(new HtmlString($record->content)),
+                            ];
+                        }
+                    ),
+
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

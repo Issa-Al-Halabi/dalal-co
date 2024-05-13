@@ -74,6 +74,7 @@ class MaidResource extends Resource
 
                     Forms\Components\FileUpload::make('image')
                         ->label("الصورة")
+                        ->required()
                         ->image()->fetchFileInformation(false)
                         ->directory('images/maids')
                         ->visibility('public')

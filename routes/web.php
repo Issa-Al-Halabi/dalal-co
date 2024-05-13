@@ -3,12 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FrontController;
-use App\Jobs\GenerateSiteMap;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,12 +14,13 @@ Route::group([
 
     Route::view('/', 'front.index');
     Route::view('/master', 'front.master');
-    Route::view('/whoarewe', 'front.whoarewe');
+    Route::view('/whoarewe', 'front.whoarewe')->name('whoarewe');
     Route::view('/login', 'front.login');
     Route::view('/signup', 'front.signup');
     Route::get('/Service', [FrontController::class, "services"]);
     Route::get('/MaidDetail/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
+    Route::get('/lawDetail/{id}', [FrontController::class, "lawDetail"])->name("lawDetail");
     Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders");
     Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack");
 
@@ -56,4 +53,9 @@ Route::group([
 
         return redirect()->back();
     })->name('en');
+
+    Route::get('generate', function () {
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        echo 'ok';
+    });
 });

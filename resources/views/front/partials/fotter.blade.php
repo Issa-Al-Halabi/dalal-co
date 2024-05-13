@@ -12,22 +12,31 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <ul class="mainmenu nav ">
                     <li><a href="/">الرئيسية</a></li>
-                    <li><a href="/blog-right.html"> من نحن</a></li>
+                    <li><a href="{{ route('whoarewe') }}"> من نحن</a></li>
                     <li><a href="/Service ">الخدمات</a></li>
-                    <li><a href="/blog-right.html">القوانين والتنظيمات</a></li>
-                    <li><a href="/about.html">الاتصال بنا</a></li>
+                    <li><a href="{{ route('laws') }}">القوانين والتنظيمات</a></li>
+                    <li>
+                        <a style="font-size: 14px;"
+                            @if (Auth::check()) href="{{ route('Orders') }}" 
+                             @else href="{{ route('login', ['trackOrder' => '1']) }}" @endif>
+                            تتبع طلباتي</a>
+                    </li>
+                    <li><a href="{{ url('/') }}#contactSection">الاتصال بنا</a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="social-block" style="align-items: flex-start;">
                     <div class="col-lg-2 col-sm-3 col-xs-12 text-right" style="padding-bottom: 17px;">
                         <span class="inline-block social-block">
-                            <a href="#" class="social-icon color-icon border-icon rounded-icon grey-border facebook"
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon grey-border facebook"
                                 style="margin: 0;"><i class="fab fa-facebook"></i></a>
 
-                            <a href="#" class="social-icon color-icon border-icon rounded-icon grey-border instagram">
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon grey-border instagram">
                                 <i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon color-icon border-icon rounded-icon grey-border youtube">
+                            <a href="#"
+                                class="social-icon color-icon border-icon rounded-icon grey-border youtube">
                                 <i class="fab fa-youtube"></i></a>
                         </span>
                     </div>

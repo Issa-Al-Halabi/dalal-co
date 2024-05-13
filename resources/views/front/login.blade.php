@@ -30,9 +30,20 @@
     </head>
 
     <body>
+
         <!-- Login in  Form -->
         <section class="sign-in" style="direction: rtl;">
+
             <div class="container">
+                @if (isset($_GET['trackOrder']))
+                    <div
+                        style="text-align: center;
+                    font-size: 18px;
+                    padding: 10px;
+                    color: red;">
+                        عليك ان تسجل دخول لتتمكن من تتبع الطلبات
+                    </div>
+                @endif
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="front-assets/images/logo.png" alt="صورة التسجيل"></figure>
@@ -40,6 +51,7 @@
                     </div>
 
                     <div class="signin-form">
+
                         <h2 class="form-title" style="color:#163c53;">تسجيل الدخول</h2>
                         <form method="POST" class="register-form" id="login-form">
                             @csrf

@@ -59,8 +59,18 @@
                                 </li>
                                 <li>الجنسية: {{ $maid->nationality }}</li>
                                 <li>العمر: {{ $maid->age }}</li>
-                                <li>الدول التي عملت بها: {{ implode(' , ', $maid->countries) }}</li>
-                                <li>اللغات: {{ implode(' , ', $maid->languages) }} </li>
+                                <li>الدول التي عملت بها: @if ($maid->countries != '')
+                                        {{ implode(' , ', $maid->countries) }}
+                                    @else
+                                        لا يوجد
+                                    @endif
+                                </li>
+                                <li>اللغات: @if ($maid->languages != '')
+                                        {{ implode(' , ', $maid->languages) }}
+                                    @else
+                                        لا يوجد
+                                    @endif
+                                </li>
                                 <li>الخبرات: {{ $maid->experiences }}</li>
                                 <li style="overflow-wrap: anywhere;">معلومات اخرى: {!! $maid->description !!}</li>
                             </ul>

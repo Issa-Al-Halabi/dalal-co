@@ -3273,6 +3273,16 @@ a.logo.vertical_logo img {
     .page_header .toggle_menu {}
 }
 
+.theme_button.muted_button.mobile-nav{
+    display: none;
+}
+
+@media(min-width:0px) and (max-width:991.98px) {
+    .theme_button.muted_button.mobile-nav{
+        display: block !important;
+    }
+}
+
 .modal-open .page_header_wrapper,
 .modal-open .page_header.affix,
 .modal-open .modal#search_modal {

@@ -39,6 +39,12 @@ class FrontController extends Controller
         return view("front.Laws", compact("laws"));
     }
 
+    public function lawDetail($id)
+    {
+        $law = Law::findOrfail($id);
+        return view("front.lawDetail", compact("law"));
+    }
+
     public function orders()
     {
         $id = auth()->user()->id;

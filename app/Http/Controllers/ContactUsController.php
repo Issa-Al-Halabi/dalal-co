@@ -36,18 +36,21 @@ class ContactUsController extends Controller
 
         $contactUs->save();
 
-        // send a message for me
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactUsMail(
-            $request->first_name,
-            $request->last_name,
-            $request->email,
-            $request->phone,
-            $request->subject,
-            $request->message
-        ));
+        //       // send a message for me
+        //    dispatch(new SendMailJob(new ContactUsMail($contactUs),env('MAIL_FROM_ADDRESS')));
 
-        // send a message for the user
-        Mail::to($request->email)->send(new ConfirmationMail());
+        //    if ($request->email != null) {
+        //        // send a message for the user
+        //    dispatch(new SendMailJob(new ConfirmationMail(),$request->email));
+        //    }
+
+        // send a message for me
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactUsMail($contactUs));
+
+        if ($request->email != null) {
+            // send a message for the user
+            Mail::to($request->email)->send(new ConfirmationMail());
+        }
 
         $name = $request->first_name . " " . $request->last_name;
         Notification::make()
@@ -83,6 +86,21 @@ class ContactUsController extends Controller
 
             $user_name = $user->name;
             $maid_full_name = $maid->first_name . " " . $maid->last_name;
+            if (app()->getlocale() == "ar") {
+                $maid_full_name = ($maid->getTranslations()['first_name']['ar'] ?? $maid->getTranslations()['first_name']['en']) . ' ' . ($maid->getTranslations()['last_name']['ar'] ?? $maid->getTranslations()['last_name']['en']);
+            } else if (app()->getlocale() == "en") {
+                $maid_full_name = ($maid->getTranslations()['first_name']['en'] ?? $maid->getTranslations()['first_name']['ar']) . ' ' . ($maid->getTranslations()['last_name']['en'] ?? $maid->getTranslations()['last_name']['ar']);
+            }
+
+            // // send a message for me
+            // dispatch(new SendMailJob(new OrderMail(
+            //     $user_name,
+            //     $maid_full_name,
+            // ), env('MAIL_FROM_ADDRESS')));
+
+            // // send a message for the user
+            // dispatch(new SendMailJob(new ConfirmationMail(true), $user->email));
+
 
             // send a message for me
             Mail::to(env('MAIL_FROM_ADDRESS'))->send(new OrderMail(

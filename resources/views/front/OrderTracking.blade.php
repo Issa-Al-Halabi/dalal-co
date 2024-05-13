@@ -2,7 +2,7 @@
 
 @section('content')
     <style>
-        .title {
+        .section-title {
             display: flex;
             margin: 60px auto 0px;
             justify-content: center;
@@ -54,67 +54,133 @@
             border-radius: 50%;
         }
 
-        .steps {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .step {
-            display: flex;
-            height: 80px;
-            width: 80px;
-            color: blue;
-            text-align: center;
-            border: blue 1px solid;
-            border-radius: 50%;
-            padding: 10px;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .step.completed {
-            background-color: green;
-            color: white;
-            border: green 1px solid;
-            cursor: pointer;
-        }
-
-        .step.working {
-            background-color: orange;
-            color: white;
-            border: orange 1px solid;
-        }
-
-        .step.not-completed {
-            color: gray;
-            border: gray 1px solid;
-        }
-
-        .step-num {
-            font-size: 30px;
-        }
-
-        .step-desc {
-            display: none;
-        }
-
-        .text {
-            direction: rtl;
-            margin-top: 30px;
-            padding-right: 50px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
         .extra-services {
             direction: rtl;
             padding-right: 50px;
+        }
+
+        /* -------------------------------------------------------------------------
+                                                                                                                                                                                                                                            /*   visibility: visible; */
+        @charset "UTF-8";
+        @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Roboto:wght@400;500&display=swap");
+
+        .wizard {
+            display: grid;
+            /* grid-template-columns: 320px 1fr; */
+            font-family: "Roboto", sans-serif;
+            justify-content: start;
+        }
+
+        .process {
+            box-model: border-box;
+            align-self: center;
+            justify-self: center;
+            padding: 30px 0;
+        }
+
+        .process ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .process ul li.step .desc {
+            padding: 5px 10px;
+        }
+
+        .process ul li.step .name {
+            display: flex;
+            align-items: center;
+            color: #939393;
+        }
+
+        .process ul li.step .name span {
+            padding: 0 5px;
+            font-size: 18px;
+        }
+
+        .process ul li.step .name:before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            border-radius: 50%;
+            /* margin-right: 8px; */
+            background: #ddd;
+        }
+
+        .process ul li.step.completed .name {
+            color: green;
+        }
+
+        .process ul li.step.completed .name:before {
+            content: "✓";
+            color: white;
+            font-size: 0.8em;
+            text-align: center;
+            background: green;
+        }
+
+        .process ul li.step.current .name {
+            color: orange;
+        }
+
+        .process ul li.step.current .name:before {
+            background: orange;
+            box-shadow: 0 0 18px #ff9362;
+            animation: 1750ms linear infinite pulse;
+        }
+
+        .process ul li.step:not(:last-child):after {
+            height: 48px;
+            width: 2px;
+            border-radius: 20px;
+            content: "";
+            display: block;
+            background-color: #ddd;
+            margin-left: 7px;
+            margin-right: 7px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .process ul li.step.completed:not(:last-child):after {
+            background-color: green;
+        }
+
+        .process.done ul li.step .name {
+            color: #33673B;
+        }
+
+        .process.done ul li.step .name:before {
+            background: #33673B;
+            box-shadow: none;
+            content: "✓";
+            color: white;
+            font-size: 0.8em;
+            text-align: center;
+        }
+
+        .process.done ul li.step:not(:last-child):after {
+            background-color: #33673B;
+            box-shadow: 0 0 8px #88c492;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 2px #ff9362;
+            }
+
+            80% {
+                box-shadow: 0 0 18px #ff9362;
+            }
+
+            100% {
+                box-shadow: 0 0 2px #ff9362;
+            }
         }
     </style>
     <section>
@@ -122,11 +188,11 @@
 
         {{-- <link rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css"> --}}
-        <div class="title">
+        <div class="section-title">
             {{ $order->maid->fullName }}
 
         </div>
-        <div class="dots">
+        <div class="dots" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
             <div class="dot">
                 <div class="green-dot"></div>
                 المراحل المنجزة
@@ -141,29 +207,30 @@
             </div>
         </div>
         <div class="container padding-bottom-3x mb-1">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="steps">
-                        @php
-                            $i = 1;
-                        @endphp
-                        @foreach ($statuses as $status)
-                            <div class="step {{ $status->status }}"
-                                @if ($status->status == 'completed') onclick="stepClick(this);" @endif>
-                                <div class="step-icon-wrap">
-                                    <div class="step-num">{{ $i++ }}</div>
-                                </div>
-                                <h4 class="step-desc"> {!! $status->description !!}</h4>
-                            </div>
-                        @endforeach
+            <div class="container">
 
+                {{-- when we translate the steps --}}
+                {{-- <div class="wizard" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}"> --}}
+                <div class="wizard" dir="rtl">
+                    <div class="process">
+                        <ul>
+                            @php
+                                use App\Enums\OrderStatusStatus;
+                            @endphp
+                            @foreach ($statuses as $status)
+                                <li
+                                    class="step @if ($status->status == OrderStatusStatus::completed) completed @elseif ($status->status == OrderStatusStatus::working)current @endif">
+                                    <div class="name"> <span>{{ $status->title }}</span></div>
+                                    <div class="desc">
+                                        {!! $status->description !!}
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
-
-                <div id="statusText" class="text">
-                    <p>أنقر على أي مرحلة منجزة لرؤية التفاصيل</p>
-                </div>
             </div>
+
         </div>
 
         @if (isset($order->book_ticket) || isset($order->deliver_service))
@@ -178,15 +245,6 @@
             </div>
         @endif
 
-        <script>
-            let text = document.querySelector('#statusText p');
-
-            function stepClick(step) {
-                let desc = step.querySelector('.step-desc');
-                console.log(desc.children);
-                text.innerHTML = desc.innerHTML;
-            }
-        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     </section>
