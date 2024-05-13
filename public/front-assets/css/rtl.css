@@ -66,3 +66,47 @@
     text-align: right;
 
 }
+
+.textRight {
+    text-align: left !important;
+}
+
+.floating_logo a.logo {
+    float: right;
+}
+
+.rtlToggle {
+    left: 90px;
+}
+
+.lang-switcher {
+    text-align: left;
+}
+.contact{
+    direction: rtl;
+}
+
+
+@media(max-width:991px) {
+.sf-menu {
+    right: 0;
+    left: unset;
+    text-align: right;
+}
+
+
+
+.mobile-active .sf-menu {
+    left: 0
+}
+}
+.maidInfo {
+    float: right !important;
+    text-align: right !important;
+}
+.nav-tabs>li {
+    float: right;
+}
+#tab1 p, #tab1 ul {
+    direction: rtl;
+}

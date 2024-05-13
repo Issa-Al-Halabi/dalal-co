@@ -38,49 +38,49 @@
     <section class="ls section_padding_120">
         <div class="container">
             <div class="row">
-                <div class="col-lg-offset-1 col-lg-6 col-md-7 col-sm-12" style="float: right;">
-                    <h1 style="direction: rtl;">معلومات الخادمة</h1>
+                <div class="col-lg-offset-1 col-lg-6 col-md-7 col-sm-12 maidInfo" style="float: left;text-align:left">
+                    <h1 style="direction: rtl;"> {{ __('home.Maid information') }}</h1>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs text-center" role="tablist">
-                        <li class="active"><a href="#tab1" role="tab" data-toggle="tab">السيرة الذاتية</a></li>
+                        <li class="active"><a href="#tab1" role="tab" data-toggle="tab">   {{ __('home.the biography') }}  </a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content top-color-border bottommargin_30">
                         <div class="tab-pane fade in active" style="font-family: cairo light;" id="tab1">
-                            <p class="fontsize_20 bottommargin_10 grey" style="direction: rtl;"><strong>السيرة
-                                    الذاتية:</strong></p>
+                            <p class="fontsize_20 bottommargin_10 grey"><strong>
+                            {{ __('home.the biography') }}   :</strong></p>
                             <p class="line_heght_2">
-                            <ul style="direction: rtl;">
-                                <li>الأسم بالعربي:
+                            <ul>
+                                <li> {{ __('home.The name is in Arabic') }}  :
                                     {{ ($maid->getTranslations()['first_name']['ar'] ?? '') . ' ' . ($maid->getTranslations()['last_name']['ar'] ?? '') }}
                                 </li>
-                                <li>الأسم بالأجنبي:
+                                <li> {{ __('home.The name is in english') }}  :
                                     {{ ($maid->getTranslations()['first_name']['en'] ?? '') . ' ' . ($maid->getTranslations()['last_name']['en'] ?? '') }}
                                 </li>
-                                <li>الجنسية: {{ $maid->nationality }}</li>
-                                <li>العمر: {{ $maid->age }}</li>
-                                <li>الدول التي عملت بها: @if ($maid->countries != '')
+                                <li> {{ __('home.Nationality') }}  :{{ $maid->nationality }}</li>
+                                <li>{{ __('home.the age') }}: {{ $maid->age }}</li>
+                                <li>   {{ __('home.Countries in which I worked') }}: @if ($maid->countries != '')
                                         {{ implode(' , ', $maid->countries) }}
                                     @else
                                         لا يوجد
                                     @endif
                                 </li>
-                                <li>اللغات: @if ($maid->languages != '')
+                                <li>{{ __('home.Languages') }}: @if ($maid->languages != '')
                                         {{ implode(' , ', $maid->languages) }}
                                     @else
                                         لا يوجد
                                     @endif
                                 </li>
-                                <li>الخبرات: {{ $maid->experiences }}</li>
-                                <li style="overflow-wrap: anywhere;">معلومات اخرى: {!! $maid->description !!}</li>
+                                <li>{{ __('home.Of experience') }}: {{ $maid->experiences }}</li>
+                                <li style="overflow-wrap: anywhere;"> {{ __('home.other information') }}: {!! $maid->description !!}</li>
                             </ul>
                             </p>
                             @if (!$maid->order)
-                                <a href="#" id="orderButton" class="theme_button muted_button">أطلب الان</a>
+                                <a href="#" id="orderButton" class="theme_button muted_button"> {{ __('home.Order now') }}</a>
                             @else
                                 <a href="#!" id="orderButton2" class="theme_button muted_button"
                                     style="background-color: #212121;" data-toggle="tooltip" data-placement="top"
-                                    title="الخادمة لم تعد متوفرة">أطلب الان</a>
+                                    title="{{ __('home.The maid is no longer available.') }}   ">{{ __('home.Order now') }} </a>
                             @endif
 
                         </div>
@@ -90,46 +90,7 @@
         </div>
     </section>
 
-    <!-- الجزء الآخر من المحتوى -->
-    <section class="ds solutions columns_padding_0 teasers-table">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 center_bg users-teaser">
-                    <div class="teaser media">
-                        <div class="media-left">
-                            <div class="teaser_icon sprite-icons sprite-users-yellow"></div>
-                        </div>
-                        <div class="media-body">
-                            <p class="margin_0 small-text grey"><strong>Highly-trained staff</strong></p>
-                            <p class="margin_0">Sed ut perspiciatis, unde omnis is natus error sit voluptatem</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 center_bg like-teaser">
-                    <div class="teaser media with_border">
-                        <div class="media-left">
-                            <div class="teaser_icon sprite-icons sprite-like-green"></div>
-                        </div>
-                        <div class="media-body">
-                            <p class="margin_0 small-text grey"><strong>Quality cleaning tools</strong></p>
-                            <p class="margin_0">Doloremque laudantium, totam aperiam eaque ipsa, quae abillo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 center_bg timer-teaser">
-                    <div class="teaser media">
-                        <div class="media-left">
-                            <div class="teaser_icon sprite-icons sprite-timer-blue"></div>
-                        </div>
-                        <div class="media-body">
-                            <p class="margin_0 small-text grey"><strong>Fast &amp; Effective service</strong></p>
-                            <p class="margin_0">Voluptatem accusantium doloremque laudantium totam</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     {{-- to order --}}
     @if (Auth::check())

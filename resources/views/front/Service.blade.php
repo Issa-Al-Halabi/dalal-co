@@ -17,7 +17,7 @@
                         @if ($maid->order)
                             <div class="text-center"
                                 style="color: white;background-color: red;padding: 5px;border-radius: 10px;position: absolute;top: 10px;">
-                                لم تعد متوفرة
+                                {{__('home.No longer available')}}
                             </div>
                         @endif
                     </div>
