@@ -50,4 +50,18 @@ class ContactUsRequest extends FormRequest
             'maid_id' => 'required|exists:maids,id',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'first_name.required' => __("messages.first_name_required"),
+            'first_name.max' => __("messages.first_name_max"),
+            'last_name.max' => __("messages.last_name_max"),
+            'email.email' => __("messages.email_email"),
+            'phone.required' => __("messages.phone_required"),
+            'phone.numeric' => __("messages.phone_numeric"),
+            'phone.digits_between' => __("messages.phone_digits_between"),
+            'subject.max' => __("messages.subject_max"),
+        ];
+    }
 }
