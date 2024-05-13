@@ -144,6 +144,16 @@ class MaidResource extends Resource
                     ->sortable()
                     ->searchable(),
 
+                Tables\Columns\TextColumn::make('available')
+                    ->label("متوفرة")
+                    ->badge()
+                    ->color(fn (Maid $record) =>
+                    $record->order == null ? "info" : "danger")
+                    ->state(
+                        fn (Maid $record) =>
+                        $record->order == null ? "متوفرة" : "غير متوفرة"
+                    ),
+
                 Tables\Columns\TextColumn::make('experiences')
                     ->label("الخبرات")
                     ->sortable()
