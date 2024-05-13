@@ -8,8 +8,8 @@
             <div class="preloader_image"></div>
         </div>
         <!--[if lt IE 9]>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                <![endif]-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <![endif]-->
 
         <!-- search modal -->
         <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
@@ -98,7 +98,7 @@
                                         <div class="col-sm-12">
                                             <div
                                                 class="slide_description_wrapper"style="    direction: rtl;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   text-align: right;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   text-align: right;">
                                                 <div class="slide_description">
                                                     <div class="intro-layer" data-animation="slideExpandUp">
                                                         <p class="small-text light margin_0">
@@ -509,152 +509,183 @@
                     </div>
                 </section>
 
-                {{-- for showing the success submiting conratcus form message --}}
-                @if (session()->has('message'))
-                    <div class="alert alert-success" id="form-submited-message"
-                        style="position: fixed;left: 0;top: 70px;z-index: 999;width: 100%;text-align: center;">
-                        {{ session('message') }}
-                    </div>
+                {{-- ==================================================================================================================== --}}
+                {{-- for showing the (Success | Error) message when submiting conratc us form --}}
+                @if (session()->has('message') || session()->has('errors'))
                     <script>
                         function sleep(ms) {
                             return new Promise(resolve => setTimeout(resolve, ms));
                         }
-                        async function changeElementTop() {
-                            let formSubmitedMessage = document.getElementById("form-submited-message");
-                            console.log(formSubmitedMessage);
-                            for (let i = 0; i < 1000; i++) {
+                        async function changeElementTop(element) {
+                            for (let i = 0; i < 20; i++) {
                                 await sleep(20);
-                                let elementTop = parseInt(formSubmitedMessage.style.top);
-                                formSubmitedMessage.style.top = (elementTop - 10) + "px";
+                                let elementTop = parseInt(element.style.top);
+                                element.style.top = (elementTop - 10) + "px";
                             }
+                            element.style.display = "none";
                         }
-                        setTimeout(() => {
-                            changeElementTop();
-                        }, 4000);
                     </script>
+                    @if (session()->has('message'))
+                        <div class="alert alert-success" id="form-submited-message"
+                            style="position: fixed;left: 0;top: 70px;z-index: 999;width: 100%;text-align: center;">
+                            {{ session('message') }}
+                        </div>
+                        <script>
+                            setTimeout(() => {
+                                let formSubmitedMessage = document.getElementById("form-submited-message");
+                                changeElementTop(formSubmitedMessage);
+                            }, 4000);
+                        </script>
+                    @endif
+
+
+                    @if (session()->has('errors'))
+
+                        @foreach (session('errors')->messages as $error)
+                            <p class="mb-0">{{ $error }}</p>
+                        @endforeach
+            </div>
+
+            <div class="alert alert-danger" id="form-submited-error"
+                style="position: fixed;left: 0;top: 70px;z-index: 999;width: 100%;text-align: center;">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
                 @endif
-                {{-- ========================================================== --}}
+            </div>
 
-                <section id="contactSection"
-                    class="section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
-                    <div style="display: flex;justify-content: center;">
-                        <h1 style="color: #103e55;">اتصــل بنا </h1>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-12">
-                                <form style="display:none" class="contact-form columns_padding_5 row " method="POST"
-                                    action="{{ route('contactUs') }}">
-                                </form>
-                                <form class="contact-form columns_padding_5 row " method="POST"
-                                    action="{{ route('contactUs') }}">
-                                    @csrf
-                                    <div class="col-sm-12 col-md-6">
-                                        <p class="contact-form-name">
-                                            <label for="first_name" class="sr-only">First name<span
-                                                    class="required">*</span></label>
-                                            <input type="text" aria-required="true" size="30"
-                                                value="{{ old('first_name') }}" name="first_name" id="first_name"
-                                                class="form-control" placeholder="الأسم الأول	 ">
-                                        </p>
-                                        <div>
-                                            @error('first_name')
-                                                <span style="color: red;font-size: 14px;"
-                                                    class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <p class="contact-form-name">
-                                            <label for="last_name" class="sr-only">Last name<span
-                                                    class="required">*</span></label>
-                                            <input type="text" aria-required="true" size="30"
-                                                value="{{ old('last_name') }}" name="last_name" id="last_name"
-                                                class="form-control" placeholder="الأسم الأخير ">
-                                        </p>
-                                        <div>
-                                            @error('last_name')
-                                                <span style="color: red;font-size: 14px;"
-                                                    class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <p class="contact-form-email">
-                                            <label for="email" class="sr-only"> Email <span
-                                                    class="required">*</span></label>
-                                            <input type="text" aria-required="true" size="30"
-                                                value="{{ old('email') }}" name="email" id="email"
-                                                class="form-control" placeholder="الإيميل ">
-                                        </p>
-                                        <div>
-                                            @error('email')
-                                                <span style="color: red;font-size: 14px;"
-                                                    class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <p class="contact-form-phone">
-                                            <label for="phone" class="sr-only"> mobile number <span
-                                                    class="required">*</span></label>
-                                            <input type="text" aria-required="true" size="30"
-                                                value="{{ old('phone') }}" name="phone" id="phone"
-                                                class="form-control" placeholder="رقم الهاتف ">
-                                        </p>
-                                        <div>
-                                            @error('phone')
-                                                <span style="color: red;font-size: 14px;"
-                                                    class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <p class="contact-form-subject">
-                                            <label for="subject" class="sr-only">subject <span
-                                                    class="required">*</span></label>
-                                            <input type="text" aria-required="true" size="30"
-                                                value="{{ old('subject') }}" name="subject" id="subject"
-                                                class="form-control" placeholder=" الموضوع">
-                                        </p>
-                                        <div>
-                                            @error('subject')
-                                                <span style="color: red;font-size: 14px;"
-                                                    class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
+            <script>
+                setTimeout(() => {
+                    let formSubmitedError = document.getElementById("form-submited-error");
+                    changeElementTop(formSubmitedError);
+                }, 4000);
+            </script>
+            @endif
 
-                                    <div class="col-sm-12">
+            @endif
+            {{-- ==================================================================================================================== --}}
 
-                                        <p class="contact-form-message">
-                                            <label for="message" class="sr-only">Message</label>
-                                            <textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control"
-                                                placeholder="الرسالة">{{ old('subject') }}</textarea>
-                                        </p>
-                                        <div>
-                                            @error('message')
-                                                <span style="color: red;font-size: 14px;"
-                                                    class="error">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+            <section id="contactSection"
+                class="section_padding_120 ls contact-section muted_section image-background"style="direction: rtl; ">
+                <div style="display: flex;justify-content: center;">
+                    <h1 style="color: #103e55;">اتصــل بنا </h1>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-12">
+                            <form style="display:none" class="contact-form columns_padding_5 row " method="POST"
+                                action="{{ route('contactUs') }}">
+                            </form>
+                            <form class="contact-form columns_padding_5 row " method="POST"
+                                action="{{ route('contactUs') }}">
+                                @csrf
+                                <div class="col-sm-12 col-md-6">
+                                    <p class="contact-form-name">
+                                        <label for="first_name" class="sr-only">First name<span
+                                                class="required">*</span></label>
+                                        <input type="text" aria-required="true" size="30"
+                                            value="{{ old('first_name') }}" name="first_name" id="first_name"
+                                            class="form-control" placeholder="الأسم الأول	 ">
+                                    </p>
+                                    <div>
+                                        @error('first_name')
+                                            <span style="color: red;font-size: 14px;"
+                                                class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
-
-                                    <div class="col-sm-12">
-
-                                        <p class="contact-form-submit topmargin_30 bottommargin_0 text-center">
-                                            <button type="submit" id="contact_form_submit" name="contact_submit"
-                                                class="theme_button margin_0 color1">أرسل رسالة</button>
-                                        </p>
-
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <p class="contact-form-name">
+                                        <label for="last_name" class="sr-only">Last name<span
+                                                class="required">*</span></label>
+                                        <input type="text" aria-required="true" size="30"
+                                            value="{{ old('last_name') }}" name="last_name" id="last_name"
+                                            class="form-control" placeholder="الأسم الأخير ">
+                                    </p>
+                                    <div>
+                                        @error('last_name')
+                                            <span style="color: red;font-size: 14px;"
+                                                class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <p class="contact-form-email">
+                                        <label for="email" class="sr-only"> Email <span
+                                                class="required">*</span></label>
+                                        <input type="text" aria-required="true" size="30"
+                                            value="{{ old('email') }}" name="email" id="email"
+                                            class="form-control" placeholder="الإيميل ">
+                                    </p>
+                                    <div>
+                                        @error('email')
+                                            <span style="color: red;font-size: 14px;"
+                                                class="error">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <p class="contact-form-phone">
+                                        <label for="phone" class="sr-only"> mobile number <span
+                                                class="required">*</span></label>
+                                        <input type="text" aria-required="true" size="30"
+                                            value="{{ old('phone') }}" name="phone" id="phone"
+                                            class="form-control" placeholder="رقم الهاتف ">
+                                    </p>
+                                    <div>
+                                        @error('phone')
+                                            <span style="color: red;font-size: 14px;"
+                                                class="error">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <p class="contact-form-subject">
+                                        <label for="subject" class="sr-only">subject <span
+                                                class="required">*</span></label>
+                                        <input type="text" aria-required="true" size="30"
+                                            value="{{ old('subject') }}" name="subject" id="subject"
+                                            class="form-control" placeholder=" الموضوع">
+                                    </p>
+                                    <div>
+                                        @error('subject')
+                                            <span style="color: red;font-size: 14px;"
+                                                class="error">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                                </form>
-                            </div>
+                                <div class="col-sm-12">
+
+                                    <p class="contact-form-message">
+                                        <label for="message" class="sr-only">Message</label>
+                                        <textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control"
+                                            placeholder="الرسالة">{{ old('subject') }}</textarea>
+                                    </p>
+                                    <div>
+                                        @error('message')
+                                            <span style="color: red;font-size: 14px;"
+                                                class="error">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+
+                                    <p class="contact-form-submit topmargin_30 bottommargin_0 text-center">
+                                        <button type="submit" id="contact_form_submit" name="contact_submit"
+                                            class="theme_button margin_0 color1">أرسل رسالة</button>
+                                    </p>
+
+                                </div>
+
+                            </form>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
+        </div>
         </div>
     </body>
 @endsection

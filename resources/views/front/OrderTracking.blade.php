@@ -59,7 +59,7 @@
         }
 
         /* -------------------------------------------------------------------------
-                                                                                                                                                                                                                                                                                                            /*   visibility: visible; */
+                                                                                                                                                                                                                                                                                                                /*   visibility: visible; */
         @charset "UTF-8";
         @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Roboto:wght@400;500&display=swap");
 
