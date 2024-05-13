@@ -17,7 +17,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('front-assets/css/main.css') }}" id="color-switcher-link">
+    @if (app()->getlocale() == 'ar')
     <link rel="stylesheet" href="{{ asset('front-assets/css/rtl.css') }}">
+@endif
     <link rel="stylesheet" href="{{ asset('front-assets/css/animations.css') }}">
     <link rel="stylesheet" href="{{ asset('front-assets/css/fonts.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

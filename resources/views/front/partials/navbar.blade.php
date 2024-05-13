@@ -1,16 +1,16 @@
-<nav class="mainmenu_wrapper bordered_items" style="direction: rtl; display:inline-block">
+<nav class="mainmenu_wrapper bordered_items" style=" display:inline-block">
     <ul class="mainmenu nav sf-menu" style="width:max-content ">
         <li class="active">
-            <a style="font-size: 14px;" href="/">الرئيسية</a>
+            <a style="font-size: 14px;" href="/">  {{__('home.home')}}</a>
         </li>
         <li>
-            <a style="font-size: 14px;"href="/whoarewe">من نحن</a>
+            <a style="font-size: 14px;"href="/whoarewe"> {{__('home.who are we')}}</a>
         </li>
         <li>
-            <a style="font-size: 14px;" href="/Service">الخادمات</a>
+            <a style="font-size: 14px;" href="/Service">{{__('home.Maids')}}</a>
         </li>
         <li>
-            <a style="font-size: 14px;" href="/Laws"> الأنظمة و القوانين</a>
+            <a style="font-size: 14px;" href="/Laws">  {{__('home.Regulations and laws')}} </a>
         </li>
 
         <li>
@@ -21,7 +21,7 @@
         </li>
 
         <li>
-            <a style="font-size: 14px;" href="{{ url('/') }}#contactSection">الاتصال بنا</a>
+            <a style="font-size: 14px;" href="{{ url('/') }}#contactSection"> {{__('home.Contact us')}}</a>
         </li>
 
         <li>

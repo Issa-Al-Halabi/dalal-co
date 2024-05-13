@@ -16,3 +16,53 @@
     float: right;
     width: 100%;
 }
+.slide_description_wrapper{
+    direction: rtl;
+    text-align: right;
+}
+.text-center{
+    padding-bottom: 5px
+}
+.margin_0 yantramanav fontsize_16{
+    padding-bottom: 3px
+}
+.servicetext1{
+    display:flex;
+     justify-content: center;
+}
+.servicetext2{
+    margin-bottom: 25px;
+}
+.col-lg-2 col-sm-3 col-xs-12 text-right{
+    padding-bottom: 17px;
+
+}
+.slider1{
+    transform: rotatey(0deg)!important;
+}
+.slide_description_wrapper fontCairo{
+    direction: rtl;
+    text-align: right;
+}
+.coneect{
+    direction: rtl;
+}
+.col-lg-5.col-md-6.col-md-pull-6.col-lg-pull-7{
+    direction: rtl;
+}
+.fontCairo{
+    direction: rtl;
+}
+.topmargin_-5 .bottommargin_25{
+    direction: rtl;
+}
+.page_header_wrapper{
+    direction: rtl;
+}
+.fotternew{
+    direction: rtl;
+}
+.col-lg-2 .col-sm-3 .col-xs-12  {
+    text-align: right;
+
+}
