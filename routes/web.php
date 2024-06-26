@@ -22,7 +22,7 @@ Route::group([
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
     Route::get('/lawDetail/{id}', [FrontController::class, "lawDetail"])->name("lawDetail");
     Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders");
-    Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack");
+    Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack")->middleware(["canTrackOrder"]);
 
     // contact us
     Route::get('/contact-us', [ContactUsController::class, "getCsrfToken"])->name("contactUs");

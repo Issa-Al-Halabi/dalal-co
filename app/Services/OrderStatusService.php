@@ -5,9 +5,12 @@ namespace App\Services;
 use Filament\Forms\Components\Wizard\Step;
 use App\Enums\StatusInputsTypes;
 use App\Helpers\NotificationHelper;
+use App\Http\Resources\StatusResource;
+use App\Mail\OrderStateUpdateMail;
 use App\Models\OrderStatus;
 use App\Models\Status;
 use Filament\Forms\Components\Placeholder;
+use Illuminate\Support\Facades\Mail;
 
 class OrderStatusService
 {
@@ -18,8 +21,7 @@ class OrderStatusService
 
         if ($statuses_count == 0) {
             return 'حالة ابتدائية';
-        }
-        else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+        } else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
             return 'الطلب منتهي';
         }
 
@@ -32,8 +34,7 @@ class OrderStatusService
 
         if ($statuses_count == 0) {
             return 'warning';
-        }
-        else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+        } else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
             return 'success';
         }
 
@@ -154,5 +155,14 @@ class OrderStatusService
         $record->save();
         // Send Notification To Notify The User That The Process Was Successfully Done
         NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
+
+        $status = Status::findOrFail($statusId);
+        $statusDesc = StatusResource::getOrderDesc($status, $record->id);
+
+        // send a message to the user
+        Mail::to($record->user->email)->send(new OrderStateUpdateMail(
+            $record->maid->fullName,
+            $statusDesc,
+        ));
     }
 }

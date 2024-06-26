@@ -12,7 +12,6 @@ class Law extends Model
 
     public $translatable = [
         "name",
-        "type",
         "content",
     ];
     protected $fillable = [

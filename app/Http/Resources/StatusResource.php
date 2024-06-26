@@ -24,17 +24,17 @@ class StatusResource extends JsonResource
         return [
             'id'         => $this->id,
             'title'       => $this->title,
-            'description' => $this->getOrderDesc($this),
+            'description' => $this->getOrderDesc($this, request()->id),
             'specifications'   => $this->specifications,
             'status'   => $this->getOrderStatus($this),
         ];
     }
 
-    public function getOrderDesc($status)
+    static public function getOrderDesc($status, $orderId)
     {
-        $order_status = OrderStatus::where("order_id", request()->id)->where("status_id", $status->id)->get()->first();
+        $order_status = OrderStatus::where("order_id", $orderId)->where("status_id", $status->id)->get()->first();
 
-        $maid_name = Order::find(request()->id)->maid->fullName;
+        $maid_name = Order::find($orderId)->maid->fullName;
         $status->description = str_replace("(name)", $maid_name, $status->description);
 
         if (!$order_status) {

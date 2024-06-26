@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -7,103 +7,229 @@
         <link rel="stylesheet" href="{{ asset('front-assets/css/login.css') }}">
         <link rel="stylesheet" href="{{ asset('front-assets/fonts/material-design-iconic-font.css') }}">
 
-        <title>المستند</title>
+        <title>Document</title>
+
         <style>
+            /* Basic styles for larger screens */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: auto;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .signin-content {
+                display: flex;
+                flex-direction: row;
+                background: white;
+                padding: 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .signin-image,
+            .signin-form {
+                flex: 1;
+                padding: 20px;
+            }
+
+            .signin-image img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .signin-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                margin-right: 10px;
+                color: #333;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .form-group input[type="submit"] {
+                background-color: #163c53;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .form-group input[type="submit"]:hover {
+                background-color: #145b70;
+            }
+
+            .signup-image-link {
+                display: inline-block;
+                margin-top: 10px;
+                text-align: center;
+                color: #222;
+                padding: 0 10px;
+            }
+
+
+            .signup-image-link.mobile {
+                display: none;
+            }
+
+            /* Responsive styles */
             @media screen and (max-width: 768px) {
+                .signup-image-link.mobile {
+                    display: block;
+                }
+
+                .container {
+                    height: auto;
+                    padding: 10px;
+                }
+
+                .signin-content {
+                    flex-direction: column;
+                    padding: 20px;
+                }
+
+                .signin-image {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
                 .signin-image img {
-                    transform: scale(1ٍ);
-                    /* تقليل حجم الشعار على الأجهزة الصغيرة */
+                    max-width: 50%;
                 }
 
                 .signup-image-link {
                     font-size: 14px;
                     color: #222;
-                    display: block;
                     text-align: center;
-                    position: absolute;
-                    bottom: 116px;
-                    left: 161px;
+                    position: relative;
+                    bottom: auto;
+                    left: auto;
+                    margin-top: 10px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .signin-image img {
+                    max-width: 70%;
+                }
+
+                .signup-image-link {
+                    font-size: 12px;
+                }
+
+                .form-group input[type="submit"] {
+                    font-size: 14px;
                 }
             }
         </style>
     </head>
 
     <body>
-        <!-- نموذج تسجيل الدخول -->
-        <section class="signup">
+        <!-- Login Form -->
+        <section class="sign-in" style="direction: rtl;">
             <div class="container">
-                <div class="signup-content">
-                    <div class="signup-form">
-                        <h2 class="form-title" style="color:#163c53;    font-family: cairo light;">{{ __('home.Register') }}</h2>
+
+                <div class="signin-content">
+                    @if (isset($_GET['trackOrder']))
+                        <div style="position: absolute;text-align: center; font-size: 18px; padding: 10px; color: red;">
+                            عليك ان تسجل دخول لتتمكن من تتبع الطلبات
+                        </div>
+                    @endif
+                    <div class="signin-image">
+                        <figure><img src="front-assets/images/logo.png" alt="صورة التسجيل"></figure>
+                    </div>
+                    <div class="signin-form">
+                        <h2 class="form-title" style="color:#163c53;">{{ __('home.Create an account') }}</h2>
+
                         <form method="POST" action="{{ route('signup') }}" class="register-form" id="register-form">
                             @csrf
-                            <div class="form-group" style="color:#163c53;    font-family: cairo light;">
+                            <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" value="{{ old('name') }}" id="name"
-                                    placeholder="{{ __('home.your name') }}" style="font-family: cairo light;" />
+                                    placeholder="{{ __('home.your name') }}" />
                                 <div>
                                     @error('name')
-                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                        <span class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" value="{{ old('email') }}" id="email"
-                                    placeholder="{{ __('home.Your E-mail') }} " style="font-family: cairo light;" />
+                                    placeholder="{{ __('home.Your E-mail') }}" />
                                 <div>
                                     @error('email')
-                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                        <span class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" value="{{ old('password') }}" id="password"
-                                    placeholder=" {{ __('home.password') }}" style="font-family: cairo light;" />
+                                    placeholder=" {{ __('home.password') }}" />
                                 <div>
                                     @error('password')
-                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                        <span class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
-                          
-
                             <div class="form-group">
                                 <label for="phone"><i class="zmdi zmdi-phone"></i></label>
                                 <input type="tel" name="phone" value="{{ old('phone') }}" id="phone"
-                                    placeholder="{{ __('home.phone number') }} " style="font-family: cairo light;direction: rtl;" />
+                                    placeholder="{{ __('home.phone number') }}" />
                                 <div>
                                     @error('phone')
-                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                        <span class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <input type="checkbox" name="terms" value="1" id="agree-term" class="agree-term"
-                                    style="font-family: cairo light;"
                                     @if (old('terms')) checked @endif />
-                                <label for="agree-term" class="label-agree-term" style="font-family: cairo light;"><span
-                                        style="margin-left: 7px;"><span></span></span>  {{ __('home.I agree to all statements in') }}   <a
-                                        href="#" class="term-service">{{ __('home.Terms of Service') }} </a></label>
+                                <label for="agree-term"
+                                    class="label-agree-term">{{ __('home.I agree to all statements in') }} <a
+                                        href="#"
+                                        class="term-service">{{ __('home.Terms of Service') }}</a></label>
                                 <div>
                                     @error('terms')
-                                        <span style="color: red;font-size: 14px;" class="error">{{ $message }}</span>
+                                        <span class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="{{ __('home.sign in') }} "
-                                    style="font-family: cairo light;" />
+                                <input type="submit" name="signup" id="signup" class="form-submit"
+                                    value="{{ __('home.sign in') }}" />
+
+                                <a href="/login" class="signup-image-link">{{ __('home.Have an account') }}</a>
                             </div>
                         </form>
-                    </div>
-                    <div class="signup-image">
-                        <figure><img src="front-assets/images/logo.png" alt="صورة التسجيل"
-                                style="transform: scale(1.4);"></figure>
-                        <a href="/login" class="signup-image-link" style="font-family: cairo light;">{{ __('home.Terms of Service') }} 
-                            </a>
                     </div>
                 </div>
             </div>
