@@ -15,7 +15,7 @@ class StatusSeeder extends Seeder
     public function run(): void
     {
         $statuses = [
-            OrderTypes::abroad => $this->getAbroadStatuses(),
+            OrderTypes::abroad => $this->getAbroadStatuses($this->getImmediatelyStatuses()),
             OrderTypes::immediately => $this->getImmediatelyStatuses()
         ];
         foreach (array_keys($statuses) as $order_type) {
@@ -30,9 +30,9 @@ class StatusSeeder extends Seeder
         }
     }
 
-    public function getAbroadStatuses(): array
+   static public function getAbroadStatuses($immediatelyStatuses): array
     {
-        return [
+        return  array_merge([
             [
                 "title" => [
                     "ar" => __("AbroadStatuses.step1.title", [], "ar"),
@@ -44,8 +44,8 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Numeric,
-                        "label" => "قيمة الدفعة الأولى",
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تسليم الوثائق",
                     ]
                 ]
             ],
@@ -60,8 +60,8 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Toggle,
-                        "label" => "هل تم تقدبم الطلب ؟",
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "موعد كاتب العدل",
                     ]
                 ]
             ],
@@ -77,7 +77,7 @@ class StatusSeeder extends Seeder
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Numeric,
-                        "label" => "عدد الأيام المتوقعة لإصدار الفيزا الخاصة بالعاملة",
+                        "label" => "قيمة الرعبون",
                     ]
                 ]
             ],
@@ -92,13 +92,9 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Date,
-                        "label" => "موعد وصول الخادمة الى مطار دمشق الدولي",
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم استلام الوثائق",
                     ],
-                    "input2" => [
-                        "type" => StatusInputsTypes::Numeric,
-                        "label" => "قيمة الدفعة الثانية (رسوم الدولة)",
-                    ]
                 ],
             ],
             [
@@ -112,8 +108,12 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Date,
-                        "label" => "موعد الفحص الطبي",
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة الدفعة الثانية",
+                    ],
+                    "input2" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تقديم الطلب إلى الجهات الرسمية",
                     ]
                 ]
             ],
@@ -129,7 +129,7 @@ class StatusSeeder extends Seeder
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Numeric,
-                        "label" => "قيمة الدفعة الثالثة و الأخيرة",
+                        "label" => "عدد الأيام المتوقعة لإصدار الفيزا الخاصة بالعاملة",
                     ]
                 ]
             ],
@@ -144,8 +144,8 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Date,
-                        "label" => "موعد المطابقة",
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم صدور الفيزا وقطع التذاكر",
                     ]
                 ]
             ],
@@ -160,108 +160,111 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Toggle,
-                        "label" => "هل يتم الانتظار لإصدار الإقامة ؟",
-                    ]
-                ]
-            ],
-            [
-                "title" => [
-                    "ar" => __("AbroadStatuses.step9.title", [], "ar"),
-                    "en" => __("AbroadStatuses.step9.title", [], "en"),
-                ],
-                "description" => [
-                    "ar" => __("AbroadStatuses.step9.description", [], "ar"),
-                    "en" => __("AbroadStatuses.step9.description", [], "en"),
-                ],
-                "specifications" => [
-                    "input1" => [
-                        "type" => StatusInputsTypes::Toggle,
-                        "label" => "الإنتقال للمرحلة القادمة",
-                    ]
-                ]
-            ],
-            [
-                "title" => [
-                    "ar" => __("AbroadStatuses.step10.title", [], "ar"),
-                    "en" => __("AbroadStatuses.step10.title", [], "en"),
-                ],
-                "description" => [
-                    "ar" => __("AbroadStatuses.step10.description", [], "ar"),
-                    "en" => __("AbroadStatuses.step10.description", [], "en"),
-                ],
-                "specifications" => ["input1" => [
-                    "type" => StatusInputsTypes::Date,
-                    "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثانية",
-                ]]
-            ],
-            [
-                "title" => [
-                    "ar" => __("AbroadStatuses.step11.title", [], "ar"),
-                    "en" => __("AbroadStatuses.step11.title", [], "en"),
-                ],
-                "description" => [
-                    "ar" => __("AbroadStatuses.step11.description", [], "ar"),
-                    "en" => __("AbroadStatuses.step11.description", [], "en"),
-                ],
-                "specifications" => [
-                    "input1" => [
-                        "type" => StatusInputsTypes::Toggle,
-                        "label" => "هل تم تجديد إقامة السنة الثانية ؟",
-                    ]
-                ]
-            ],
-            [
-                "title" => [
-                    "ar" => __("AbroadStatuses.step12.title", [], "ar"),
-                    "en" => __("AbroadStatuses.step12.title", [], "en"),
-                ],
-                "description" => [
-                    "ar" => __("AbroadStatuses.step12.description", [], "ar"),
-                    "en" => __("AbroadStatuses.step12.description", [], "en"),
-                ],
-                "specifications" => ["input1" => [
-                    "type" => StatusInputsTypes::Date,
-                    "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثالثة",
-                ]]
-            ],
-            [
-                "title" => [
-                    "ar" => __("AbroadStatuses.step13.title", [], "ar"),
-                    "en" => __("AbroadStatuses.step13.title", [], "en"),
-                ],
-                "description" => [
-                    "ar" => __("AbroadStatuses.step13.description", [], "ar"),
-                    "en" => __("AbroadStatuses.step13.description", [], "en"),
-                ],
-                "specifications" => [
-                    "input1" => [
-                        "type" => StatusInputsTypes::Toggle,
-                        "label" => "هل تم تجديد إقامة السنة الثالثة ؟",
-                    ]
-                ]
-            ],
-            [
-                "title" => [
-                    "ar" => __("AbroadStatuses.step14.title", [], "ar"),
-                    "en" => __("AbroadStatuses.step14.title", [], "en"),
-                ],
-                "description" => [
-                    "ar" => __("AbroadStatuses.step14.description", [], "ar"),
-                    "en" => __("AbroadStatuses.step14.description", [], "en"),
-                ],
-                "specifications" => [
-                    "input1" => [
                         "type" => StatusInputsTypes::Date,
-                        "label" => "تاريخ إنتهاء العقد الخاص بالعاملة",
+                        "label" => "تاريخ يوم الوصول العاملة من مطار دمشق الدولي",
                     ]
                 ]
             ],
+            
+            // [
+            //     "title" => [
+            //         "ar" => __("AbroadStatuses.step9.title", [], "ar"),
+            //         "en" => __("AbroadStatuses.step9.title", [], "en"),
+            //     ],
+            //     "description" => [
+            //         "ar" => __("AbroadStatuses.step9.description", [], "ar"),
+            //         "en" => __("AbroadStatuses.step9.description", [], "en"),
+            //     ],
+            //     "specifications" => [
+            //         "input1" => [
+            //             "type" => StatusInputsTypes::Toggle,
+            //             "label" => "الإنتقال للمرحلة القادمة",
+            //         ]
+            //     ]
+            // ],
+            // [
+            //     "title" => [
+            //         "ar" => __("AbroadStatuses.step10.title", [], "ar"),
+            //         "en" => __("AbroadStatuses.step10.title", [], "en"),
+            //     ],
+            //     "description" => [
+            //         "ar" => __("AbroadStatuses.step10.description", [], "ar"),
+            //         "en" => __("AbroadStatuses.step10.description", [], "en"),
+            //     ],
+            //     "specifications" => ["input1" => [
+            //         "type" => StatusInputsTypes::Date,
+            //         "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثانية",
+            //     ]]
+            // ],
+            // [
+            //     "title" => [
+            //         "ar" => __("AbroadStatuses.step11.title", [], "ar"),
+            //         "en" => __("AbroadStatuses.step11.title", [], "en"),
+            //     ],
+            //     "description" => [
+            //         "ar" => __("AbroadStatuses.step11.description", [], "ar"),
+            //         "en" => __("AbroadStatuses.step11.description", [], "en"),
+            //     ],
+            //     "specifications" => [
+            //         "input1" => [
+            //             "type" => StatusInputsTypes::Toggle,
+            //             "label" => "هل تم تجديد إقامة السنة الثانية ؟",
+            //         ]
+            //     ]
+            // ],
+            // [
+            //     "title" => [
+            //         "ar" => __("AbroadStatuses.step12.title", [], "ar"),
+            //         "en" => __("AbroadStatuses.step12.title", [], "en"),
+            //     ],
+            //     "description" => [
+            //         "ar" => __("AbroadStatuses.step12.description", [], "ar"),
+            //         "en" => __("AbroadStatuses.step12.description", [], "en"),
+            //     ],
+            //     "specifications" => ["input1" => [
+            //         "type" => StatusInputsTypes::Date,
+            //         "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثالثة",
+            //     ]]
+            // ],
+            // [
+            //     "title" => [
+            //         "ar" => __("AbroadStatuses.step13.title", [], "ar"),
+            //         "en" => __("AbroadStatuses.step13.title", [], "en"),
+            //     ],
+            //     "description" => [
+            //         "ar" => __("AbroadStatuses.step13.description", [], "ar"),
+            //         "en" => __("AbroadStatuses.step13.description", [], "en"),
+            //     ],
+            //     "specifications" => [
+            //         "input1" => [
+            //             "type" => StatusInputsTypes::Toggle,
+            //             "label" => "هل تم تجديد إقامة السنة الثالثة ؟",
+            //         ]
+            //     ]
+            // ],
+            // [
+            //     "title" => [
+            //         "ar" => __("AbroadStatuses.step14.title", [], "ar"),
+            //         "en" => __("AbroadStatuses.step14.title", [], "en"),
+            //     ],
+            //     "description" => [
+            //         "ar" => __("AbroadStatuses.step14.description", [], "ar"),
+            //         "en" => __("AbroadStatuses.step14.description", [], "en"),
+            //     ],
+            //     "specifications" => [
+            //         "input1" => [
+            //             "type" => StatusInputsTypes::Date,
+            //             "label" => "تاريخ إنتهاء العقد الخاص بالعاملة",
+            //         ]
+            //     ]
+            // ],
+            
 
-        ];
+        ],
+        $immediatelyStatuses);
     }
 
-    public function getImmediatelyStatuses(): array
+   static public function getImmediatelyStatuses(): array
     {
         return [
             [
@@ -291,8 +294,8 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Date,
-                        "label" => "تاريخ موعد التنازل",
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "تأكيد انتهاء اجراءات التحاليل الطبية للعاملة",
                     ]
                 ]
             ],
@@ -307,8 +310,8 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Date,
-                        "label" => "موعد المطابقة",
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "تأكيد انتهاء إجراء البصمة للعاملة في مديرية الشؤون الاجتماعية والعمل",
                     ]
                 ]
             ],
@@ -324,8 +327,8 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Date,
-                        "label" => "موعد توقيع العقد",
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تسليم المبلغ المتفق عليه بين المكتب والكفيل",
                     ]
                 ]
             ],
@@ -342,7 +345,7 @@ class StatusSeeder extends Seeder
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Toggle,
-                        "label" => "يتم الانتظار لإصدار الإقامة ؟",
+                        "label" => "هل تم صدور نتيجة التحاليل",
                     ]
                 ]
             ],
@@ -358,8 +361,8 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Toggle,
-                        "label" => "مراجعة المكتب ؟",
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة ايصالات الدولة (الايصال المالي)",
                     ]
                 ]
             ],
@@ -374,8 +377,8 @@ class StatusSeeder extends Seeder
                     "en" => __("immediately_statuses.step7.description", [], "en"),
                 ],
                 "specifications" => ["input1" => [
-                    "type" => StatusInputsTypes::Date,
-                    "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثانية",
+                    "type" => StatusInputsTypes::Toggle,
+                    "label" => "انتهاء اجراء التأمينات لإرفاقهم بالمعاملة وعقد العمل",
                 ]]
             ],
             [
@@ -390,7 +393,7 @@ class StatusSeeder extends Seeder
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Toggle,
-                        "label" => "هل تم تجديد إقامة السنة الثانية ؟",
+                        "label" => "هل تم إدخال المعاملة لدى مديرية الشؤون الاجتماعية والعمل لتسجيلها ؟",
                     ]
                 ]
             ],
@@ -405,7 +408,7 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => ["input1" => [
                     "type" => StatusInputsTypes::Date,
-                    "label" => "تاريخ إنتهاء الإقامة الخاصة بالعاملة للسنة الثالثة",
+                    "label" => "تاريخ الموعد مع الكفيل لاجراء المطابقة بوجود العاملة المنزلية",
                 ]]
             ],
             [
@@ -419,9 +422,13 @@ class StatusSeeder extends Seeder
                 ],
                 "specifications" => [
                     "input1" => [
-                        "type" => StatusInputsTypes::Toggle,
-                        "label" => "هل تم تجديد إقامة السنة الثالثة ؟",
-                    ]
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة دفع الايصال التجاري",
+                    ],
+                    "input2" => [
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة دفع الايصال المركزي",
+                    ],
                 ]
             ],
             [
@@ -436,7 +443,7 @@ class StatusSeeder extends Seeder
                 "specifications" => [
                     "input1" => [
                         "type" => StatusInputsTypes::Date,
-                        "label" => "تاريخ إنتهاء العقد الخاص بالعاملة",
+                        "label" => "تأكيد تسليم الكفيل الجواز وبطاقة العمل والاقامة",
                     ]
                 ]
             ]

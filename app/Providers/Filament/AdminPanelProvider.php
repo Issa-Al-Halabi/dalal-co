@@ -36,6 +36,18 @@ class AdminPanelProvider extends PanelProvider
             //     تحديث ال sitemap
             // </x-filament::button>'),
             // )
+            ->renderHook(
+                "panels::styles.after",
+                fn (): string => Blade::render('
+                <style>
+               .fi-fo-wizard-header.grid.divide-y
+                {
+                    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+                    grid-auto-flow: inherit;
+                }
+                </style>
+                    '),
+            )
             ->databaseNotifications(true)
             ->id('admin')
             ->path('admin')

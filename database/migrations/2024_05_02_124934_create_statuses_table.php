@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->text('title');
             $table->longText('description');
             $table->longText('specifications');
             $table->integer('order_type');

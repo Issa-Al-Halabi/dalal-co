@@ -1,46 +1,56 @@
 <?php
 return [
     "step1" => [
-        "title" => "The First Payment Has Been Received (First Payment)",
+        "title" => "Please submit a two-sided colored ID photo and residence permits from the local mayor, certified by the municipality with 6 personal photos, and a power of attorney with the names of the delegates to the office.",
         "description" => "<div>
-                    The first payment amounting to (input1) S.P. was received
-                        Please provide us with the following documents to immediately proceed with your recruitment application:
-                        <ul>
-                            <li>ID Photo</li>
-                            <li>Residence certificate certified by the mayor and the municipality (four copies)</li>
-                            <li>Sign the power of attorney to conduct the transaction on your behalf (the legal department will contact you)</li>
-                            <li>Signing the employment contract (the legal department will contact you)</li>
-                        </ul>
-                        </div>",
+The following documents were received:
+<ul>
+<li>A two-sided color ID photo</li>
+<li>Residence documents from the local mayor, certified by the municipality, bearing 6 personal photos</li>
+<li>A power of attorney with the names of delegates for the office</li>
+</ul>
+</div>",
     ],
     "step2" => [
-        "title" => "Your application has been submitted to the official authorities",
-        "description" => "<div>Your application has been submitted to the official authorities</div>",
+        "title" => "A notary appointment is scheduled for",
+        "description" => "<div>The notary appointment is scheduled for (input1)</div>",
     ],
     "step3" => [
-        "title" => "The expected time for issuing the worker's visa is () working days",
-        "description" => "<div>The expected time for issuing a worker’s visa is (input1) working days</div>",
+        "title" => "Determine the value of the payment",
+        "description" => "<div>The payment value (input1) has been determined</div>",
     ],
     "step4" => [
-        "title" => "Please note that the worker will arrive at Damascus Airport on (), please pay the second payment ()",
-        "description" => "<div> Please note that the worker will arrive at Damascus Airport on (input1), please pay the second payment of (input2) SYP</div>",
+        "title" => "Receiving the following papers (employment contract from Finance - Directorate of Social Affairs and Labor - Ministry of Social Affairs and Labor - Immigration - Division)",
+        "description" => "<div>
+                The following documents were received:
+                <ul>
+                <li>Employment contract from Finance</li>
+                <li>Directorate of Social Affairs and Labor</li>
+                <li>Migration</li>
+                <li>Division</li>
+                </ul>
+                </div>",
     ],
     "step5" => [
-        "title" => "The medical examination date has been scheduled at ()",
-        "description" => "<div>The medical examination has been scheduled at (input1)</div>",
+        "title" => "Determine the value of the second payment and confirm that the application has been submitted to the official authorities",
+        "description" => "<div>
+        <p>The value of the second payment (input1) has been determined</p>
+        <p>The application has been submitted to the official authorities</p>
+        </div>",
     ],
     "step6" => [
-        "title" => "Please pay the third and final payment ()",
-        "description" => "<div> Please pay the third and final payment (input1) for SYP</div>",
+        "title" => "The expected number of days for the worker’s visa to be issued",
+        "description" => "<div>The expected number of days for the worker’s visa to be issued is (input1)</div>",
     ],
     "step7" => [
-        "title" => "The matching date has been set on ()",
-        "description" => "<div>The matching date is set at (input1)</div>",
+        "title" => "The issuance of the visa and tickets have been confirmed",
+        "description" => "<div>The issuance of the visa and tickets have been confirmed</div>",
     ],
     "step8" => [
-        "title" => "Waiting for the residence permit to be issued",
-        "description" => "<div>Waiting for the residence permit to be issued</div>",
+        "title" => "Specify the operating day of arrival from Damascus International Airport",
+        "description" => "<div>The operating day of arrival from Damascus International Airport has been determined, corresponding to (input1)</div>",
     ],
+    ///////////////////////////////////////////////////////////////////////////////////////
     "step9" => [
         "title" => "Please visit the office to obtain residency, passport and work permit",
         "description" => "<div>Please visit the office to obtain residency, passport and work permit</div>",
