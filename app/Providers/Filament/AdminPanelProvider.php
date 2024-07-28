@@ -48,6 +48,26 @@ class AdminPanelProvider extends PanelProvider
                 </style>
                     '),
             )
+            // to prevent guard name to appear in filament shield
+            ->renderHook(
+                "panels::styles.after",
+                fn (): string => Blade::render('
+                <style>
+                .fi-fo-component-ctn.gap-6 > div:nth-child(1) > div > div > div > section > div > div > div > div:nth-child(2)
+                {
+                    display:none;
+                }
+                table > thead > tr > th.fi-ta-header-cell.px-3.py-3\.5.sm\:first-of-type\:ps-6.sm\:last-of-type\:pe-6.fi-table-header-cell-guard-name
+                {
+                    display:none;
+                }
+                table > tbody > tr > td.fi-ta-cell.p-0.first-of-type\:ps-1.last-of-type\:pe-1.sm\:first-of-type\:ps-3.sm\:last-of-type\:pe-3.fi-table-cell-guard-name
+                {
+                    display:none;
+                }
+                </style>
+                    '),
+            )
             ->databaseNotifications(true)
             ->id('admin')
             ->path('admin')

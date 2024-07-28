@@ -10,13 +10,13 @@ class Maid extends Model
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = ['first_name', 'last_name', 'nationality', 'description', 'languages', 'countries', 'experiences'];
+    public $translatable = ['first_name', 'last_name', 'description', 'languages', 'countries', 'experiences'];
 
     protected $fillable = [
         'first_name',
         'last_name',
         'age',
-        'nationality',
+        'nationality_id',
         'description',
         'languages',
         'countries',
@@ -37,5 +37,10 @@ class Maid extends Model
     public function order()
     {
         return $this->hasOne(Order::class);
+    }
+
+    public function nationality()
+    {
+        return $this->belongsTo(Nationality::class);
     }
 }

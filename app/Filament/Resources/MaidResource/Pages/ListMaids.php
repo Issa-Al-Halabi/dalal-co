@@ -35,7 +35,7 @@ class ListMaids extends ListRecords
                 ->badge(Maid::query()->doesntHave('order')->count()),
 
             'unavailable' => Tab::make()
-                ->label("غير متوفرة")
+                ->label("محجوزة")
                 ->modifyQueryUsing(fn (Builder $query) => $query->has('order'))
                 ->badgeColor("danger")
                 ->badge(Maid::query()->has('order')->count()),
