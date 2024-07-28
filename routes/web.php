@@ -14,6 +14,7 @@ Route::group([
 
     Route::view('/', 'front.index');
     Route::view('/master', 'front.master');
+    Route::view('/formmcq', 'front.formmcq');
     Route::view('/whoarewe', 'front.whoarewe');
     Route::view('/login', 'front.login');
     Route::view('/signup', 'front.signup');
