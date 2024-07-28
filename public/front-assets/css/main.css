@@ -110,18 +110,21 @@ input[type=tel],
 textarea,
 select,
 .form-control {
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, 0);
     height: 50px;
     background-color: transparent;
-    border-radius: 0;
-    color: #323232;
-    padding-left: 20px;
+    /* border-radius: 0; */
+    /* color: #323232; */
+    padding-left: 8px;
     padding-right: 20px;
     padding-top: 9px;
     padding-bottom: 9px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px
+    border-radius: 5px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #a0a0a0;
 }
 
 textarea {
@@ -11026,4 +11029,54 @@ a.soc-pocket.bg-icon:hover,
 }
 .contact{
     direction: ltr;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .dropdown-btn {
+        font-size: 16px; /* تكبير حجم النص للهواتف */
+    }
+
+    .dropdown-content {
+        min-width: 100px; /* تقليل عرض القائمة للهواتف */
+    }
+    
+    .dropdown-content a {
+        padding: 10px 14px; /* تقليل المسافات الداخلية للروابط */
+    }
 }
