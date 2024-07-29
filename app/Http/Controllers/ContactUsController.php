@@ -111,7 +111,7 @@ class ContactUsController extends Controller
 
             // send a message for me
             Mail::to(env('MAIL_FROM_ADDRESS'))->send(new OrderMail(
-                $user_name,
+                $user,
                 $maid_full_name,
             ));
 
