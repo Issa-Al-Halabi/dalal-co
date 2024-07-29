@@ -111,6 +111,7 @@ return [
     "You must log in to be able to make a order" => "  يجب عليك تسجيل الدخول لتتمكن من تقديم الطلب",
     "confirm" => "تأكيد",
     "are you sure you want to order" => "هل انت متاكد بانك تريد اتمام العملية؟",
+    "there is no maids" => "لا يوجد عاملات",
 
 
 ];

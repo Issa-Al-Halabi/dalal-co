@@ -109,7 +109,8 @@ return [
     "You must log in to be able to track orders" => "You must log in to be able to track orders",
     "You must log in to be able to make a order" => "You must log in to be able to make a order",
     "confirm" => "Confirm",
-    "are you sure you want to order" => "are you sure you want to order"
+    "are you sure you want to order" => "are you sure you want to order",
+    "there is no maids" => "there is no maids",
 
 
 ];

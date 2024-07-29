@@ -32,7 +32,7 @@ Route::group([
     Route::post('/send-mail', [ContactUsController::class, "sendOrderMail"])->name("sendMail");
 
     // MCQ 
-    Route::view('/formmcq', 'front.formmcq');
+    Route::view('/formmcq', 'front.formmcq')->name("mcq");
     Route::post('/formmcq', [ContactUsController::class, "submitMCQForm"])->name("submitMCQForm");
 
     // login - signup
