@@ -26,7 +26,7 @@ class FrontController extends Controller
         // $nationality = Nationality::findorFail($nationality_id);
 
         $maids = Maid::where("nationality_id", $nationality_id)->get()->load('order')->sortBy('order.maid_id');
-        $maids = PaginationHelper::paginate($maids, 2, request()->page, ['path' => request()->url()]);
+        $maids = PaginationHelper::paginate($maids, 10, request()->page, ['path' => request()->url()]);
 
         return view("front.Service", compact("maids"));
     }
