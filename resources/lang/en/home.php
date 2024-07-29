@@ -91,8 +91,8 @@ return [
     "sign in" => "sign in",
     "Remember me" => "Remember me",
     "Create an account" => "Create an account",
-    "No longer available" =>  "No longer available",
-    "The maid is no longer available." => "The maid is no longer available.",
+    "booked" =>  "booked",
+    "The maid is booked." => "The maid is booked.",
     "Powered By" => "Developed By",
     "Create an account" => "Create an account",
     "confirm password" => "confirm password",
@@ -107,6 +107,7 @@ return [
     "You dont have an account! " => "You don't have an account! ",
     "Sign up in moments" => "Sign up in moments",
     "You must log in to be able to track orders" => "You must log in to be able to track orders",
+    "You must log in to be able to make a order" => "You must log in to be able to make a order",
     "confirm" => "Confirm",
     "are you sure you want to order" => "are you sure you want to order"
 

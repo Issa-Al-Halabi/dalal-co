@@ -34,6 +34,9 @@ class MCQResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label("اسم المستخدم"),
+
                 Tables\Columns\TextColumn::make('elderly_care')
                     ->label("رعاية مسن")
                     ->badge()
@@ -58,11 +61,23 @@ class MCQResource extends Resource
                     ->color("warning")
                     ->state(fn ($record) => $record->homework_experience ? "نعم" : "لا"),
 
-                Tables\Columns\TextColumn::make('recepion')
+                Tables\Columns\TextColumn::make('reception')
                     ->label("استقبال")
                     ->badge()
                     ->color("danger")
-                    ->state(fn ($record) => $record->recepion ? "نعم" : "لا"),
+                    ->state(fn ($record) => $record->reception ? "نعم" : "لا"),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label("تاريخ الانشاء")
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
+
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->label("تاريخ اخر تحديث")
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
             ])
             ->filters([
@@ -75,7 +90,7 @@ class MCQResource extends Resource
 
                 self::makeMyFilter("homework_experience", "خبرة بأعمال المنزل"),
 
-                self::makeMyFilter("recepion", "استقبال"),
+                self::makeMyFilter("reception", "استقبال"),
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),

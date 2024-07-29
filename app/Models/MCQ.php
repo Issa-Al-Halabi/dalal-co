@@ -10,10 +10,16 @@ class MCQ extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'elderly_care',
         "children_care",
         "nursing_course",
         "homework_experience",
-        "recepion",
+        "reception",
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

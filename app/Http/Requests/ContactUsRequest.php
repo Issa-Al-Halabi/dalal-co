@@ -27,6 +27,7 @@ class ContactUsRequest extends FormRequest
         return match ($this->route()->getActionMethod()) {
             'submitForm'   =>  $this->getsubmitFormRule(),
             'sendOrderMail'   =>  $this->getSendMailRule(),
+            'submitMCQForm'   =>  $this->getSubmitMCQFormRule(),
         };
     }
 
@@ -48,6 +49,17 @@ class ContactUsRequest extends FormRequest
         return [
             'user_id' => 'required|exists:users,id',
             'maid_id' => 'required|exists:maids,id',
+        ];
+    }
+
+    public function getSubmitMCQFormRule()
+    {
+        return [
+            'elderly_care' => 'required',
+            'children_care' => 'nullable',
+            'nursing_course' => 'required',
+            'homework_experience' => 'required',
+            'reception' => 'required',
         ];
     }
 

@@ -92,8 +92,8 @@ return [
     "sign in" => "تسجيل الدخول",
     "Remember me" => "تذكرني",
     "Create an account" => "إنشاء حساب",
-    "No longer available" => "لم تعد متوفرة",
-    "The maid is no longer available." => "الخادمة لم تعد متوفرة",
+    "booked" => "محجوزة",
+    "The maid is booked." => "الخادمة محجوزة",
     "Powered By" => "تم التطوير من قبل",
     "Create an account" => "إنشاء حساب",
     "confirm password" => "تأكيد كلمة المرور",
@@ -108,8 +108,9 @@ return [
     "You don't have an account! " => "ليس لديك حساب !",
     "Sign up in moments" => "قم بالتسجيل في لحظات",
     "You must log in to be able to track orders" => "  عليك ان تسجل دخول لتتمكن من تتبع الطلبات",
-    "confirm"=>"تأكيد",
-    "are you sure you want to order"=>"هل انت متاكد بانك تريد اتمام العملية؟",
+    "You must log in to be able to make a order" => "  يجب عليك تسجيل الدخول لتتمكن من تقديم الطلب",
+    "confirm" => "تأكيد",
+    "are you sure you want to order" => "هل انت متاكد بانك تريد اتمام العملية؟",
 
 
 ];

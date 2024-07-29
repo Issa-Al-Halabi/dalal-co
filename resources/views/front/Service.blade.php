@@ -21,7 +21,7 @@
                         @if ($maid->order)
                             <div class="text-center"
                                 style="color: white;background-color: red;padding: 5px;border-radius: 10px;position: absolute;top: 10px;">
-                                {{ __('home.No longer available') }}
+                                {{ __('home.booked') }}
                             </div>
                         @endif
                     </div>

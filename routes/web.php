@@ -14,15 +14,14 @@ Route::group([
 
     Route::view('/', 'front.index');
     Route::view('/master', 'front.master');
-    Route::view('/formmcq', 'front.formmcq');
     Route::view('/whoarewe', 'front.whoarewe');
     Route::view('/login', 'front.login');
     Route::view('/signup', 'front.signup');
-    Route::get('/Service', [FrontController::class, "services"]);
+    Route::get('/maids/{nationality_id}', [FrontController::class, "maids"])->name("maids");
     Route::get('/MaidDetail/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
     Route::get('/lawDetail/{id}', [FrontController::class, "lawDetail"])->name("lawDetail");
-    Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders");
+    Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders")->middleware(["canTrackOrder"]);
     Route::get('user/orders/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack");
 
     // contact us
@@ -31,6 +30,10 @@ Route::group([
 
     // send Mail
     Route::post('/send-mail', [ContactUsController::class, "sendOrderMail"])->name("sendMail");
+
+    // MCQ 
+    Route::view('/formmcq', 'front.formmcq');
+    Route::post('/formmcq', [ContactUsController::class, "submitMCQForm"])->name("submitMCQForm");
 
     // login - signup
     Route::post('/login', [AuthController::class, "login"])->name("login");

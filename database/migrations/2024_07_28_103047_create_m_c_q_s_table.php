@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('m_c_q_s', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+
             $table->boolean("elderly_care");
             $table->integer("children_care");
             $table->boolean("nursing_course");
             $table->boolean("homework_experience");
-            $table->boolean("recepion");
+            $table->boolean("reception");
 
             $table->timestamps();
         });

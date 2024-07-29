@@ -7,9 +7,11 @@ use App\Filament\Resources\OrderResource;
 use App\Http\Requests\ContactUsRequest;
 use App\Mail\ConfirmationMail;
 use App\Mail\ContactUsMail;
+use App\Mail\MCQMail;
 use App\Mail\OrderMail;
 use App\Models\ContactUs;
 use App\Models\Maid;
+use App\Models\MCQ;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -86,11 +88,16 @@ class ContactUsController extends Controller
 
             $user_name = $user->name;
             $maid_full_name = $maid->first_name . " " . $maid->last_name;
-            if (app()->getlocale() == "ar") {
-                $maid_full_name = ($maid->getTranslations()['first_name']['ar'] ?? $maid->getTranslations()['first_name']['en']) . ' ' . ($maid->getTranslations()['last_name']['ar'] ?? $maid->getTranslations()['last_name']['en']);
-            } else if (app()->getlocale() == "en") {
-                $maid_full_name = ($maid->getTranslations()['first_name']['en'] ?? $maid->getTranslations()['first_name']['ar']) . ' ' . ($maid->getTranslations()['last_name']['en'] ?? $maid->getTranslations()['last_name']['ar']);
-            }
+            // if (app()->getlocale() == "ar") {
+
+            //     if (array_key_exists("ar", $maid->getTranslations()['first_name'])) {
+
+            //     }
+
+            //     $maid_full_name = ($maid->getTranslations()['first_name']['ar'] ?? $maid->getTranslations()['first_name']['en']) . ' ' . ($maid->getTranslations()['last_name']['ar'] ?? $maid->getTranslations()['last_name']['en']);
+            // } else if (app()->getlocale() == "en") {
+            //     $maid_full_name = ($maid->getTranslations()['first_name']['en'] ?? $maid->getTranslations()['first_name']['ar']) . ' ' . ($maid->getTranslations()['last_name']['en'] ?? $maid->getTranslations()['last_name']['ar']);
+            // }
 
             // // send a message for me
             // dispatch(new SendMailJob(new OrderMail(
@@ -111,6 +118,7 @@ class ContactUsController extends Controller
             // send a message for the user
             Mail::to($user->email)->send(new ConfirmationMail(true));
 
+            // make a databse notification
             Notification::make()
                 ->title('طلب خادمة جديد')
                 ->success()
@@ -141,5 +149,46 @@ class ContactUsController extends Controller
                 "message" => "لم يتم ارسال الطلب",
             ]);
         }
+    }
+
+    public function submitMCQForm(ContactUsRequest $request)
+    {
+        $mcq = new MCQ();
+
+        if (!auth()->check()) {
+            return redirect()->to(url('login') . '?MCQOrder=1');
+        }
+
+        $user = auth()->user();
+
+        $mcq->user_id = $user->id;
+        $mcq->elderly_care = $request->elderly_care;
+        $mcq->children_care = $request->children_care == null ? 0 : $request->children_care;
+        $mcq->nursing_course = $request->nursing_course;
+        $mcq->homework_experience = $request->homework_experience;
+        $mcq->reception = $request->reception;
+
+        $mcq->save();
+
+        // send a message for me
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new MCQMail($mcq));
+
+        // make a databse notification
+        Notification::make()
+            ->title('طلب تسجيل طلبك لخدمتك جديد')
+            ->success()
+            ->body($user->name . ' تم طلب من قبل ')
+            ->actions([
+                Action::make('markAsRead')
+                    ->button()
+                    ->markAsRead(),
+                Action::make('remove')
+                    ->button()
+                    ->color('danger')
+                    ->close(),
+            ])
+            ->sendToDatabase(User::doesHaveRole()->get());
+
+        return redirect(route("submitMCQForm"))->with('message', "تم ارسال البيانات بنجاح");
     }
 }
