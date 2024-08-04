@@ -62,7 +62,6 @@ class RenewalOfResidenceResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->query(fn ($query) => $query->orderBy('id', 'desc'))
             ->columns([
 
                 Tables\Columns\TextColumn::make('maid.first_name')
