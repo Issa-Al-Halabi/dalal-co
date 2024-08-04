@@ -30,15 +30,15 @@ class ListMaids extends ListRecords
                 ->badge(Maid::query()->count()),
             'available' => Tab::make()
                 ->label("متوفرة")
-                ->modifyQueryUsing(fn (Builder $query) => $query->doesntHave('order'))
+                ->modifyQueryUsing(fn (Builder $query) => $query->doesntHave('owner'))
                 ->badgeColor("info")
-                ->badge(Maid::query()->doesntHave('order')->count()),
+                ->badge(Maid::query()->doesntHave('owner')->count()),
 
             'unavailable' => Tab::make()
                 ->label("محجوزة")
-                ->modifyQueryUsing(fn (Builder $query) => $query->has('order'))
+                ->modifyQueryUsing(fn (Builder $query) => $query->has('owner'))
                 ->badgeColor("danger")
-                ->badge(Maid::query()->has('order')->count()),
+                ->badge(Maid::query()->has('owner')->count()),
 
         ];
     }

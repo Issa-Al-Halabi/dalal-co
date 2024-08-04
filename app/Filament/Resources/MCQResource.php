@@ -20,7 +20,7 @@ class MCQResource extends Resource
     protected static ?string $model = MCQ::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {
@@ -33,6 +33,8 @@ class MCQResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+
+
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
                     ->label("اسم المستخدم"),
@@ -80,6 +82,7 @@ class MCQResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
 
                 self::makeMyFilter("elderly_care", "رعاية مسن"),

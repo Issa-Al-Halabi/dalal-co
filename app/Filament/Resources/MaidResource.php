@@ -57,18 +57,12 @@ class MaidResource extends Resource
                             : $record->getTranslation('nationality', "ar"))
                         ->createOptionForm(
                             NationalityResource::getForm()
-                            //     [
-                            //     Forms\Components\TextInput::make('nationality')
-                            //         ->label("الجنسية")
-                            //         ->required()
-                            //         ->maxLength(255)
-                            //         ->columnSpanFull(),
-
-                            //     Forms\Components\Toggle::make('status')
-                            //         ->label("هل الجنسية متاحة ؟")
-                            //         ->default(true),
-                            // ]
                         ),
+
+
+                    Forms\Components\DatePicker::make('residence_expire_at')
+                        // ->required()
+                        ->label("تاريخ انتهاء الاقامة"),
 
                     Forms\Components\TagsInput::make('languages')
                         // ->required()
@@ -154,6 +148,11 @@ class MaidResource extends Resource
                     ->color(Color::Purple)
                     ->badge(),
 
+                Tables\Columns\TextColumn::make('residence_expire_at')
+                    ->label("تاريخ انتهاء الاقامة")
+                    ->state(function (Maid $record) {
+                        return  $record->residence_expire_at == null ? "لا يوجد" : $record->residence_expire_at;
+                    }),
 
                 Tables\Columns\TextColumn::make('languages')
                     ->label("اللغات")
@@ -171,10 +170,10 @@ class MaidResource extends Resource
                     ->label("متوفرة")
                     ->badge()
                     ->color(fn (Maid $record) =>
-                    $record->order == null ? "info" : "danger")
+                    $record->owner == null ? "info" : "danger")
                     ->state(
                         fn (Maid $record) =>
-                        $record->order == null ? "متوفرة" : "محجوزة"
+                        $record->owner == null ? "متوفرة" :  "محجوزة من قبل " . $record->owner->name
                     ),
 
                 Tables\Columns\TextColumn::make('experiences')
@@ -194,6 +193,7 @@ class MaidResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])

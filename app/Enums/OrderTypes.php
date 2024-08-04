@@ -6,6 +6,7 @@ class OrderTypes
 {
     const immediately = 1;
     const abroad      = 2;
+    const renewalOfResidence      = 3;
 
     public static function getNameAr($value)
     {
@@ -15,6 +16,8 @@ class OrderTypes
                 return "فوري";
             } else if ($constants[$value] == "abroad") {
                 return "استقدام";
+            } else if ($constants[$value] == "renewalOfResidence") {
+                return "طلب تجديد";
             }
         } catch (\Throwable $th) {
             return "null";

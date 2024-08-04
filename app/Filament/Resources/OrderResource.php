@@ -28,7 +28,6 @@ class OrderResource extends Resource
     protected static ?string $model = Order::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
-    // protected static ?string $navigationGroup = 'الطلبات';
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
@@ -53,7 +52,7 @@ class OrderResource extends Resource
                                 'maid',
                                 'first_name',
                                 fn (Order|null $record, $query) =>
-                                $query->doesntHave("order")->orWhere("id", $record == null ? 0 : $record->maid->id)
+                                $query->doesntHave("owner")->orWhere("id", $record == null ? 0 : $record->maid->id)
                             )
                             ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
                                 ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)
@@ -154,7 +153,7 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
                     ->state(
-                        fn (Order $record) => (new OrderStatusService)->getOrderStatusLabel($record)
+                        fn (Order $record) => (new OrderStatusService)->getOrderStatusLabel($record, $record->type)
                     )
                     ->searchable()
                     ->badge()
@@ -189,6 +188,7 @@ class OrderResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
@@ -197,7 +197,7 @@ class OrderResource extends Resource
                     ->label("تعديل حالة الطلب")
                     // When Submitting The Form
                     ->action(function (Order $record, array $data): void {
-                        (new OrderStatusService)->getFormAction($record, $data);
+                        (new OrderStatusService)->getOrderFormAction($record, $data);
                     })
                     // To Auto Fill The Form
                     ->mountUsing(
@@ -210,9 +210,9 @@ class OrderResource extends Resource
                         function (Order $record) {
                             return [
                                 Wizard::make(
-                                    (new OrderStatusService)->getTypeSteps($record)
+                                    (new OrderStatusService)->getTypeSteps($record, $record->type)
                                 )
-                                    ->startOnStep((new OrderStatusService)->getFormCurrentStep($record))
+                                    ->startOnStep((new OrderStatusService)->getFormCurrentStep($record, $record->type))
                                     ->nextAction(
                                         fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
                                     ),

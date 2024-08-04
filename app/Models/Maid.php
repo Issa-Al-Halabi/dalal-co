@@ -16,6 +16,8 @@ class Maid extends Model
         'first_name',
         'last_name',
         'age',
+        'owner_id',
+        'residence_expire_at',
         'nationality_id',
         'description',
         'languages',
@@ -32,6 +34,11 @@ class Maid extends Model
     public function getFullNameAttribute()
     {
         return $this->first_name . " " . $this->last_name;
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function order()
