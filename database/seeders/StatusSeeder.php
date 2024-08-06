@@ -18,6 +18,8 @@ class StatusSeeder extends Seeder
             OrderTypes::abroad => $this->getAbroadStatuses($this->getImmediatelyStatuses()),
             OrderTypes::immediately => $this->getImmediatelyStatuses(),
             OrderTypes::renewalOfResidence => $this->getResidenceStatuses(),
+            OrderTypes::giveIn => $this->getGiveInStatuses(),
+            OrderTypes::deportration => $this->getDeportrationStatuses(),
         ];
         foreach (array_keys($statuses) as $order_type) {
             foreach ($statuses[$order_type] as $status) {
@@ -465,6 +467,75 @@ class StatusSeeder extends Seeder
         ];
     }
 
+    static public function getDeportrationStatuses(): array
+    {
+        return [
+            [
+                "title" => [
+                    "ar" => __("DeportrationStatuses.step1.title", [], "ar"),
+                    "en" => __("DeportrationStatuses.step1.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("DeportrationStatuses.step1.description", [], "ar"),
+                    "en" => __("DeportrationStatuses.step1.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تسليم المكتب الجواز والبطاقات ؟",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => __("DeportrationStatuses.step2.title", [], "ar"),
+                    "en" => __("DeportrationStatuses.step2.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("DeportrationStatuses.step2.description", [], "ar"),
+                    "en" => __("DeportrationStatuses.step2.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تسليم المكتب سندين أقامه لبراءه الذمة ؟",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => __("DeportrationStatuses.step3.title", [], "ar"),
+                    "en" => __("DeportrationStatuses.step3.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("DeportrationStatuses.step3.description", [], "ar"),
+                    "en" => __("DeportrationStatuses.step3.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة المبلغ",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => __("DeportrationStatuses.step4.title", [], "ar"),
+                    "en" => __("DeportrationStatuses.step4.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => __("DeportrationStatuses.step4.description", [], "ar"),
+                    "en" => __("DeportrationStatuses.step4.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "موعد السفر",
+                    ]
+                ]
+            ],
+        ];
+    }
     static public function getResidenceStatuses(): array
     {
         return [
@@ -550,9 +621,7 @@ class StatusSeeder extends Seeder
                         "label" => "هل تم تقديم الأوراق في مديرية العمل ؟",
                     ]
                 ]
-            ],
-
-            [
+            ], [
                 "title" => [
                     "ar" => __("residence_statuses.step6.title", [], "ar"),
                     "en" => __("residence_statuses.step6.title", [], "en"),
@@ -638,7 +707,6 @@ class StatusSeeder extends Seeder
             ],
         ];
     }
-
     static public function getGiveInStatuses(): array
     {
         return [
@@ -690,9 +758,7 @@ class StatusSeeder extends Seeder
                         "label" => "هل تم استلام المكتب الوثائق (جواز السفر - بطاقة العمل – بطاقة الإقامة ) من المستفيد الأول ؟",
                     ]
                 ]
-            ],
-
-            [
+            ], [
                 "title" => [
                     "ar" => __("give_in_statuses.step4.title", [], "ar"),
                     "en" => __("give_in_statuses.step4.title", [], "en"),

@@ -102,11 +102,11 @@ class GiveInOrderResource extends Resource
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
                     ->state(
-                        fn (GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::renewalOfResidence)
+                        fn (GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::giveIn)
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabelColor($record))
+                    ->color(fn (GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::giveIn))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
@@ -143,9 +143,9 @@ class GiveInOrderResource extends Resource
                         function (GiveInOrder $record) {
                             return [
                                 Wizard::make(
-                                    (new OrderStatusService)->getTypeSteps($record, OrderTypes::renewalOfResidence)
+                                    (new OrderStatusService)->getTypeSteps($record, OrderTypes::giveIn)
                                 )
-                                    ->startOnStep((new OrderStatusService)->getFormCurrentStep($record, OrderTypes::renewalOfResidence))
+                                    ->startOnStep((new OrderStatusService)->getFormCurrentStep($record, OrderTypes::giveIn))
                                     ->nextAction(
                                         fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
                                     ),

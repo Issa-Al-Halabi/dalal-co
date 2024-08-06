@@ -6,12 +6,12 @@ use App\Enums\OrderTypes;
 use Filament\Forms\Components\Wizard\Step;
 use App\Enums\StatusInputsTypes;
 use App\Helpers\NotificationHelper;
+use App\Http\Resources\DeportrationStatusResource;
+use App\Models\DeportrationStatus;
 use App\Http\Resources\ResidenceStatusResource;
 use App\Http\Resources\StatusResource;
 use App\Mail\OrderStateUpdateMail;
-use App\Models\Order;
 use App\Models\OrderStatus;
-use App\Models\RenewalOfResidence;
 use App\Models\ResidenceStatus;
 use App\Models\Status;
 use Filament\Forms\Components\Placeholder;
@@ -44,13 +44,13 @@ class OrderStatusService
         return false;
     }
 
-    public function getOrderStatusLabelColor($record)
+    public function getOrderStatusLabelColor($record, $type)
     {
         $statuses_count = $record->statuses()->count();
 
         if ($statuses_count == 0) {
             return 'warning';
-        } else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+        } else if ($statuses_count == Status::where("order_type", $type)->count()) {
             return 'success';
         }
 
@@ -228,7 +228,7 @@ class OrderStatusService
         // Send Notification To Notify The User That The Process Was Successfully Done
         NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
 
-        // get the status 
+        // get the status
         $status = Status::findOrFail($statusId);
 
         $statusDesc = ResidenceStatusResource::getOrderDesc($status, $record->id);
@@ -238,5 +238,50 @@ class OrderStatusService
             $record->maid->fullName,
             $statusDesc,
         ));
+    }
+
+    public function getDeportrationFormAction($record, $state)
+    {
+        $record->statuses()->delete();
+        $specifications = [];
+        foreach ($state as $key => $value) {
+            [, $specificate_key, $status_id] = explode("_", $key);
+            $specifications[$status_id][$specificate_key] = $value;
+        }
+
+        foreach ($specifications as $statusId => $specification) {
+            $status_specifications = [];
+
+            foreach ($specification as $key => $value) {
+                $status_specifications[$key] = $value;
+            }
+            DeportrationStatus::create([
+                'deportration_id' => $record->id,
+                'status_id' => $statusId,
+                'specifications' => $status_specifications,
+            ]);
+        }
+
+        // Update The Order's status_id
+        $record->status_id = $statusId;
+        // we need to update deportration date when the order is completed
+        // todo uppdate deportration_date and make sure to use the isCompleted func
+        if ($record->statuses()->count() == Status::where("order_type", OrderTypes::deportration)->count()) {
+            // $record->deportration_date = ;
+        }
+
+        $record->save();
+        // Send Notification To Notify The User That The Process Was Successfully Done
+        NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
+
+        $status = Status::findOrFail($statusId);
+        $statusDesc = DeportrationStatusResource::getOrderDesc($status, $record->id);
+
+        // send a message to the user
+        // todo well fix this
+        // Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
+        //     $record->maid->fullName,
+        //     $statusDesc,
+        // ));
     }
 }

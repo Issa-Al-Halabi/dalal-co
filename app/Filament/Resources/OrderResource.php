@@ -157,7 +157,7 @@ class OrderResource extends Resource
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (Order $record) => (new OrderStatusService)->getOrderStatusLabelColor($record))
+                    ->color(fn (Order $record) => (new OrderStatusService)->getOrderStatusLabelColor($record,$record->type))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('type')

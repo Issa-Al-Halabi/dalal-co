@@ -7,7 +7,10 @@ class OrderTypes
     const immediately = 1;
     const abroad      = 2;
     const renewalOfResidence      = 3;
+    const giveIn      = 4;
+    const deportration      = 5;
 
+    // todo if you have time modify this
     public static function getNameAr($value)
     {
         $constants = array_flip((new \ReflectionClass(self::class))->getConstants());
@@ -18,6 +21,10 @@ class OrderTypes
                 return "استقدام";
             } else if ($constants[$value] == "renewalOfResidence") {
                 return "طلب تجديد";
+            } else if ($constants[$value] == "giveIn") {
+                return "تنازل";
+            } else if ($constants[$value] == "deportration") {
+                return "تسفير";
             }
         } catch (\Throwable $th) {
             return "null";

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('maid_id')->references('id')->on('maids')->cascadeOnDelete();
             $table->integer('type');
             $table->unsignedBigInteger('status_id')->nullable();
-            $table->foreign('status_id')->references('id')->on('statuses')->cascadeOnDelete();
+            $table->foreign('status_id')->references('id')->on('statuses')->nullOnDelete();
             $table->string('book_ticket')->nullable();
             $table->string('deliver_service')->nullable();
             $table->timestamps();
