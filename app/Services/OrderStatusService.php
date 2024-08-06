@@ -2,11 +2,14 @@
 
 namespace App\Services;
 
+use App\Enums\OrderTypes;
 use Filament\Forms\Components\Wizard\Step;
 use App\Enums\StatusInputsTypes;
 use App\Helpers\NotificationHelper;
+use App\Http\Resources\DeportrationStatusResource;
 use App\Http\Resources\StatusResource;
 use App\Mail\OrderStateUpdateMail;
+use App\Models\DeportrationStatus;
 use App\Models\OrderStatus;
 use App\Models\Status;
 use Filament\Forms\Components\Placeholder;
@@ -15,47 +18,47 @@ use Illuminate\Support\Facades\Mail;
 class OrderStatusService
 {
 
-    public function getOrderStatusLabel($record)
+    public function getOrderStatusLabel($record,$type)
     {
         $statuses_count = $record->statuses()->count();
 
         if ($statuses_count == 0) {
             return 'حالة ابتدائية';
-        } else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+        } else if ($statuses_count == Status::where("order_type", $type)->count()) {
             return 'الطلب منتهي';
         }
 
         return "الخطوة " . $statuses_count;
     }
 
-    public function getOrderStatusLabelColor($record)
+    public function getOrderStatusLabelColor($record,$type)
     {
         $statuses_count = $record->statuses()->count();
 
         if ($statuses_count == 0) {
             return 'warning';
-        } else if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+        } else if ($statuses_count == Status::where("order_type", $type)->count()) {
             return 'success';
         }
 
         return "info";
     }
 
-    public function getFormCurrentStep($record)
+    public function getFormCurrentStep($record,$type)
     {
         $statuses_count = $record->statuses()->count();
 
         // If The statuses_count Is Equal To The Statuses Of The Same Type
         // That Means That The Order Is Completed
-        if ($statuses_count == Status::where("order_type", $record->type)->count()) {
+        if ($statuses_count == Status::where("order_type", $type)->count()) {
             return $statuses_count;
         }
         return $statuses_count + 1;
     }
 
-    public function getTypeSteps($record)
+    public function getTypeSteps($record,$type)
     {
-        $statuses = Status::where("order_type", $record->type)
+        $statuses = Status::where("order_type", $type)
             ->take($record->statuses()->count() + 1)->get();
 
         $steps = [];
@@ -164,5 +167,49 @@ class OrderStatusService
             $record->maid->fullName,
             $statusDesc,
         ));
+    }
+
+    public function getDeportrationFormAction($record, $state)
+    {
+        $record->statuses()->delete();
+        $specifications = [];
+        foreach ($state as $key => $value) {
+            [, $specificate_key, $status_id] = explode("_", $key);
+            $specifications[$status_id][$specificate_key] = $value;
+        }
+
+        foreach ($specifications as $statusId => $specification) {
+            $status_specifications = [];
+
+            foreach ($specification as $key => $value) {
+                $status_specifications[$key] = $value;
+            }
+            DeportrationStatus::create([
+                'deportration_id' => $record->id,
+                'status_id' => $statusId,
+                'specifications' => $status_specifications,
+            ]);
+        }
+        // Update The Order's status_id
+        $record->status_id = $statusId;
+        // we need to update deportration date when the order is completed
+        // todo uppdate deportration_date and make sure to use the isCompleted func
+        if ($record->statuses()->count() == Status::where("order_type", OrderTypes::deportration)->count()) {
+            // $record->deportration_date = ;
+        }
+
+        $record->save();
+        // Send Notification To Notify The User That The Process Was Successfully Done
+        NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
+
+        $status = Status::findOrFail($statusId);
+        $statusDesc = DeportrationStatusResource::getOrderDesc($status, $record->id);
+
+        // send a message to the user
+        // todo well fix this
+        // Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
+        //     $record->maid->fullName,
+        //     $statusDesc,
+        // ));
     }
 }

@@ -154,11 +154,11 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
                     ->state(
-                        fn (Order $record) => (new OrderStatusService)->getOrderStatusLabel($record)
+                        fn (Order $record) => (new OrderStatusService)->getOrderStatusLabel($record,$record->type)
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (Order $record) => (new OrderStatusService)->getOrderStatusLabelColor($record))
+                    ->color(fn (Order $record) => (new OrderStatusService)->getOrderStatusLabelColor($record,$record->type))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('type')
@@ -210,9 +210,9 @@ class OrderResource extends Resource
                         function (Order $record) {
                             return [
                                 Wizard::make(
-                                    (new OrderStatusService)->getTypeSteps($record)
+                                    (new OrderStatusService)->getTypeSteps($record,$record->type)
                                 )
-                                    ->startOnStep((new OrderStatusService)->getFormCurrentStep($record))
+                                    ->startOnStep((new OrderStatusService)->getFormCurrentStep($record,$record->type))
                                     ->nextAction(
                                         fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
                                     ),

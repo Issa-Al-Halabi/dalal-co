@@ -11,23 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
-
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('deportrations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->unsignedBigInteger('maid_id');
             $table->foreign('maid_id')->references('id')->on('maids')->cascadeOnDelete();
-            $table->integer('type');
             $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('statuses')->nullOnDelete();
-            $table->string('book_ticket')->nullable();
-            $table->string('deliver_service')->nullable();
+            $table->date('deportration_date')->nullable();
             $table->timestamps();
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -35,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('deportrations');
     }
 };
