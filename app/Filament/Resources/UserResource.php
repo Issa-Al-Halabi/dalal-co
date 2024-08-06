@@ -35,12 +35,16 @@ class UserResource extends Resource
 
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->required()
+                    ->required(fn ($livewire) => $livewire instanceof Pages\CreateUser)
+                    ->dehydrateStateUsing(fn ($state) => !empty($state) ? bcrypt($state) : null)
+                    ->required(fn ($livewire) => $livewire instanceof Pages\CreateUser)
+                    ->dehydrated(fn ($state) => !empty($state))
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('phone')
                     ->tel()
                     ->required()
+                    ->unique(User::class, 'email', ignoreRecord: true)
                     ->maxLength(255),
 
                 Forms\Components\Select::make('role')
