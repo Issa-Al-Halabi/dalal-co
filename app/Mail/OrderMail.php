@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -17,7 +18,7 @@ class OrderMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private string $user_name, private string $maid_name)
+    public function __construct(private User $user, private string $maid_name)
     {
     }
 
@@ -39,7 +40,7 @@ class OrderMail extends Mailable
         return new Content(
             view: 'mail.order_mail',
             with: [
-                'user_name' => $this->user_name,
+                'user' => $this->user,
                 'maid_name' => $this->maid_name,
             ],
         );

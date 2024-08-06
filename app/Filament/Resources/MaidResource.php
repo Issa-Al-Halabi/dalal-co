@@ -14,14 +14,15 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Table;
+use Filament\Support\Colors\Color;
 
 class MaidResource extends Resource
 {
     use Translatable;
     protected static ?string $model = Maid::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    // protected static ?string $navigationGroup = 'الخادمات';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    // protected static ?string $navigationGroup = 'العاملات';
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
@@ -32,49 +33,62 @@ class MaidResource extends Resource
 
                     Forms\Components\TextInput::make('first_name')
                         ->label("الأسم الأول")
-                        ->required()
+                        // ->required()
                         ->maxLength(255),
 
                     Forms\Components\TextInput::make('last_name')
-                        ->required()
+                        // ->required()
                         ->label("الكنية")
                         ->maxLength(255),
 
                     Forms\Components\TextInput::make('age')
-                        ->required()
+                        // ->required()
                         ->label("العمر")
                         ->numeric(),
 
-                    Forms\Components\TextInput::make('nationality')
-                        ->required()
+                    Forms\Components\Select::make('nationality_id')
+                        // ->required()
                         ->label("الجنسية")
-                        ->maxLength(255),
+                        ->searchable()
+                        ->preload()
+                        ->relationship("nationality", "nationality")
+                        ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('nationality', $livewire->activeLocale)
+                            ? $record->getTranslation('nationality', $livewire->activeLocale)
+                            : $record->getTranslation('nationality', "ar"))
+                        ->createOptionForm(
+                            NationalityResource::getForm()
+                        ),
+
+
+                    Forms\Components\DatePicker::make('residence_expire_at')
+                        // ->required()
+                        ->label("تاريخ انتهاء الاقامة"),
 
                     Forms\Components\TagsInput::make('languages')
-                        ->required()
+                        // ->required()
                         ->label("اللغات")
                         ->placeholder("أكتب اللغات"),
 
 
                     Forms\Components\TagsInput::make('countries')
-                        ->required()
+                        // ->required()
                         ->label("الدول التي عملت بها")
                         ->placeholder("أكتب الدول"),
 
                     Forms\Components\TextInput::make('experiences')
-                        ->required()
+                        // ->required()
                         ->label("الخبرات")
                         ->maxLength(255)
                         ->columnSpanFull(),
 
                     TinyEditor::make('description')
-                        ->required()
+                        // ->required()
                         ->label("الوصف")
                         ->columnSpanFull(),
 
                     Forms\Components\FileUpload::make('image')
                         ->label("الصورة")
-                        ->required()
+                        // ->required()
                         ->image()->fetchFileInformation(false)
                         ->directory('images/maids')
                         ->visibility('public')
@@ -127,10 +141,18 @@ class MaidResource extends Resource
                     ->numeric()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('nationality')
+                Tables\Columns\TextColumn::make('nationality.nationality')
                     ->label("الجنسية")
                     ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->color(Color::Purple)
+                    ->badge(),
+
+                Tables\Columns\TextColumn::make('residence_expire_at')
+                    ->label("تاريخ انتهاء الاقامة")
+                    ->state(function (Maid $record) {
+                        return  $record->residence_expire_at == null ? "لا يوجد" : $record->residence_expire_at;
+                    }),
 
                 Tables\Columns\TextColumn::make('languages')
                     ->label("اللغات")
@@ -148,10 +170,10 @@ class MaidResource extends Resource
                     ->label("متوفرة")
                     ->badge()
                     ->color(fn (Maid $record) =>
-                    $record->order == null ? "info" : "danger")
+                    $record->owner == null ? "info" : "danger")
                     ->state(
                         fn (Maid $record) =>
-                        $record->order == null ? "متوفرة" : "غير متوفرة"
+                        $record->owner == null ? "متوفرة" :  "محجوزة من قبل " . $record->owner->name
                     ),
 
                 Tables\Columns\TextColumn::make('experiences')
@@ -171,6 +193,7 @@ class MaidResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
@@ -210,15 +233,15 @@ class MaidResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return "خادمة";
+        return "عاملة";
     }
     public static function getPluralLabel(): string
     {
-        return "الخادمات";
+        return "العاملات";
     }
     public static function getNavigationLabel(): string
     {
-        return "الخادمات";
+        return "العاملات";
     }
 
     public static function getNavigationBadge(): ?string

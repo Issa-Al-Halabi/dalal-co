@@ -2,6 +2,19 @@
 
 @section('content')
     <section class="container-fluid" style="font-family: Cairo;">
+        @if (sizeOf($maids) != 0)
+            <a href="{{ route('mcq') }}"
+                class="theme_button muted_button">{{ __('mcq.Register your request for your service') }}
+            </a>
+        @else
+            <div style="text-align: center;margin: 70px 0;">
+                <p>{{ __('home.there is no maids') }}</p>
+                <a href="{{ route('mcq') }}"
+                    class="theme_button muted_button">{{ __('mcq.Register your request for your service') }}
+                </a>
+            </div>
+        @endif
+
         <div class="row"
             style="display: flex;justify-content: center;flex-wrap: wrap;align-items: center;gap: 20px;margin-top: 30px;">
             @foreach ($maids as $maid)
@@ -21,7 +34,7 @@
                         @if ($maid->order)
                             <div class="text-center"
                                 style="color: white;background-color: red;padding: 5px;border-radius: 10px;position: absolute;top: 10px;">
-                                {{ __('home.No longer available') }}
+                                {{ __('home.booked') }}
                             </div>
                         @endif
                     </div>

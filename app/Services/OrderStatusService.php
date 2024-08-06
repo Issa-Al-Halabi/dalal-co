@@ -7,10 +7,12 @@ use Filament\Forms\Components\Wizard\Step;
 use App\Enums\StatusInputsTypes;
 use App\Helpers\NotificationHelper;
 use App\Http\Resources\DeportrationStatusResource;
+use App\Models\DeportrationStatus;
+use App\Http\Resources\ResidenceStatusResource;
 use App\Http\Resources\StatusResource;
 use App\Mail\OrderStateUpdateMail;
-use App\Models\DeportrationStatus;
 use App\Models\OrderStatus;
+use App\Models\ResidenceStatus;
 use App\Models\Status;
 use Filament\Forms\Components\Placeholder;
 use Illuminate\Support\Facades\Mail;
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Mail;
 class OrderStatusService
 {
 
-    public function getOrderStatusLabel($record,$type)
+    public function getOrderStatusLabel($record, $type)
     {
         $statuses_count = $record->statuses()->count();
 
@@ -31,7 +33,18 @@ class OrderStatusService
         return "الخطوة " . $statuses_count;
     }
 
-    public function getOrderStatusLabelColor($record,$type)
+    public function isOrderCompleted($record, $type): bool
+    {
+        $statuses_count = $record->statuses()->count();
+
+        if ($statuses_count == Status::where("order_type", $type)->count()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getOrderStatusLabelColor($record, $type)
     {
         $statuses_count = $record->statuses()->count();
 
@@ -44,7 +57,7 @@ class OrderStatusService
         return "info";
     }
 
-    public function getFormCurrentStep($record,$type)
+    public function getFormCurrentStep($record, $type)
     {
         $statuses_count = $record->statuses()->count();
 
@@ -56,7 +69,7 @@ class OrderStatusService
         return $statuses_count + 1;
     }
 
-    public function getTypeSteps($record,$type)
+    public function getTypeSteps($record, $type)
     {
         $statuses = Status::where("order_type", $type)
             ->take($record->statuses()->count() + 1)->get();
@@ -132,7 +145,7 @@ class OrderStatusService
         NotificationHelper::sendFilamentNotification('تم تحديث البيانات');
     }
 
-    public function getFormAction($record, $state)
+    public function getOrderFormAction($record, $state)
     {
         $record->statuses()->delete();
         $specifications = [];
@@ -147,6 +160,7 @@ class OrderStatusService
             foreach ($specification as $key => $value) {
                 $status_specifications[$key] = $value;
             }
+
             OrderStatus::create([
                 'order_id' => $record->id,
                 'status_id' => $statusId,
@@ -160,10 +174,67 @@ class OrderStatusService
         NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
 
         $status = Status::findOrFail($statusId);
+
         $statusDesc = StatusResource::getOrderDesc($status, $record->id);
 
         // send a message to the user
         Mail::to($record->user->email)->send(new OrderStateUpdateMail(
+            $record->maid->fullName,
+            $statusDesc,
+        ));
+    }
+
+
+    public function getResidenceFormAction($record, $state)
+    {
+
+        $record->statuses()->delete();
+        $specifications = [];
+        foreach ($state as $key => $value) {
+            [, $specificate_key, $status_id] = explode("_", $key);
+            $specifications[$status_id][$specificate_key] = $value;
+        }
+
+        foreach ($specifications as $statusId => $specification) {
+            $status_specifications = [];
+
+            foreach ($specification as $key => $value) {
+                $status_specifications[$key] = $value;
+            }
+
+            ResidenceStatus::create([
+                'renewal_of_residence_id' => $record->id,
+                'status_id' => $statusId,
+                'specifications' => $status_specifications,
+            ]);
+        }
+
+        // Update The residence's status_id
+        $record->status_id = $statusId;
+
+
+        // to update maid residence expire date
+        if ($this->isOrderCompleted($record, OrderTypes::renewalOfResidence)) {
+            $residenceStatus = $record->statuses()->latest("id")->first();
+            $record->maid->residence_expire_at = $residenceStatus->specifications["input2"];
+            $record->maid->save();
+
+            // set new residence date
+            $record->new_residence_date = $residenceStatus->specifications["input2"];
+        }
+        $record->save();
+
+
+        // Send Notification To Notify The User That The Process Was Successfully Done
+        NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
+
+        // get the status
+        $status = Status::findOrFail($statusId);
+
+        $statusDesc = ResidenceStatusResource::getOrderDesc($status, $record->id);
+
+        // send a message to the user
+        Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
             $record->maid->fullName,
             $statusDesc,
         ));
@@ -190,6 +261,7 @@ class OrderStatusService
                 'specifications' => $status_specifications,
             ]);
         }
+
         // Update The Order's status_id
         $record->status_id = $statusId;
         // we need to update deportration date when the order is completed

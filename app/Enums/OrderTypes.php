@@ -6,6 +6,7 @@ class OrderTypes
 {
     const immediately = 1;
     const abroad      = 2;
+    const renewalOfResidence      = 3;
 
     const deportration      = 4;
 
@@ -18,6 +19,8 @@ class OrderTypes
                 return "فوري";
             } else if ($constants[$value] == "abroad") {
                 return "استقدام";
+            } else if ($constants[$value] == "renewalOfResidence") {
+                return "طلب تجديد";
             }
             else if ($constants[$value] == "deportration") {
                 return "تسفير";

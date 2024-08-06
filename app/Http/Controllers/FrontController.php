@@ -6,6 +6,7 @@ use App\Helpers\PaginationHelper;
 use App\Http\Resources\StatusResource;
 use App\Models\Law;
 use App\Models\Maid;
+use App\Models\Nationality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
@@ -20,9 +21,11 @@ class FrontController extends Controller
         return view("front.index");
     }
 
-    public function services()
+    public function maids($nationality_id)
     {
-        $maids = Maid::all()->load('order')->sortBy('order.maid_id');
+        // $nationality = Nationality::findorFail($nationality_id);
+
+        $maids = Maid::where("nationality_id", $nationality_id)->get()->load('order')->sortBy('order.maid_id');
         $maids = PaginationHelper::paginate($maids, 10, request()->page, ['path' => request()->url()]);
 
         return view("front.Service", compact("maids"));

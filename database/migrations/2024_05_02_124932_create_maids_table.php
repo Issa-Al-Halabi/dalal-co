@@ -16,7 +16,15 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->integer('age')->nullable();
-            $table->string('nationality')->nullable();
+
+            $table->unsignedBigInteger('nationality_id')->nullable();
+            $table->foreign('nationality_id')->references('id')->on('nationalities')->cascadeOnDelete();
+
+            $table->unsignedBigInteger('owner_id')->nullable(); // users_owner_id_foreign
+            $table->foreign('owner_id')->references('id')->on('users')->nullOnDelete();
+
+            $table->date('residence_expire_at')->nullable();
+
             $table->longText('description')->nullable();
             $table->string('languages')->default('{"ar":[],"en":[]}')->nullable();
             $table->string('countries')->nullable();

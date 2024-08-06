@@ -58,7 +58,7 @@
                                 <li> {{ __('home.The name is in english') }} :
                                     {{ ($maid->getTranslations()['first_name']['en'] ?? '') . ' ' . ($maid->getTranslations()['last_name']['en'] ?? '') }}
                                 </li>
-                                <li> {{ __('home.Nationality') }} :{{ $maid->nationality }}</li>
+                                <li> {{ __('home.Nationality') }} :{{ $maid->nationality->nationality }}</li>
                                 <li>{{ __('home.the age') }}: {{ $maid->age }}</li>
                                 <li> {{ __('home.Countries in which I worked') }}: @if ($maid->countries != '')
                                         {{ implode(' , ', $maid->countries) }}
@@ -83,7 +83,7 @@
                             @else
                                 <a href="#!" id="orderButton2" class="theme_button muted_button"
                                     style="background-color: #212121;" data-toggle="tooltip" data-placement="top"
-                                    title="{{ __('home.The maid is no longer available.') }}   ">{{ __('home.Order now') }}
+                                    title="{{ __('home.The maid is booked.') }}   ">{{ __('home.Order now') }}
                                 </a>
                             @endif
 

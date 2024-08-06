@@ -17,7 +17,8 @@ class StatusSeeder extends Seeder
         $statuses = [
             OrderTypes::abroad => $this->getAbroadStatuses($this->getImmediatelyStatuses()),
             OrderTypes::immediately => $this->getImmediatelyStatuses(),
-            OrderTypes::deportration => $this->getDeportrationStatuses()
+            OrderTypes::renewalOfResidence => $this->getResidenceStatuses(),
+            OrderTypes::deportration => $this->getDeportrationStatuses(),
         ];
         foreach (array_keys($statuses) as $order_type) {
             foreach ($statuses[$order_type] as $status) {
@@ -517,6 +518,294 @@ class StatusSeeder extends Seeder
                     "input1" => [
                         "type" => StatusInputsTypes::Date,
                         "label" => "موعد السفر",
+                    ]
+                ]
+            ],
+        ];
+    }
+    static public function getResidenceStatuses(): array
+    {
+        return [
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step1.title", [], "ar"),
+                    "en" => ("residence_statuses.step1.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step1.description", [], "ar"),
+                    "en" => ("residence_statuses.step1.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم استلام الجوازات والبطاقات ؟",
+                    ]
+                ]
+            ],
+
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step2.title", [], "ar"),
+                    "en" => ("residence_statuses.step2.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step2.description", [], "ar"),
+                    "en" => ("residence_statuses.step2.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة المبلغ المتفق عليه",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step3.title", [], "ar"),
+                    "en" => ("residence_statuses.step3.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step3.description", [], "ar"),
+                    "en" => ("residence_statuses.step3.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تسليم الوثائق ؟",
+                    ]
+                ]
+            ],
+
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step4.title", [], "ar"),
+                    "en" => ("residence_statuses.step4.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step4.description", [], "ar"),
+                    "en" => ("residence_statuses.step4.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة الايصالات",
+                    ]
+                ]
+            ],
+
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step5.title", [], "ar"),
+                    "en" => ("residence_statuses.step5.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step5.description", [], "ar"),
+                    "en" => ("residence_statuses.step5.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تقديم الأوراق في مديرية العمل ؟",
+                    ]
+                ]
+            ],[
+                "title" => [
+                    "ar" => ("residence_statuses.step6.title", [], "ar"),
+                    "en" => ("residence_statuses.step6.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step6.description", [], "ar"),
+                    "en" => ("residence_statuses.step6.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم صدور موافقة وزارة الشؤون الاجتماعية والعمل ؟",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step7.title", [], "ar"),
+                    "en" => ("residence_statuses.step7.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step7.description", [], "ar"),
+                    "en" => ("residence_statuses.step7.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "موعد المطابقه بالهجرة",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step8.title", [], "ar"),
+                    "en" => ("residence_statuses.step8.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step8.description", [], "ar"),
+                    "en" => ("residence_statuses.step8.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم استلام المكتب بطاقة الإقامة ؟",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step9.title", [], "ar"),
+                    "en" => ("residence_statuses.step9.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step9.description", [], "ar"),
+                    "en" => ("residence_statuses.step9.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم استلام المكتب بطاقة العمل ؟",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("residence_statuses.step10.title", [], "ar"),
+                    "en" => ("residence_statuses.step10.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("residence_statuses.step10.description", [], "ar"),
+                    "en" => ("residence_statuses.step10.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تسليم الكفيل الجواز والبطاقات ؟",
+                    ],
+                    "input2" => [
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "يرجى تحديد موعد انتهاء الاقامة الجديد",
+                    ],
+                ]
+            ],
+        ];
+    }
+    static public function getGiveInStatuses(): array
+    {
+        return [
+            [
+                "title" => [
+                    "ar" => ("give_in_statuses.step1.title", [], "ar"),
+                    "en" => ("give_in_statuses.step1.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("give_in_statuses.step1.description", [], "ar"),
+                    "en" => ("give_in_statuses.step1.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "تاريخ ارجاع العاملة للمكتب",
+                    ]
+                ]
+            ],
+
+            [
+                "title" => [
+                    "ar" => ("give_in_statuses.step2.title", [], "ar"),
+                    "en" => ("give_in_statuses.step2.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("give_in_statuses.step2.description", [], "ar"),
+                    "en" => ("give_in_statuses.step2.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "مبلغ الإقامة لدى المستفيد الأول والرواتب",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("give_in_statuses.step3.title", [], "ar"),
+                    "en" => ("give_in_statuses.step3.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("give_in_statuses.step3.description", [], "ar"),
+                    "en" => ("give_in_statuses.step3.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم استلام المكتب الوثائق (جواز السفر - بطاقة العمل – بطاقة الإقامة ) من المستفيد الأول ؟",
+                    ]
+                ]
+            ],[
+                "title" => [
+                    "ar" => ("give_in_statuses.step4.title", [], "ar"),
+                    "en" => ("give_in_statuses.step4.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("give_in_statuses.step4.description", [], "ar"),
+                    "en" => ("give_in_statuses.step4.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "طلب سندات إقامة من الكفيل الجديد عدد 3 وصورة هوية",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("give_in_statuses.step5.title", [], "ar"),
+                    "en" => ("give_in_statuses.step5.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("give_in_statuses.step5.description", [], "ar"),
+                    "en" => ("give_in_statuses.step5.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Date,
+                        "label" => "موعد التنازل للكفيل الجديد",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("give_in_statuses.step6.title", [], "ar"),
+                    "en" => ("give_in_statuses.step6.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("give_in_statuses.step6.description", [], "ar"),
+                    "en" => ("give_in_statuses.step6.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Numeric,
+                        "label" => "قيمة المبلغ",
+                    ]
+                ]
+            ],
+            [
+                "title" => [
+                    "ar" => ("give_in_statuses.step7.title", [], "ar"),
+                    "en" => ("give_in_statuses.step7.title", [], "en"),
+                ],
+                "description" => [
+                    "ar" => ("give_in_statuses.step7.description", [], "ar"),
+                    "en" => ("give_in_statuses.step7.description", [], "en"),
+                ],
+                "specifications" => [
+                    "input1" => [
+                        "type" => StatusInputsTypes::Toggle,
+                        "label" => "هل تم تسليم الكفيل الجديد الوثائق ؟",
                     ]
                 ]
             ],
