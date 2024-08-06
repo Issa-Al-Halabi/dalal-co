@@ -75,6 +75,15 @@ class MaidResource extends Resource
                         ->label("الدول التي عملت بها")
                         ->placeholder("أكتب الدول"),
 
+
+                    Forms\Components\Select::make('owner_id')
+                        // ->required()
+                        ->label("الكفيل")
+                        ->hint("اذا تريد ان تحدد الكفيل مباشرة")
+                        ->searchable()
+                        ->preload()
+                        ->relationship("owner", "name"),
+
                     Forms\Components\TextInput::make('experiences')
                         // ->required()
                         ->label("الخبرات")
