@@ -17,11 +17,14 @@ return new class extends Migration
             $table->unsignedBigInteger('maid_id');
             $table->foreign('maid_id')->references('id')->on('maids')->cascadeOnDelete();
 
+            $table->unsignedBigInteger('old_owner_id');
+            $table->foreign('old_owner_id')->references('id')->on('users')->cascadeOnDelete();
+
             $table->unsignedBigInteger('new_owner_id');
             $table->foreign('new_owner_id')->references('id')->on('users')->cascadeOnDelete();
 
             $table->unsignedBigInteger('status_id')->nullable();
-            $table->foreign('status_id')->references('id')->on('statuses')->cascadeOnDelete();
+            $table->foreign('status_id')->references('id')->on('statuses')->nullOnDelete();
 
             $table->timestamps();
         });

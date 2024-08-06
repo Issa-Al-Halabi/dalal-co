@@ -10,20 +10,19 @@ class OrderTypes
     const giveIn      = 4;
     const deportration      = 5;
 
-    // todo if you have time modify this
     public static function getNameAr($value)
     {
         $constants = array_flip((new \ReflectionClass(self::class))->getConstants());
         try {
-            if ($constants[$value] == "immediately") {
+            if ($value == self::immediately) {
                 return "فوري";
-            } else if ($constants[$value] == "abroad") {
+            } else if ($value == self::abroad) {
                 return "استقدام";
-            } else if ($constants[$value] == "renewalOfResidence") {
+            } else if ($value == self::renewalOfResidence) {
                 return "طلب تجديد";
-            } else if ($constants[$value] == "giveIn") {
+            } else if ($value == self::giveIn) {
                 return "تنازل";
-            } else if ($constants[$value] == "deportration") {
+            } else if ($value == self::deportration) {
                 return "تسفير";
             }
         } catch (\Throwable $th) {

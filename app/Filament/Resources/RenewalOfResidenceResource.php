@@ -82,7 +82,7 @@ class RenewalOfResidenceResource extends Resource
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (RenewalOfResidence $record) => (new OrderStatusService)->getOrderStatusLabelColor($record))
+                    ->color(fn (RenewalOfResidence $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::renewalOfResidence))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('new_residence_date')

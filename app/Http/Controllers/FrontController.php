@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\OrderTypes;
 use App\Helpers\PaginationHelper;
-use App\Http\Resources\StatusResource;
+use App\Http\Resources\DeportrationStatusResource;
+use App\Http\Resources\GiveInStatusResource;
+use App\Http\Resources\ResidenceStatusResource;
+use App\Http\Resources\OrderStatusResource;
+use App\Models\Deportration;
+use App\Models\GiveInOrder;
 use App\Models\Law;
 use App\Models\Maid;
 use App\Models\Nationality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
+use App\Models\RenewalOfResidence;
 use App\Models\Status;
 use App\Models\User;
 use Carbon\Carbon;
@@ -51,7 +58,53 @@ class FrontController extends Controller
     public function orders()
     {
         $id = auth()->user()->id;
-        $orders = Order::where("user_id", $id)->get();
+
+        // Get all immediately, abroad Orders
+        $immediatelyAndAbroadOrders = Order::where("user_id", $id)
+            ->get()
+            ->map(function ($order) {
+                $order->type = OrderTypes::getName($order->type);
+                return $order;
+            });
+        // dump($immediatelyAndAbroadOrders->toArray());
+
+        // Get all Renewal Of Residence Orders
+        $renewalOfResidenceOrders = RenewalOfResidence::whereHas('maid', function ($query) use ($id) {
+            $query->where('owner_id', $id);
+        })->get()
+            ->map(function ($order) {
+                $order->type = OrderTypes::getName(OrderTypes::renewalOfResidence);
+                return $order;
+            });
+
+        // Get all Give In Orders
+        $giveInOrders = GiveInOrder::where("old_owner_id", $id)
+            ->orWhere("new_owner_id", $id)->get()
+            ->map(function ($order) {
+                $order->type = OrderTypes::getName(OrderTypes::giveIn);
+                return $order;
+            });
+
+        // Get all Deportration Orders
+        $deportrationOrders = Deportration::whereHas('maid', function ($query) use ($id) {
+            $query->where('owner_id', $id);
+        })->get()
+            ->map(function ($order) {
+                $order->type = OrderTypes::getName(OrderTypes::deportration);
+                return $order;
+            });
+
+        // Merge All Orders
+        $orders = $immediatelyAndAbroadOrders
+            ->concat($renewalOfResidenceOrders)
+            ->concat($giveInOrders)
+            ->concat($deportrationOrders);
+
+        // Sort
+        $orders = $orders->sortByDesc('created_at');
+
+
+        // dd($orders);
         return view("front.orders", compact("orders"));
     }
 
@@ -63,9 +116,37 @@ class FrontController extends Controller
             abort(403);
         }
 
-        $data['order'] = Order::findOrFail($request->id);
+        // set the correct model and resource
+        switch (OrderTypes::getValue($request->type)) {
+            case OrderTypes::immediately:
+            case OrderTypes::abroad:
+                $model = Order::class;
+                $resource = OrderStatusResource::class;
+                break;
 
-        $data['statuses'] = json_decode($this->resource(Status::where("order_type",  $data['order']->type)->get(), StatusResource::class)->toJson());
+            case OrderTypes::renewalOfResidence:
+                $model = RenewalOfResidence::class;
+                $resource = ResidenceStatusResource::class;
+                break;
+
+            case OrderTypes::giveIn:
+                $model = GiveInOrder::class;
+                $resource = GiveInStatusResource::class;
+                break;
+
+            case OrderTypes::deportration:
+                $model = Deportration::class;
+                $resource = DeportrationStatusResource::class;
+                break;
+
+            default:
+                abort(404);
+                break;
+        }
+
+        // get the data
+        $data['order'] = $model::findOrFail($request->id);
+        $data['statuses'] = json_decode($this->resource(Status::where("order_type", OrderTypes::getValue($request->type))->get(), $resource)->toJson());
 
         return view('front.OrderTracking', $data);
     }

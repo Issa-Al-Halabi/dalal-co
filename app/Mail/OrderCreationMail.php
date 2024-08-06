@@ -17,8 +17,12 @@ class OrderCreationMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private string $maidId, private string $maidName)
-    {
+    public function __construct(
+        private string $maidId,
+        private string $maidName,
+        private string $orderType,
+        private string $url,
+    ) {
     }
 
     /**
@@ -27,7 +31,7 @@ class OrderCreationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Order State Update Mail',
+            subject: 'Order Creation Mail',
         );
     }
 
@@ -41,6 +45,8 @@ class OrderCreationMail extends Mailable
             with: [
                 'maidId' => $this->maidId,
                 'maidName' => $this->maidName,
+                'orderType' => $this->orderType,
+                'url' => $this->url,
 
             ],
         );

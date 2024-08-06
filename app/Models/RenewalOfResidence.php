@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use App\Enums\OrderTypes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderCreationMail;
 
 class RenewalOfResidence extends Model
 {
@@ -17,6 +20,7 @@ class RenewalOfResidence extends Model
     protected $fillable = [
         'maid_id',
         'status_id',
+        'new_residence_date',
     ];
 
     public function maid()
@@ -32,5 +36,23 @@ class RenewalOfResidence extends Model
     public function statuses()
     {
         return $this->hasMany(ResidenceStatus::class);
+    }
+
+    // to send creation Mail
+    protected static function booted()
+    {
+        static::created(function ($model) {
+            try {
+                // send a message to the user
+                Mail::to($model->maid->owner->email)->send(new OrderCreationMail(
+                    $model->maid->id,
+                    $model->maid->fullName,
+                    OrderTypes::getNameAr(OrderTypes::renewalOfResidence),
+                    route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::renewalOfResidence), 'id' => $model->id]),
+                ));
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        });
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OrderTypes;
 use App\Mail\OrderCreationMail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -48,12 +49,14 @@ class Order extends Model
     protected static function booted()
     {
 
-        static::created(function ($order) {
+        static::created(function ($model) {
             try {
                 // send a message to the user
-                Mail::to($order->user->email)->send(new OrderCreationMail(
-                    $order->maid->id,
-                    $order->maid->fullName,
+                Mail::to($model->user->email)->send(new OrderCreationMail(
+                    $model->maid->id,
+                    $model->maid->fullName,
+                    OrderTypes::getNameAr($model->type),
+                    route('OrderTrack', ['type' =>  OrderTypes::getName($model->type), 'id' => $model->id]),
                 ));
             } catch (\Throwable $th) {
                 //throw $th;

@@ -17,6 +17,11 @@ class AuthController extends Controller
         );
 
         if (Auth::attempt($userdata)) {
+            if ($request->query("trackOrder")) {
+                return redirect()->route("Orders");
+            } elseif ($request->query("MCQOrder")) {
+                return redirect()->route("mcq");
+            }
             return redirect("/");
         }
         return redirect()->back()->withInput();
@@ -37,6 +42,11 @@ class AuthController extends Controller
         );
 
         if (Auth::attempt($userdata)) {
+            if ($request->query("trackOrder")) {
+                return redirect()->route("Orders");
+            } elseif ($request->query("MCQOrder")) {
+                return redirect()->route("mcq");
+            }
             return redirect("/");
         }
     }

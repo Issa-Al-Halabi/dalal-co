@@ -7,10 +7,12 @@ use Filament\Forms\Components\Wizard\Step;
 use App\Enums\StatusInputsTypes;
 use App\Helpers\NotificationHelper;
 use App\Http\Resources\DeportrationStatusResource;
+use App\Http\Resources\GiveInStatusResource;
 use App\Models\DeportrationStatus;
 use App\Http\Resources\ResidenceStatusResource;
-use App\Http\Resources\StatusResource;
+use App\Http\Resources\OrderStatusResource;
 use App\Mail\OrderStateUpdateMail;
+use App\Models\GiveInStatus;
 use App\Models\OrderStatus;
 use App\Models\ResidenceStatus;
 use App\Models\Status;
@@ -175,12 +177,14 @@ class OrderStatusService
 
         $status = Status::findOrFail($statusId);
 
-        $statusDesc = StatusResource::getOrderDesc($status, $record->id);
+        $statusDesc = OrderStatusResource::getOrderDescription($status, $record->id);
 
         // send a message to the user
         Mail::to($record->user->email)->send(new OrderStateUpdateMail(
             $record->maid->fullName,
             $statusDesc,
+            OrderTypes::getNameAr($record->type),
+            route('OrderTrack', ['type' =>  OrderTypes::getName($record->type), 'id' => $record->id]),
         ));
     }
 
@@ -231,12 +235,66 @@ class OrderStatusService
         // get the status
         $status = Status::findOrFail($statusId);
 
-        $statusDesc = ResidenceStatusResource::getOrderDesc($status, $record->id);
+        $statusDesc = ResidenceStatusResource::getOrderDescription($status, $record->id);
 
         // send a message to the user
         Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
             $record->maid->fullName,
             $statusDesc,
+            OrderTypes::getNameAr(OrderTypes::renewalOfResidence),
+            route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::renewalOfResidence), 'id' => $record->id]),
+        ));
+    }
+    public function getGiveInFormAction($record, $state)
+    {
+
+        $record->statuses()->delete();
+        $specifications = [];
+        foreach ($state as $key => $value) {
+            [, $specificate_key, $status_id] = explode("_", $key);
+            $specifications[$status_id][$specificate_key] = $value;
+        }
+
+        foreach ($specifications as $statusId => $specification) {
+            $status_specifications = [];
+
+            foreach ($specification as $key => $value) {
+                $status_specifications[$key] = $value;
+            }
+
+            GiveInStatus::create([
+                'give_in_order_id' => $record->id,
+                'status_id' => $statusId,
+                'specifications' => $status_specifications,
+            ]);
+        }
+
+        // Update The residence's status_id
+        $record->status_id = $statusId;
+
+
+        // to update maid Owner
+        if ($this->isOrderCompleted($record, OrderTypes::giveIn)) {
+            $record->maid->owner_id = $record->new_owner_id;
+            $record->maid->save();
+        }
+        $record->save();
+
+
+        // Send Notification To Notify The User That The Process Was Successfully Done
+        NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
+
+        // get the status
+        $status = Status::findOrFail($statusId);
+
+        $statusDesc = GiveInStatusResource::getOrderDescription($status, $record->id);
+
+        // send a message to the user
+        Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
+            $record->maid->fullName,
+            $statusDesc,
+            OrderTypes::getNameAr(OrderTypes::giveIn),
+            route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::giveIn), 'id' => $record->id]),
         ));
     }
 
@@ -264,10 +322,13 @@ class OrderStatusService
 
         // Update The Order's status_id
         $record->status_id = $statusId;
-        // we need to update deportration date when the order is completed
-        // todo uppdate deportration_date and make sure to use the isCompleted func
-        if ($record->statuses()->count() == Status::where("order_type", OrderTypes::deportration)->count()) {
-            // $record->deportration_date = ;
+
+        // Update deportration date
+        if ($this->isOrderCompleted($record, OrderTypes::deportration)) {
+            $deportrationStatus = $record->statuses()->latest("id")->first();
+
+            // set new deportration date
+            $record->deportration_date = $deportrationStatus->specifications["input1"];
         }
 
         $record->save();
@@ -275,13 +336,14 @@ class OrderStatusService
         NotificationHelper::sendFilamentNotification('تم الإنتقال للخطوة التالية');
 
         $status = Status::findOrFail($statusId);
-        $statusDesc = DeportrationStatusResource::getOrderDesc($status, $record->id);
+        $statusDesc = DeportrationStatusResource::getOrderDescription($status, $record->id);
 
         // send a message to the user
-        // todo well fix this
-        // Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
-        //     $record->maid->fullName,
-        //     $statusDesc,
-        // ));
+        Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
+            $record->maid->fullName,
+            $statusDesc,
+            OrderTypes::getNameAr(OrderTypes::deportration),
+            route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::deportration), 'id' => $record->id]),
+        ));
     }
 }

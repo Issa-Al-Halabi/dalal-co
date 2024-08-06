@@ -3,8 +3,6 @@
 namespace App\Http\Resources;
 
 use App\Enums\OrderStatusStatus;
-use App\Models\Order;
-use App\Models\OrderStatus;
 use App\Models\Status;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -24,17 +22,15 @@ class StatusResource extends JsonResource
         return [
             'id'         => $this->id,
             'title'       => $this->title,
-            'description' => $this->getOrderDesc($this, request()->id),
             'specifications'   => $this->specifications,
-            'status'   => $this->getOrderStatus($this),
         ];
     }
 
-    static public function getOrderDesc($status, $orderId)
+    static public function getOrderDesc($model, $statusModel, $statusColumn, $status, $statusId)
     {
-        $order_status = OrderStatus::where("order_id", $orderId)->where("status_id", $status->id)->get()->first();
+        $order_status = $statusModel::where($statusColumn, $statusId)->where("status_id", $status->id)->get()->first();
 
-        $maid_name = Order::find($orderId)->maid->fullName;
+        $maid_name = $model::find($statusId)->maid->fullName;
         $status->description = str_replace("(name)", $maid_name, $status->description);
 
         if (!$order_status) {
@@ -56,9 +52,9 @@ class StatusResource extends JsonResource
         return  $status->description;
     }
 
-    public function getOrderStatus($status)
+    public function getOrderStatus($model, $status)
     {
-        $order = Order::with("statuses")->find(request()->id);
+        $order = $model::with("statuses")->find(request()->id);
         if (!$order->status_id) {
             return OrderStatusStatus::notcompleted;
         }

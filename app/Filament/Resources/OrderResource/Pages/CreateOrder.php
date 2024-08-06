@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\OrderResource\Pages;
 
 use App\Filament\Resources\OrderResource;
+use App\Models\Maid;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
@@ -24,5 +25,12 @@ class CreateOrder extends CreateRecord
         return $this->getResource()::getUrl('index');
     }
 
-    //TODO owner_id in maids table
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $maid = Maid::findOrFail($data['maid_id']);
+        $maid->owner_id = $data['user_id'];
+        $maid->save();
+
+        return $data;
+    }
 }

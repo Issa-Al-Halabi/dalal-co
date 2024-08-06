@@ -1,6 +1,10 @@
 @extends('front.master')
 
 @section('content')
+    @php
+        use App\Enums\OrderTypes;
+
+    @endphp
     <section class="container-fluid" style="font-family: Cairo;">
         <div class="row" style="direction: rtl">
             <div class="col-lg-offset-1 col-lg-10 col-sm-12 text-center">
@@ -22,9 +26,20 @@
                             <h5 class="card-title"style="color: #103e55;">{{ $order->maid->first_name }}
                                 {{ $order->maid->last_name }}
                             </h5>
+                            @php
+
+                                $type = $order->type;
+                                if (app()->getLocale() == 'ar') {
+                                    $type = OrderTypes::getNameAr(OrderTypes::getValue($order->type));
+                                }
+                            @endphp
+                            <p>{{ $type }}</p>
                             {{-- <p class="card-text">{{ $maid->description }}</p> --}}
-                            <a href="{{ route('OrderTrack', $order->id) }}" class="theme_button muted_button">
-                                {{ __('home.track') }}</a>
+                            <a href="{{ route('OrderTrack', ['type' => $order->type, 'id' => $order->id]) }}"
+                                class="theme_button muted_button">
+                                {{ __('home.track') }}
+                            </a>
+
                         </div>
                     </div>
                 </div>

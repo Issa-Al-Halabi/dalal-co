@@ -29,6 +29,7 @@ class GiveInOrderResource extends Resource
     protected static ?string $model = GiveInOrder::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
@@ -53,8 +54,9 @@ class GiveInOrderResource extends Resource
                                 ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)
                                 : $record->first_name . " " . $record->last_name)
                             ->reactive()
-                            ->afterStateUpdated(fn (callable $set) => $set('new_owner_id', null)),
-
+                            ->afterStateUpdated(function (callable $set) {
+                                $set('new_owner_id', null);
+                            }),
 
                         Forms\Components\Select::make('new_owner_id')
                             ->required()
@@ -86,9 +88,9 @@ class GiveInOrderResource extends Resource
                     ->label("اسم الخادمة")
                     ->sortable()
                     ->searchable()
-                    ->state(fn (GiveInOrder $record) => $record->maid->first_name . " " . $record->maid->first_name),
+                    ->state(fn (GiveInOrder $record) => $record->maid->first_name . " " . $record->maid->last_name),
 
-                Tables\Columns\TextColumn::make('maid.owner.name')
+                Tables\Columns\TextColumn::make('old_owner.name')
                     ->label("اسم الكفيل الأول")
                     ->searchable()
                     ->sortable(),
@@ -121,6 +123,7 @@ class GiveInOrderResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
@@ -130,7 +133,7 @@ class GiveInOrderResource extends Resource
                     ->label("تعديل حالة الطلب")
                     // When Submitting The Form
                     ->action(function (GiveInOrder $record, array $data): void {
-                        (new OrderStatusService)->getResidenceFormAction($record, $data);
+                        (new OrderStatusService)->getGiveInFormAction($record, $data);
                     })
                     // To Auto Fill The Form
                     ->mountUsing(
@@ -180,7 +183,29 @@ class GiveInOrderResource extends Resource
         return [
             'index' => Pages\ListGiveInOrders::route('/'),
             'create' => Pages\CreateGiveInOrder::route('/create'),
-            'edit' => Pages\EditGiveInOrder::route('/{record}/edit'),
+            // 'edit' => Pages\EditGiveInOrder::route('/{record}/edit'),
         ];
+    }
+
+    public static function getModelLabel(): string
+    {
+        return "طلب تنازل";
+    }
+    public static function getPluralLabel(): string
+    {
+        return "طلبات التنازل";
+    }
+    public static function getNavigationLabel(): string
+    {
+        return "طلبات التنازل";
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::count() > 10 ? 'warning' : 'primary';
     }
 }

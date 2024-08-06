@@ -17,8 +17,12 @@ class OrderStateUpdateMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private string $maidName, private string $stateHtml)
-    {
+    public function __construct(
+        private string $maidName,
+        private string $stateHtml,
+        private string $orderType,
+        private string $url,
+    ) {
     }
 
     /**
@@ -41,6 +45,8 @@ class OrderStateUpdateMail extends Mailable
             with: [
                 'maidName' => $this->maidName,
                 'stateHtml' => $this->stateHtml,
+                'orderType' => $this->orderType,
+                'url' => $this->url,
             ],
         );
     }

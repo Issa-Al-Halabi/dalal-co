@@ -37,12 +37,11 @@ class DeportrationResource extends Resource
                         ->required()
                         ->searchable()
                         ->preload()
-                        // todo modify ->has("order")
                         ->relationship(
                             'maid',
                             'first_name',
                             fn (Deportration|null $record, $query) =>
-                            $query->has("order")->orWhere("id", $record == null ? 0 : $record->maid->id)
+                            $query->has("owner")->orWhere("id", $record == null ? 0 : $record->maid->id)
                         )
                         ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
                             ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)
@@ -70,10 +69,10 @@ class DeportrationResource extends Resource
                     ->color(fn (Deportration $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::deportration))
                     ->sortable(),
 
-                    Tables\Columns\TextColumn::make('deportration_date')
+                Tables\Columns\TextColumn::make('deportration_date')
                     ->label("موعد السفر")
                     ->state(
-                        fn (Deportration $record) => $record->deportration_date ??"لم يتم تحديده بعد"
+                        fn (Deportration $record) => $record->deportration_date ?? "لم يتم تحديده بعد"
                     )
                     ->searchable()
                     ->badge()
@@ -92,6 +91,7 @@ class DeportrationResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
@@ -150,7 +150,7 @@ class DeportrationResource extends Resource
         return [
             'index' => Pages\ListDeportrations::route('/'),
             'create' => Pages\CreateDeportration::route('/create'),
-            'edit' => Pages\EditDeportration::route('/{record}/edit'),
+            // 'edit' => Pages\EditDeportration::route('/{record}/edit'),
         ];
     }
 
