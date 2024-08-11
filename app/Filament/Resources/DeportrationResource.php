@@ -40,10 +40,10 @@ class DeportrationResource extends Resource
                         ->relationship(
                             'maid',
                             'first_name',
-                            fn (Deportration|null $record, $query) =>
+                            fn(Deportration|null $record, $query) =>
                             $query->has("owner")->orWhere("id", $record == null ? 0 : $record->maid->id)
                         )
-                        ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
+                        ->getOptionLabelFromRecordUsing(fn($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
                             ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)
                             : $record->first_name . " " . $record->last_name),
                 ]),
@@ -57,22 +57,28 @@ class DeportrationResource extends Resource
                 Tables\Columns\TextColumn::make('maid.first_name')
                     ->label("اسم الخادمة")
                     ->sortable()
-                    ->state(fn (Deportration $record) => $record->maid->first_name . " " . $record->maid->first_name),
+                    ->state(fn(Deportration $record) => $record->maid->first_name . " " . $record->maid->first_name),
+
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label("اسم العميل")
+                    ->searchable()
+                    ->sortable(),
+
 
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
                     ->state(
-                        fn (Deportration $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::deportration)
+                        fn(Deportration $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::deportration)
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (Deportration $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::deportration))
+                    ->color(fn(Deportration $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::deportration))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('deportration_date')
                     ->label("موعد السفر")
                     ->state(
-                        fn (Deportration $record) => $record->deportration_date ?? "لم يتم تحديده بعد"
+                        fn(Deportration $record) => $record->deportration_date ?? "لم يتم تحديده بعد"
                     )
                     ->searchable()
                     ->badge()
@@ -117,7 +123,7 @@ class DeportrationResource extends Resource
                                 )
                                     ->startOnStep((new OrderStatusService)->getFormCurrentStep($record, OrderTypes::deportration))
                                     ->nextAction(
-                                        fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
+                                        fn(NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
                                     ),
                             ];
                         }

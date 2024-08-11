@@ -69,9 +69,7 @@ class FrontController extends Controller
         // dump($immediatelyAndAbroadOrders->toArray());
 
         // Get all Renewal Of Residence Orders
-        $renewalOfResidenceOrders = RenewalOfResidence::whereHas('maid', function ($query) use ($id) {
-            $query->where('owner_id', $id);
-        })->get()
+        $renewalOfResidenceOrders = RenewalOfResidence::where('user_id', $id)->get()
             ->map(function ($order) {
                 $order->type = OrderTypes::getName(OrderTypes::renewalOfResidence);
                 return $order;
@@ -86,9 +84,7 @@ class FrontController extends Controller
             });
 
         // Get all Deportration Orders
-        $deportrationOrders = Deportration::whereHas('maid', function ($query) use ($id) {
-            $query->where('owner_id', $id);
-        })->get()
+        $deportrationOrders = Deportration::where('user_id', $id)->get()
             ->map(function ($order) {
                 $order->type = OrderTypes::getName(OrderTypes::deportration);
                 return $order;

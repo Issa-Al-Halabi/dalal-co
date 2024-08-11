@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('deportrations', function (Blueprint $table) {
             $table->id();
+
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+
             $table->unsignedBigInteger('maid_id');
             $table->foreign('maid_id')->references('id')->on('maids')->cascadeOnDelete();
+
             $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('statuses')->nullOnDelete();
             $table->date('deportration_date')->nullable();

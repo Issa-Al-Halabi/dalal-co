@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('renewal_of_residences', function (Blueprint $table) {
             $table->id();
 
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+
             $table->unsignedBigInteger('maid_id');
             $table->foreign('maid_id')->references('id')->on('maids')->cascadeOnDelete();
 

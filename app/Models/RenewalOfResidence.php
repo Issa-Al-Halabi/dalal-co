@@ -18,11 +18,17 @@ class RenewalOfResidence extends Model
     public $translatable = [""];
 
     protected $fillable = [
+        'user_id',
         'maid_id',
         'status_id',
         'new_residence_date',
     ];
 
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function maid()
     {
         return $this->belongsTo(Maid::class);

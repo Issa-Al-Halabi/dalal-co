@@ -46,10 +46,10 @@ class RenewalOfResidenceResource extends Resource
                             ->relationship(
                                 'maid',
                                 'first_name',
-                                fn (RenewalOfResidence|null $record, $query) =>
+                                fn(RenewalOfResidence|null $record, $query) =>
                                 $query->has("owner")->orWhere("id", $record == null ? 0 : $record->maid->id)
                             )
-                            ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
+                            ->getOptionLabelFromRecordUsing(fn($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
                                 ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)
                                 : $record->first_name . " " . $record->last_name),
                     ])
@@ -67,9 +67,9 @@ class RenewalOfResidenceResource extends Resource
                     ->label("اسم الخادمة")
                     ->sortable()
                     ->searchable()
-                    ->state(fn (RenewalOfResidence $record) => $record->maid->first_name . " " . $record->maid->first_name),
+                    ->state(fn(RenewalOfResidence $record) => $record->maid->first_name . " " . $record->maid->first_name),
 
-                Tables\Columns\TextColumn::make('maid.owner.name')
+                Tables\Columns\TextColumn::make('user.name')
                     ->label("اسم العميل")
                     ->searchable()
                     ->sortable(),
@@ -78,11 +78,11 @@ class RenewalOfResidenceResource extends Resource
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
                     ->state(
-                        fn (RenewalOfResidence $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::renewalOfResidence)
+                        fn(RenewalOfResidence $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::renewalOfResidence)
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (RenewalOfResidence $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::renewalOfResidence))
+                    ->color(fn(RenewalOfResidence $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::renewalOfResidence))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('new_residence_date')
@@ -91,7 +91,7 @@ class RenewalOfResidenceResource extends Resource
                     ->sortable()
                     ->badge()
                     ->color("primary")
-                    ->state(fn (RenewalOfResidence $record) => $record->new_residence_date ?? "لم يتم تحديده بعد"),
+                    ->state(fn(RenewalOfResidence $record) => $record->new_residence_date ?? "لم يتم تحديده بعد"),
 
 
                 Tables\Columns\TextColumn::make('created_at')
@@ -133,7 +133,7 @@ class RenewalOfResidenceResource extends Resource
                                 )
                                     ->startOnStep((new OrderStatusService)->getFormCurrentStep($record, OrderTypes::renewalOfResidence))
                                     ->nextAction(
-                                        fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
+                                        fn(NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
                                     ),
                             ];
                         }

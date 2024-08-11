@@ -14,7 +14,13 @@ class Deportration extends Model
     use HasFactory, HasTranslations;
 
     public $translatable = [""];
-    protected $fillable = ["maid_id", "status_id", "deportration_date"];
+    protected $fillable = ["user_id", "maid_id", "status_id", "deportration_date"];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function maid()
     {
