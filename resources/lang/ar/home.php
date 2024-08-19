@@ -112,6 +112,6 @@ return [
     "confirm" => "تأكيد",
     "are you sure you want to order" => "هل انت متاكد بانك تريد اتمام العملية؟",
     "there is no maids" => "لا يوجد عاملات",
-
+"Our services"=>"خدماتنا",
 
 ];

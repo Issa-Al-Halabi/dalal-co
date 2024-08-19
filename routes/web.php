@@ -23,6 +23,7 @@ Route::group([
     Route::view('/', 'front.index');
     Route::view('/master', 'front.master');
     Route::view('/whoarewe', 'front.whoarewe');
+    Route::view('/services', 'front.services');
     Route::view('/login', 'front.login');
     Route::view('/signup', 'front.signup');
     Route::get('/maids/{nationality_id}', [FrontController::class, "maids"])->name("maids");
@@ -39,7 +40,7 @@ Route::group([
     // send Mail
     Route::post('/send-mail', [ContactUsController::class, "sendOrderMail"])->name("sendMail");
 
-    // MCQ 
+    // MCQ
     Route::view('/formmcq', 'front.formmcq')->name("mcq");
     Route::post('/formmcq', [ContactUsController::class, "submitMCQForm"])->name("submitMCQForm");
 

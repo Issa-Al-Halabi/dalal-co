@@ -31,7 +31,7 @@
                     </a>
                 @else
                     <a href="{{ route('ar') }}" class="lang-switcher"
-                        style="color:#103f55; padding: 22px; margin-right: 40px;z-index: 1000000;">
+                        style="color:#103f55;  z-index: 1000000;">
                         Ar
                     </a>
                 @endif
