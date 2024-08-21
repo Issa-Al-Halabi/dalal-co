@@ -49,15 +49,15 @@ class FrontController extends Controller
     {
         $services = Service::where("status", "1")->get();
 
-        $message = 'مرحبا شركة دلالكو' . "\n";
+        $message = __('home.hi_dalalco') . "\n";
         $user = auth()->user();
         if ($user != null) {
-            $message .= 'اسمي ' . $user->name . "\n";
-            $message .= 'بريدي الالكتروني ' . $user->email . "\n";
-            $message .= 'رقمي ' . $user->phone . "\n";
+            $message .= __('home.my_name') . $user->name . "\n";
+            $message .= __('home.my_email') . $user->email . "\n";
+            $message .= __('home.my_phone') . $user->phone . "\n";
         }
-        $message .= 'اريد ان اطلب ' . "service_title" . "\n";
-        $message .= 'يرجى تزويدي بالتفاصيل';
+        $message .= __('home.i_want_to_order') . "service_title" . "\n";
+        $message .= __('home.please_provide_me_with_details');
 
         $message = urlencode($message); // URL encode the entire message
         $message = str_replace('%0D%0A', '%0A', $message); // Adjust if \r\n is encoded, ensure it's only %0A for new lines

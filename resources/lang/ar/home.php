@@ -117,6 +117,12 @@ return [
     "paid" => "مأجور",
     "free" => "مجانية",
 
-
+    // order a service
+    "hi_dalalco" => "مرحبا شركة دلالكو",
+    "my_name" => "اسمي ",
+    "my_email" => "بريدي الالكتروني ",
+    "my_phone" => "رقمي ",
+    "i_want_to_order" => "اريد ان اطلب ",
+    "please_provide_me_with_details" => "يرجى تزويدي بالتفاصيل",
 
 ];

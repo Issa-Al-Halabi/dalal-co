@@ -116,4 +116,11 @@ return [
     "paid" => "Paid",
     "free" => "Free",
 
+    // order a service
+    "hi_dalalco" => "Hi Dalal-co",
+    "my_name" => "my name ",
+    "my_email" => "my email ",
+    "my_phone" => "my phone ",
+    "i_want_to_order" => "I want to order ",
+    "please_provide_me_with_details" => "please provide me with details",
 ];
