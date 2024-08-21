@@ -28,7 +28,7 @@ class GiveInOrderResource extends Resource
 
     protected static ?string $model = GiveInOrder::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
     protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
@@ -47,10 +47,10 @@ class GiveInOrderResource extends Resource
                             ->relationship(
                                 'maid',
                                 'first_name',
-                                fn (GiveInOrder|null $record, $query) =>
+                                fn(GiveInOrder|null $record, $query) =>
                                 $query->has("owner")->orWhere("id", $record == null ? 0 : $record->maid->id)
                             )
-                            ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
+                            ->getOptionLabelFromRecordUsing(fn($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
                                 ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)
                                 : $record->first_name . " " . $record->last_name)
                             ->reactive()
@@ -88,7 +88,7 @@ class GiveInOrderResource extends Resource
                     ->label("اسم الخادمة")
                     ->sortable()
                     ->searchable()
-                    ->state(fn (GiveInOrder $record) => $record->maid->first_name . " " . $record->maid->last_name),
+                    ->state(fn(GiveInOrder $record) => $record->maid->first_name . " " . $record->maid->last_name),
 
                 Tables\Columns\TextColumn::make('old_owner.name')
                     ->label("اسم الكفيل الأول")
@@ -104,11 +104,11 @@ class GiveInOrderResource extends Resource
                 Tables\Columns\TextColumn::make('status_id')
                     ->label("الحالة الحالية")
                     ->state(
-                        fn (GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::giveIn)
+                        fn(GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabel($record, OrderTypes::giveIn)
                     )
                     ->searchable()
                     ->badge()
-                    ->color(fn (GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::giveIn))
+                    ->color(fn(GiveInOrder $record) => (new OrderStatusService)->getOrderStatusLabelColor($record, OrderTypes::giveIn))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('created_at')
@@ -150,7 +150,7 @@ class GiveInOrderResource extends Resource
                                 )
                                     ->startOnStep((new OrderStatusService)->getFormCurrentStep($record, OrderTypes::giveIn))
                                     ->nextAction(
-                                        fn (NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
+                                        fn(NextAction $action) => $action->label('الإنتقال للخطوة التالية'),
                                     ),
                             ];
                         }

@@ -19,7 +19,7 @@ class ContactUsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-bell';
     // protected static ?string $navigationGroup = 'استمارة التواصل معنا';
-    protected static ?int $navigationSort = 8;
+    protected static ?int $navigationSort = 9;
 
     public static function form(Form $form): Form
     {

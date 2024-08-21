@@ -32,7 +32,7 @@
 
 
         <li>
-            <a style="font-size: 14px;" href="/Laws"> {{ __('home.Our services') }}</a>
+            <a style="font-size: 14px;" href="/services"> {{ __('home.Our services') }}</a>
         </li>
         <li>
             <a style="font-size: 14px;"

@@ -20,7 +20,7 @@ class MCQResource extends Resource
     protected static ?string $model = MCQ::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
-    protected static ?int $navigationSort = 7;
+    protected static ?int $navigationSort = 8;
 
     public static function form(Form $form): Form
     {
@@ -43,31 +43,31 @@ class MCQResource extends Resource
                     ->label("رعاية مسن")
                     ->badge()
                     ->color("primary")
-                    ->state(fn ($record) => $record->elderly_care ? "نعم" : "لا"),
+                    ->state(fn($record) => $record->elderly_care ? "نعم" : "لا"),
 
                 Tables\Columns\TextColumn::make('children_care')
                     ->label("رعاية اطفال")
                     ->badge()
                     ->color("info")
-                    ->state(fn ($record) => $record->children_care ? "عدد الاطفال : " . $record->children_care  : "لا"),
+                    ->state(fn($record) => $record->children_care ? "عدد الاطفال : " . $record->children_care  : "لا"),
 
                 Tables\Columns\TextColumn::make('nursing_course')
                     ->label("دورة تمريض")
                     ->badge()
                     ->color("success")
-                    ->state(fn ($record) => $record->nursing_course ? "نعم" : "لا"),
+                    ->state(fn($record) => $record->nursing_course ? "نعم" : "لا"),
 
                 Tables\Columns\TextColumn::make('homework_experience')
                     ->label("خبرة بأعمال المنزل")
                     ->badge()
                     ->color("warning")
-                    ->state(fn ($record) => $record->homework_experience ? "نعم" : "لا"),
+                    ->state(fn($record) => $record->homework_experience ? "نعم" : "لا"),
 
                 Tables\Columns\TextColumn::make('reception')
                     ->label("استقبال")
                     ->badge()
                     ->color("danger")
-                    ->state(fn ($record) => $record->reception ? "نعم" : "لا"),
+                    ->state(fn($record) => $record->reception ? "نعم" : "لا"),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->label("تاريخ الانشاء")
@@ -114,9 +114,9 @@ class MCQResource extends Resource
             ->trueLabel('نعم')
             ->falseLabel('لا')
             ->queries(
-                true: fn (Builder $query) => !$isInt ? $query->where($columnName, true) : $query->where("children_care", ">", 0),
-                false: fn (Builder $query) => !$isInt ? $query->where($columnName, false) : $query->where("children_care", 0),
-                blank: fn (Builder $query) => $query,
+                true: fn(Builder $query) => !$isInt ? $query->where($columnName, true) : $query->where("children_care", ">", 0),
+                false: fn(Builder $query) => !$isInt ? $query->where($columnName, false) : $query->where("children_care", 0),
+                blank: fn(Builder $query) => $query,
             );
     }
 

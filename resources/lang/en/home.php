@@ -111,6 +111,9 @@ return [
     "confirm" => "Confirm",
     "are you sure you want to order" => "are you sure you want to order",
     "there is no maids" => "there is no maids",
-"Our services"=>"Our services",
+    "Our services" => "Our services",
+    "order" => "Order",
+    "paid" => "Paid",
+    "free" => "Free",
 
 ];

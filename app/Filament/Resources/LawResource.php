@@ -24,7 +24,7 @@ class LawResource extends Resource
     protected static ?string $model = Law::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 7;
 
     public static function form(Form $form): Form
     {
@@ -41,7 +41,7 @@ class LawResource extends Resource
                             ->label("نوع القانون")
                             ->required()
                             ->options(
-                                fn ($livewire) => $livewire->activeLocale == "ar" ?
+                                fn($livewire) => $livewire->activeLocale == "ar" ?
                                     [
                                         LawTypes::law =>  LawTypes::getNameAr(LawTypes::law),
                                         LawTypes::decree =>  LawTypes::getNameAr(LawTypes::decree),
@@ -74,11 +74,11 @@ class LawResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('type')
-                    ->state(fn (Law $record, $livewire) => $livewire->activeLocale == "ar"
+                    ->state(fn(Law $record, $livewire) => $livewire->activeLocale == "ar"
                         ? LawTypes::getNameAr($record->type)
                         : LawTypes::getName($record->type))
                     ->badge()
-                    ->color(fn (Law $record) => $record->type == LawTypes::law ? "success" : "info")
+                    ->color(fn(Law $record) => $record->type == LawTypes::law ? "success" : "info")
                     ->searchable()
                     ->sortable(),
 
@@ -99,17 +99,6 @@ class LawResource extends Resource
                 //
             ])
             ->actions([
-                // Tables\Actions\Action::make('file')
-                //     ->label("تحميل الملف")
-                //     ->icon('heroicon-o-document-arrow-down')
-                //     ->action(function ($record) {
-                //         Notification::make()
-                //             ->title("تم تحميل الملف بنجاح")
-                //             ->icon('heroicon-o-document-text')
-                //             ->iconColor('success')
-                //             ->send();
-                //         return response()->download("storage/" . $record->file);
-                //     }),
 
                 Tables\Actions\Action::make('content')
                     ->label("عرض المحتوى")

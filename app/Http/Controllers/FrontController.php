@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\OrderTypes;
+use App\Enums\PhoneNumberEnums;
 use App\Helpers\PaginationHelper;
 use App\Http\Resources\DeportrationStatusResource;
 use App\Http\Resources\GiveInStatusResource;
@@ -17,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\RenewalOfResidence;
+use App\Models\Service;
 use App\Models\Status;
 use App\Models\User;
 use Carbon\Carbon;
@@ -41,6 +43,29 @@ class FrontController extends Controller
     public function maidInfo(Maid $maid)
     {
         return view("front.MaidDetail", compact("maid"));
+    }
+
+    public function services()
+    {
+        $services = Service::where("status", "1")->get();
+
+        $message = 'مرحبا شركة دلالكو' . "\n";
+        $user = auth()->user();
+        if ($user != null) {
+            $message .= 'اسمي ' . $user->name . "\n";
+            $message .= 'بريدي الالكتروني ' . $user->email . "\n";
+            $message .= 'رقمي ' . $user->phone . "\n";
+        }
+        $message .= 'اريد ان اطلب ' . "service_title" . "\n";
+        $message .= 'يرجى تزويدي بالتفاصيل';
+
+        $message = urlencode($message); // URL encode the entire message
+        $message = str_replace('%0D%0A', '%0A', $message); // Adjust if \r\n is encoded, ensure it's only %0A for new lines
+
+        // get the phone
+        $phone = PhoneNumberEnums::tala;
+
+        return view("front.services", compact("services", "message", "phone"));
     }
 
     public function laws()
