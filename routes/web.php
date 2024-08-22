@@ -29,6 +29,7 @@ Route::group([
     Route::get('/MaidDetail/{maid}', [FrontController::class, "maidInfo"])->name("Order");
     Route::get('/Laws', [FrontController::class, "laws"])->name("laws");
     Route::get('/services', [FrontController::class, "services"])->name("services");
+    Route::get('/service-send-whatsapp/{service_id}', [FrontController::class, "serviceSendWhatsapp"])->name("service.sendWhatsapp");
     Route::get('/lawDetail/{id}', [FrontController::class, "lawDetail"])->name("lawDetail");
     Route::get('/user/orders', [FrontController::class, "orders"])->name("Orders")->middleware(["canTrackOrder"]);
     Route::get('user/orders/{type}/{id}', [FrontController::class, "OrderTracking"])->name("OrderTrack")->middleware(["canTrackOrder"]);

@@ -1,10 +1,12 @@
 @extends('front.master')
-
+@php
+    use App\Enums\OrderStatusStatus;
+@endphp
 @section('content')
     <style>
         .section-title {
             display: flex;
-            margin: 60px auto 0px;
+            margin: 60px auto 10px;
             justify-content: center;
             font-size: 30px;
             font-weight: bold;
@@ -59,7 +61,7 @@
         }
 
         /* -------------------------------------------------------------------------
-                                                                                                                                                                                                                                                                                                                /*   visibility: visible; */
+                                                                                                                                                                                                                                                                                                                                        /*   visibility: visible; */
         @charset "UTF-8";
         @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Roboto:wght@400;500&display=swap");
 
@@ -183,76 +185,97 @@
         }
     </style>
     <section>
-        {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
-        {{-- <link rel="stylesheet"
-                href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css"> --}}
-        <div class="section-title">
+
+
+        <div class="section-title pb-5">
             {{ $order->maid->fullName }}
 
         </div>
-        <div class="dots" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
-            <div class="dot">
-                <div class="green-dot"></div>
-                @lang('tracking_order.completed_tasks')
-            </div>
-            <div class="dot">
-                <div class="orange-dot"></div>
-                @lang('tracking_order.working_on_tasks')
-            </div>
-            <div class="dot">
-                <div class="gray-dot"></div>
-                @lang('tracking_order.uncompleted_tasks')
-            </div>
-        </div>
-        <div class="container padding-bottom-3x mb-1">
-            <div class="container">
 
-                <div class="wizard" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
-                    <div class="process">
-                        <ul>
-                            @php
-                                use App\Enums\OrderStatusStatus;
-                            @endphp
-                            @foreach ($statuses as $status)
-                                <li
-                                    class="step @if ($status->status == OrderStatusStatus::completed) completed @elseif ($status->status == OrderStatusStatus::working)current @endif">
-                                    <div class="name"> <span>{{ $status->title }}</span></div>
-                                    <div class="desc">
-                                        {!! $status->description !!}
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
+        @if (!$user->can_track)
+            <div class="alert alert-danger d-flex align-items-center text-center" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-exclamation-triangle-fill me-2" viewBox="0 0 16 16">
+                    <path
+                        d="M8.982 1.566a1.5 1.5 0 0 0-1.964 0L.165 6.694c-.58.52-.69 1.392-.245 2.053l6 9.325c.506.785 1.473.785 1.98 0l6-9.325c.444-.66.334-1.533-.245-2.053L8.982 1.566zM8 4.5a.5.5 0 0 1 1 0v4.5a.5.5 0 0 1-1 0V4.5zm.93 7.376a.75.75 0 1 1-1.86 0 .75.75 0 0 1 1.86 0z" />
+                </svg>
+                <div>
+
+                    <p>{{ __('home.do not have permission') }}</p>
+                    <p>{{ __('home.grant the permission') }}</p>
+
+                    <a href="https://wa.me/{{ $phone }}?text={{ $message }}" class="theme_button"
+                        target="_blank">
+                        {{ __('home.Contact us') }}
+                    </a>
+
+                </div>
+            </div>
+        @else
+            <div class="dots" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                <div class="dot">
+                    <div class="green-dot"></div>
+                    @lang('tracking_order.completed_tasks')
+                </div>
+                <div class="dot">
+                    <div class="orange-dot"></div>
+                    @lang('tracking_order.working_on_tasks')
+                </div>
+                <div class="dot">
+                    <div class="gray-dot"></div>
+                    @lang('tracking_order.uncompleted_tasks')
+                </div>
+            </div>
+            <div class="container padding-bottom-3x mb-1">
+                <div class="container">
+
+                    <div class="wizard" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                        <div class="process">
+                            <ul>
+
+                                @foreach ($statuses as $status)
+                                    <li
+                                        class="step @if ($status->status == OrderStatusStatus::completed) completed @elseif ($status->status == OrderStatusStatus::working)current @endif">
+                                        <div class="name"> <span>{{ $status->title }}</span></div>
+                                        <div class="desc">
+                                            {!! $status->description !!}
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
-
-        @if (isset($order->book_ticket) || isset($order->deliver_service))
-            <div class="container">
-                <div class="extra-services" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
-                    <h2>
-                        @lang('tracking_order.additional_paid_services')
-                    </h2>
-                    @if (isset($order->book_ticket))
-                        <p>
-                            @lang('tracking_order.cost_of_the_maid_ticket')
-                            {{ $order->book_ticket }}
-                            @lang('tracking_order.sp')
-                        </p>
-                    @endif
-                    @if (isset($order->deliver_service))
-                        <p>
-                            @lang('tracking_order.delivery_service')
-                            {{ $order->deliver_service }}
-                            @lang('tracking_order.sp')
-                        </p>
-                    @endif
+            @if (isset($order->book_ticket) || isset($order->deliver_service))
+                <div class="container">
+                    <div class="extra-services" dir="{{ app()->getlocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                        <h2>
+                            @lang('tracking_order.additional_paid_services')
+                        </h2>
+                        @if (isset($order->book_ticket))
+                            <p>
+                                @lang('tracking_order.cost_of_the_maid_ticket')
+                                {{ $order->book_ticket }}
+                                @lang('tracking_order.sp')
+                            </p>
+                        @endif
+                        @if (isset($order->deliver_service))
+                            <p>
+                                @lang('tracking_order.delivery_service')
+                                {{ $order->deliver_service }}
+                                @lang('tracking_order.sp')
+                            </p>
+                        @endif
+                    </div>
                 </div>
-            </div>
+            @endif
         @endif
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 

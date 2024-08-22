@@ -95,10 +95,13 @@
                         {{ $service->description }}
                     </p>
                     <div class="btn-service-div @if (app()->getLocale() == 'en') left @endif">
-                        <a href="https://wa.me/{{ $phone }}?text={{ str_replace('service_title', $service->title, $message) }}"
+
+                        <a href="{{ route('service.sendWhatsapp', $service->id) }}"
+                            class="theme_button">{{ __('home.order') }}</a>
+                        {{-- <a href="https://wa.me/{{ $phone }}?text={{ str_replace('service_title', $service->title, $message) }}"
                             class="theme_button" target="_blank">
                             {{ __('home.order') }}
-                        </a>
+                        </a> --}}
                     </div>
 
                 </div>

@@ -180,12 +180,14 @@ class OrderStatusService
         $statusDesc = OrderStatusResource::getOrderDescription($status, $record->id);
 
         // send a message to the user
-        Mail::to($record->user->email)->send(new OrderStateUpdateMail(
-            $record->maid->fullName,
-            $statusDesc,
-            OrderTypes::getNameAr($record->type),
-            route('OrderTrack', ['type' =>  OrderTypes::getName($record->type), 'id' => $record->id]),
-        ));
+        if ($record->user->can_track ?? false) {
+            Mail::to($record->user->email)->send(new OrderStateUpdateMail(
+                $record->maid->fullName,
+                $statusDesc,
+                OrderTypes::getNameAr($record->type),
+                route('OrderTrack', ['type' =>  OrderTypes::getName($record->type), 'id' => $record->id]),
+            ));
+        }
     }
 
 
@@ -238,12 +240,14 @@ class OrderStatusService
         $statusDesc = ResidenceStatusResource::getOrderDescription($status, $record->id);
 
         // send a message to the user
-        Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
-            $record->maid->fullName,
-            $statusDesc,
-            OrderTypes::getNameAr(OrderTypes::renewalOfResidence),
-            route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::renewalOfResidence), 'id' => $record->id]),
-        ));
+        if ($record->user->can_track ?? false) {
+            Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
+                $record->maid->fullName,
+                $statusDesc,
+                OrderTypes::getNameAr(OrderTypes::renewalOfResidence),
+                route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::renewalOfResidence), 'id' => $record->id]),
+            ));
+        }
     }
     public function getGiveInFormAction($record, $state)
     {
@@ -290,12 +294,14 @@ class OrderStatusService
         $statusDesc = GiveInStatusResource::getOrderDescription($status, $record->id);
 
         // send a message to the user
-        Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
-            $record->maid->fullName,
-            $statusDesc,
-            OrderTypes::getNameAr(OrderTypes::giveIn),
-            route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::giveIn), 'id' => $record->id]),
-        ));
+        if ($record->user->can_track ?? false) {
+            Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
+                $record->maid->fullName,
+                $statusDesc,
+                OrderTypes::getNameAr(OrderTypes::giveIn),
+                route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::giveIn), 'id' => $record->id]),
+            ));
+        }
     }
 
     public function getDeportrationFormAction($record, $state)
@@ -339,11 +345,13 @@ class OrderStatusService
         $statusDesc = DeportrationStatusResource::getOrderDescription($status, $record->id);
 
         // send a message to the user
-        Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
-            $record->maid->fullName,
-            $statusDesc,
-            OrderTypes::getNameAr(OrderTypes::deportration),
-            route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::deportration), 'id' => $record->id]),
-        ));
+        if ($record->user->can_track ?? false) {
+            Mail::to($record->maid->owner->email)->send(new OrderStateUpdateMail(
+                $record->maid->fullName,
+                $statusDesc,
+                OrderTypes::getNameAr(OrderTypes::deportration),
+                route('OrderTrack', ['type' =>  OrderTypes::getName(OrderTypes::deportration), 'id' => $record->id]),
+            ));
+        }
     }
 }

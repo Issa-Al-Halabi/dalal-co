@@ -20,6 +20,7 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'password',
         'phone',
+        'can_track',
     ];
 
     protected $hidden = [
@@ -31,6 +32,15 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
 
+    // if the user is super admin, the user can access
+    public function getCanTrackAttribute(): bool
+    {
+        if ($this->hasRole('super_admin')) {
+            return true;
+        }
+        return $this->attributes['can_track'] ?? false;
+    }
+
     public function orders()
     {
         return $this->hasMany(Order::class);
@@ -40,6 +50,12 @@ class User extends Authenticatable implements FilamentUser
     {
         return $query->has("roles");
     }
+
+    public function scopeDoesntHaveRole($query)
+    {
+        return $query->doesntHave('roles');
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->roles->toArray()  != [];

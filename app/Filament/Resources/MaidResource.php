@@ -23,7 +23,7 @@ class MaidResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     // protected static ?string $navigationGroup = 'العاملات';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -52,7 +52,7 @@ class MaidResource extends Resource
                         ->searchable()
                         ->preload()
                         ->relationship("nationality", "nationality")
-                        ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('nationality', $livewire->activeLocale)
+                        ->getOptionLabelFromRecordUsing(fn($record, $livewire) => $record->hasTranslation('nationality', $livewire->activeLocale)
                             ? $record->getTranslation('nationality', $livewire->activeLocale)
                             : $record->getTranslation('nationality', "ar"))
                         ->createOptionForm(
@@ -114,7 +114,7 @@ class MaidResource extends Resource
                         ->fetchFileInformation(false)
                         ->directory('videos/maids')
                         ->acceptedFileTypes(['video/mp4', 'video/x-m4v', 'video/*'])
-                        ->afterStateUpdated(fn (callable $set, $state) => $set('mime', $state?->getMimeType()))
+                        ->afterStateUpdated(fn(callable $set, $state) => $set('mime', $state?->getMimeType()))
                         ->columnSpanFull(),
                 ])->columns(3),
             ]);
@@ -178,10 +178,10 @@ class MaidResource extends Resource
                 Tables\Columns\TextColumn::make('available')
                     ->label("متوفرة")
                     ->badge()
-                    ->color(fn (Maid $record) =>
+                    ->color(fn(Maid $record) =>
                     $record->owner == null ? "info" : "danger")
                     ->state(
-                        fn (Maid $record) =>
+                        fn(Maid $record) =>
                         $record->owner == null ? "متوفرة" :  "محجوزة من قبل " . $record->owner->name
                     ),
 

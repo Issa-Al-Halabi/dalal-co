@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\OrderTypes;
 use App\Enums\PhoneNumberEnums;
+use App\Filament\Resources\ServiceOrderResource;
 use App\Helpers\PaginationHelper;
 use App\Http\Resources\DeportrationStatusResource;
 use App\Http\Resources\GiveInStatusResource;
@@ -19,9 +20,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\RenewalOfResidence;
 use App\Models\Service;
+use App\Models\ServiceOrder;
 use App\Models\Status;
 use App\Models\User;
 use Carbon\Carbon;
+use Filament\Notifications\Notification;
+use Filament\Notifications\Actions\Action;
 
 class FrontController extends Controller
 {
@@ -52,25 +56,60 @@ class FrontController extends Controller
         }
         $services = Service::where("status", "1")->get();
 
-        $message = __('home.hi_dalalco') . "\n";
+
+
+        return view("front.services", compact("services"));
+    }
+
+    public function serviceSendWhatsapp($service_id)
+    {
         $user = auth()->user();
-        if ($user != null) {
-            $message .= __('home.my_name') . $user->name . "\n";
-            $message .= __('home.my_email') . $user->email . "\n";
-            $message .= __('home.my_phone') . $user->phone . "\n";
-        }
-        $message .= __('home.i_want_to_order') . "service_title" . "\n";
+
+        $serviceOrder = ServiceOrder::create([
+            "user_id" => $user->id,
+            "service_id" => $service_id,
+        ]);
+
+        $serviceTitle = Service::findOrfail($service_id)->title;
+
+        $message = __('home.hi_dalalco') . "\n";
+        $message .= __('home.my_name') . $user->name . "\n";
+        $message .= __('home.my_email') . $user->email . "\n";
+        $message .= __('home.my_phone') . $user->phone . "\n";
+        $message .= __('home.i_want_to_order') . $serviceTitle . "\n";
         $message .= __('home.please_provide_me_with_details');
 
         $message = urlencode($message); // URL encode the entire message
         $message = str_replace('%0D%0A', '%0A', $message); // Adjust if \r\n is encoded, ensure it's only %0A for new lines
 
-        // get the phone
-        $phone = PhoneNumberEnums::tala;
+        $phone = PhoneNumberEnums::alia;
 
-        return view("front.services", compact("services", "message", "phone"));
+        $url = "https://wa.me/$phone?text=" . $message;
+
+        Notification::make()
+            ->title('طلب خدمة')
+            ->success()
+            ->body(' تم التواصل معك من قبل ' . $user->name)
+            ->actions([
+                Action::make('seeIt')
+                    ->button()
+                    ->url(ServiceOrderResource::getUrl('index'))
+                    ->color('success')
+                    ->close(),
+
+                Action::make('markAsRead')
+                    ->button()
+                    ->markAsRead(),
+
+                Action::make('remove')
+                    ->button()
+                    ->color('danger')
+                    ->close(),
+            ])
+            ->sendToDatabase(User::doesHaveRole()->get());
+
+        return redirect()->to($url);
     }
-
     public function laws()
     {
         $laws = Law::all();
@@ -83,9 +122,24 @@ class FrontController extends Controller
         return view("front.lawDetail", compact("law"));
     }
 
+    public function getCantTrackOrderMessage()
+    {
+        $user = auth()->user();
+        $message = __('home.request tracking activation') . "\n";
+        $message .= __('home.my_name') . $user->name . "\n";
+        $message .= __('home.my_email') . $user->email . "\n";
+        $message .= __('home.my_phone') . $user->phone . "\n";
+        $message .= __('home.thanks');
+
+        $message = urlencode($message); // URL encode the entire message
+        $message = str_replace('%0D%0A', '%0A', $message); // Adjust if \r\n is encoded, ensure it's only %0A for new lines
+        return $message;
+    }
+
     public function orders()
     {
-        $id = auth()->user()->id;
+        $user = auth()->user();
+        $id = $user->id;
 
         // Get all immediately, abroad Orders
         $immediatelyAndAbroadOrders = Order::where("user_id", $id)
@@ -127,9 +181,10 @@ class FrontController extends Controller
         // Sort
         $orders = $orders->sortByDesc('created_at');
 
+        $message = $this->getCantTrackOrderMessage();
 
-        // dd($orders);
-        return view("front.orders", compact("orders"));
+        $phone = PhoneNumberEnums::alia;
+        return view("front.orders", compact("user", "phone", "message", "orders"));
     }
 
     public function OrderTracking(Request $request)
@@ -168,9 +223,16 @@ class FrontController extends Controller
                 break;
         }
 
+        $data["user"] = $user;
+
         // get the data
         $data['order'] = $model::findOrFail($request->id);
         $data['statuses'] = json_decode($this->resource(Status::where("order_type", OrderTypes::getValue($request->type))->get(), $resource)->toJson());
+
+
+        $data["message"] = $this->getCantTrackOrderMessage();
+
+        $data["phone"] = PhoneNumberEnums::alia;
 
         return view('front.OrderTracking', $data);
     }

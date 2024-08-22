@@ -118,10 +118,16 @@ return [
     "free" => "Free",
 
     // order a service
+
+    "do not have permission" => "You do not have permission to track orders.",
+    "grant the permission" => "to grant the permission please contact with the admin",
+    "request tracking activation" => "Hi Dalal-Co, I would like to request activation of order tracking for my account.",
+
     "hi_dalalco" => "Hi Dalal-co",
     "my_name" => "my name ",
     "my_email" => "my email ",
     "my_phone" => "my phone ",
     "i_want_to_order" => "I want to order ",
     "please_provide_me_with_details" => "please provide me with details",
+    "thanks" => "thanks ",
 ];

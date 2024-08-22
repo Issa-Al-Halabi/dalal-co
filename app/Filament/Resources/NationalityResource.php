@@ -21,7 +21,7 @@ class NationalityResource extends Resource
     protected static ?string $model = Nationality::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-globe-europe-africa';
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
     public static function getForm()
     {
@@ -52,7 +52,7 @@ class NationalityResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('order')
                     ->label('الترتيب')
-                    ->badge(fn ($record) => $record->order != null && $record->order <= 3)
+                    ->badge(fn($record) => $record->order != null && $record->order <= 3)
                     ->color(function ($record) {
                         switch ($record->order) {
                             case 1:

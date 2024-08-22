@@ -119,11 +119,17 @@ return [
     "free" => "مجانية",
 
     // order a service
+
+    "do not have permission" => "ليس لديك الإذن لتتبع الطلبات.",
+    "grant the permission" => "لمنح الإذن يرجى التواصل مع المشرف",
+    "request tracking activation" => "مرحباً دلالكو، أرغب في طلب تفعيل تتبع الطلبيات لحسابي.",
+
     "hi_dalalco" => "مرحبا شركة دلالكو",
     "my_name" => "اسمي ",
     "my_email" => "بريدي الالكتروني ",
     "my_phone" => "رقمي ",
     "i_want_to_order" => "اريد ان اطلب ",
     "please_provide_me_with_details" => "يرجى تزويدي بالتفاصيل",
+    "thanks" => "شكرا لكم ",
 
 ];
