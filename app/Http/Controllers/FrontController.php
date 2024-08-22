@@ -47,6 +47,9 @@ class FrontController extends Controller
 
     public function services()
     {
+        if (! auth()->check()) {
+            return redirect("/login?servicesCheck=1");
+        }
         $services = Service::where("status", "1")->get();
 
         $message = __('home.hi_dalalco') . "\n";

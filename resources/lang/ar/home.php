@@ -109,6 +109,7 @@ return [
     "Sign up in moments" => "قم بالتسجيل في لحظات",
     "You must log in to be able to track orders" => "  عليك ان تسجل دخول لتتمكن من تتبع الطلبات",
     "You must log in to be able to make a order" => "  يجب عليك تسجيل الدخول لتتمكن من تقديم الطلب",
+    "You must log in to be able to see our services" => "يجب عليك تسجيل الدخول لتتمكن من رؤية خدماتنا",
     "confirm" => "تأكيد",
     "are you sure you want to order" => "هل انت متاكد بانك تريد اتمام العملية؟",
     "there is no maids" => "لا يوجد عاملات",

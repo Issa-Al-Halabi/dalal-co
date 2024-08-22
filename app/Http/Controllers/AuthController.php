@@ -21,7 +21,10 @@ class AuthController extends Controller
                 return redirect()->route("Orders");
             } elseif ($request->query("MCQOrder")) {
                 return redirect()->route("mcq");
+            } elseif ($request->query("servicesCheck")) {
+                return redirect()->route("services");
             }
+
             return redirect("/");
         }
         return redirect()->back()->withInput();
@@ -46,6 +49,8 @@ class AuthController extends Controller
                 return redirect()->route("Orders");
             } elseif ($request->query("MCQOrder")) {
                 return redirect()->route("mcq");
+            } elseif ($request->query("servicesCheck")) {
+                return redirect()->route("services");
             }
             return redirect("/");
         }

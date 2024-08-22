@@ -4,8 +4,8 @@ namespace App\Enums;
 
 class PhoneNumberEnums
 {
-    const alia = "+963946649532";
-    const tala  = "+963946649532";
+    const alia = "+963956330894";
+    const tala  = "+963956330894";
 
     public static function getName($value)
     {

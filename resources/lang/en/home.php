@@ -108,6 +108,7 @@ return [
     "Sign up in moments" => "Sign up in moments",
     "You must log in to be able to track orders" => "You must log in to be able to track orders",
     "You must log in to be able to make a order" => "You must log in to be able to make a order",
+    "You must log in to be able to see our services" => "You must log in to be able to see our services",
     "confirm" => "Confirm",
     "are you sure you want to order" => "are you sure you want to order",
     "there is no maids" => "there is no maids",

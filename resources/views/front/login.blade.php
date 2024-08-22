@@ -35,7 +35,7 @@
     <section class="sign-in" style="direction: rtl;">
 
         <div class="container" style=" font-family: Cairo;">
-            @if (isset($_GET['trackOrder']) || isset($_GET['MCQOrder']))
+            @if (isset($_GET['trackOrder']) || isset($_GET['MCQOrder']) || isset($_GET['servicesCheck']))
                 <div
                     style="text-align: center;
                     font-size: 18px;
@@ -44,8 +44,10 @@
                     color: red;">
                     @if (isset($_GET['trackOrder']))
                         {{ __('home.You must log in to be able to track orders') }}
-                    @else
+                    @elseif(isset($_GET['MCQOrder']))
                         {{ __('home.You must log in to be able to make a order') }}
+                    @else
+                        {{ __('home.You must log in to be able to see our services') }}
                     @endif
                 </div>
             @endif
